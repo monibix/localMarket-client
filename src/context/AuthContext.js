@@ -1,6 +1,6 @@
 import React from "react";
 
-const AuthContext = React.createContext();
+const AuthContext = React.createContext({});
 
 const initialState = {
   user: localStorage.getItem("user"),
