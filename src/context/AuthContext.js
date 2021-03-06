@@ -1,21 +1,58 @@
 import React from "react";
+import { login, logout, signup } from "../service/auth.service";
+import {
+  getLocalUser,
+  saveUser,
+  removeUser,
+  defaultUser,
+} from "./AuthContext.utils";
 
-const AuthContext = React.createContext({});
+export const AuthContext = React.createContext({});
 
 const initialState = {
-  user: localStorage.getItem("user"),
+  user: getLocalUser(),
 };
 
 function AuthProvider({ children }) {
-  const [user, setUser] = React.useState(initialState);
+  const [state, setState] = React.useState(initialState);
+
+  const handleLogin = React.useCallback(async (user) => {
+    try {
+      const loggedUser = await login(user);
+      saveUser(loggedUser);
+      setState({ user: { ...loggedUser, isLogged: true } });
+    } catch (e) {
+      console.error(e);
+    }
+  }, []);
+
+  const handleSignup = React.useCallback(async (user) => {
+    try {
+      const loggedUser = await signup(user);
+      saveUser(loggedUser);
+      setState({ user: { ...loggedUser, isLogged: true } });
+    } catch (e) {
+      console.error(e);
+    }
+  }, []);
+
+  const handleLogout = React.useCallback(async () => {
+    try {
+      await logout();
+      removeUser();
+      setState({ user: defaultUser });
+    } catch (e) {
+      console.error(e);
+    }
+  }, []);
 
   return (
-    <AuthContext.Provider value={{ ...user, setUser }}>
+    <AuthContext.Provider
+      value={{ user: state.user, handleLogin, handleLogout, handleSignup }}
+    >
       {children}
     </AuthContext.Provider>
   );
 }
 
 export default AuthProvider;
-
-export const useAuth = () => React.useContext(AuthContext);

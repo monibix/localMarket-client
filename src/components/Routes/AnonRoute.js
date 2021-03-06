@@ -1,16 +1,16 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/AuthContext.utils";
 
-function AnonRoute({ children, exact, path, ...props }) {
+function AnonRoute({ path, exact, children }) {
   const { user } = useAuth();
-  if (user) {
-    return <Redirect to="/login" />;
+  if (user.isLogged) {
+    return <Redirect to="/private" />;
   }
 
   return (
-    <Route exact path={path}>
-      <Component {...props} />
+    <Route path={path} exact={exact}>
+      {children}
     </Route>
   );
 }

@@ -1,15 +1,15 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/AuthContext.utils";
 
-function PrivateRoute({ children, exact, path }) {
+function PrivateRoute({ path, exact, children }) {
   const { user } = useAuth();
-  if (!user) {
+  if (!user.isLogged) {
     return <Redirect to="/login" />;
   }
 
   return (
-    <Route exact path={path}>
+    <Route path={path} exact={exact}>
       {children}
     </Route>
   );
