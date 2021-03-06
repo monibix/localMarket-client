@@ -18,7 +18,7 @@ function AuthProvider({ children }) {
 
   const handleLogin = React.useCallback(async (user) => {
     try {
-      const loggedUser = await login(user);
+      const { data: loggedUser } = await login(user);
       saveUser(loggedUser);
       setState({ user: { ...loggedUser, isLogged: true } });
     } catch (e) {
@@ -28,7 +28,7 @@ function AuthProvider({ children }) {
 
   const handleSignup = React.useCallback(async (user) => {
     try {
-      const loggedUser = await signup(user);
+      const { data: loggedUser } = await signup(user);
       saveUser(loggedUser);
       setState({ user: { ...loggedUser, isLogged: true } });
     } catch (e) {
@@ -40,7 +40,7 @@ function AuthProvider({ children }) {
     try {
       await logout();
       removeUser();
-      setState({ user: defaultUser });
+      setState({ user: defaultUser() });
     } catch (e) {
       console.error(e);
     }
