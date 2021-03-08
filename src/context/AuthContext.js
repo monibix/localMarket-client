@@ -6,6 +6,7 @@ import {
   removeUser,
   defaultUser,
 } from "./AuthContext.utils";
+import {useHistory, Redirect} from 'react-router-dom';
 
 export const AuthContext = React.createContext({});
 
@@ -16,11 +17,15 @@ const initialState = {
 function AuthProvider({ children }) {
   const [state, setState] = React.useState(initialState);
 
+  const history = useHistory()
+
   const handleLogin = React.useCallback(async (user) => {
     try {
       const { data: loggedUser } = await login(user);
+      console.log("loged user", loggedUser)
       saveUser(loggedUser);
       setState({ user: { ...loggedUser, isLogged: true } });
+      history.push('/products')
     } catch (e) {
       console.error(e);
     }
@@ -31,6 +36,8 @@ function AuthProvider({ children }) {
       const { data: loggedUser } = await signup(user);
       saveUser(loggedUser);
       setState({ user: { ...loggedUser, isLogged: true } });
+      <Redirect to="/products" />
+      //history.push('/products')
     } catch (e) {
       console.error(e);
     }
@@ -41,6 +48,7 @@ function AuthProvider({ children }) {
       await logout();
       removeUser();
       setState({ user: defaultUser() });
+      console.log("logout")
     } catch (e) {
       console.error(e);
     }
