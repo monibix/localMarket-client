@@ -7,6 +7,7 @@ import Navbar from '../../components/Navbar/Navbar';
 function Signup() {
     
     const { handleSignup } = useAuth();
+    console.log("handleSignup", handleSignup)
 
     return (
         <div>

@@ -5,6 +5,7 @@ import Main from './views/Main/Main';
 import Signup from './views/Signup/Signup';
 import Login from './views/Login/Login';
 import Products from './views/Products/Products';
+import AddProduct from './views/AddProduct/AddProduct'
 
 function App() {
 
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route path="/products">
           <Products />
+        </Route>
+        <Route path="/add">
+          <AddProduct />
         </Route>
         
         <Route path="/">

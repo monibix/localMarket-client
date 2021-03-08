@@ -9,7 +9,7 @@ function Sidebar() {
             <h1>Sidebar</h1>
             <h2>products</h2>
             <h2>profile</h2>
-            <Link to="/create"><h6>Create product</h6></Link>
+            <Link to="/add"><h6>Create product</h6></Link>
         </Div>
     )
 }
