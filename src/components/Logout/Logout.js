@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from './styles';
 import { useAuth } from '../../context/AuthContext.utils'
 
 function Logout () {
@@ -6,7 +7,7 @@ function Logout () {
     const {handleLogout} = useAuth()
 
     return (
-            <button onClick={handleLogout}>Logout</button>
+            <Button onClick={handleLogout}>Logout</Button>
     )
 }
 

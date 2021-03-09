@@ -4,10 +4,11 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: 
 `;
 
 export const Input = styled.input`
-  border: 1px solid steelblue;
+  border: 2px solid #1687a7;
   border-radius: 5px;
   padding: 10px;
   width: 20%;
@@ -15,16 +16,16 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  border: 1px solid steelblue;
+  border: 1px solid #1687a7;
   border-radius: 5px;
   padding: 10px;
   width: 10%;
   margin: 10px auto;
-  color: steelblue;
-  background-color: transparent;
+  color: #fff;
+  font-weight: bold;
+  background-color: #1687a7;
 `;
 
 export const Label = styled.label`
-  color: steelblue;
   font-weight: bold;
 `;

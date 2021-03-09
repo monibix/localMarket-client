@@ -6,10 +6,12 @@ function Sidebar() {
 
     return (
         <Div>   
-            <h1>Sidebar</h1>
-            <h2>products</h2>
-            <h2>profile</h2>
-            <Link to="/add"><h6>Create product</h6></Link>
+
+            <Link to="/profile"><h4>My profile</h4></Link>
+
+            <Link to="/products"><h4>My products</h4></Link>
+
+            <Link to="/add"><h4>Create product</h4></Link>
         </Div>
     )
 }

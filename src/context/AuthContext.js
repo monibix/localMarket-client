@@ -36,7 +36,8 @@ function AuthProvider({ children }) {
       const { data: loggedUser } = await signup(user);
       saveUser(loggedUser);
       setState({ user: { ...loggedUser, isLogged: true } });
-      <Redirect to="/products" />
+      history.push('/products')
+      //<Redirect to="/products" />
       //history.push('/products')
     } catch (e) {
       console.error(e);
@@ -49,6 +50,7 @@ function AuthProvider({ children }) {
       removeUser();
       setState({ user: defaultUser() });
       console.log("logout")
+      history.push('/')
     } catch (e) {
       console.error(e);
     }

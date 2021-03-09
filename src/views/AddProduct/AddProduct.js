@@ -2,7 +2,6 @@ import React from 'react';
 import { Div } from './style';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import { Form } from '../../components/AuthForm/styles';
 import ProductForm from '../../components/ProductForm/ProductForm'
 
 function AddProduct() {

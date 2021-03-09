@@ -5,4 +5,6 @@ const productsApi = axios.create({
     withCredentials: true,
 })
 
-export const createProduct = (user) => productsApi.post("/add", user)
+export const createProduct = (product) => productsApi.post("/add", product)
+
+export const getMyProducts = () => productsApi.get("/myProducts")
