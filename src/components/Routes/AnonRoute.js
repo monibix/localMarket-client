@@ -5,7 +5,7 @@ import { useAuth } from "../../context/AuthContext.utils";
 function AnonRoute({ path, exact, children }) {
   const { user } = useAuth();
   if (user.isLogged) {
-    return <Redirect to="/private" />;
+    return <Redirect to="/products" />;
   }
 
   return (

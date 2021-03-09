@@ -6,7 +6,7 @@ import {
   removeUser,
   defaultUser,
 } from "./AuthContext.utils";
-import {useHistory, Redirect} from 'react-router-dom';
+//import {useHistory} from 'react-router-dom';
 
 export const AuthContext = React.createContext({});
 
@@ -17,7 +17,7 @@ const initialState = {
 function AuthProvider({ children }) {
   const [state, setState] = React.useState(initialState);
 
-  const history = useHistory()
+  //const history = useHistory()
 
   const handleLogin = React.useCallback(async (user) => {
     try {
@@ -25,7 +25,7 @@ function AuthProvider({ children }) {
       console.log("loged user", loggedUser)
       saveUser(loggedUser);
       setState({ user: { ...loggedUser, isLogged: true } });
-      history.push('/products')
+      //history.push('/products')
     } catch (e) {
       console.error(e);
     }
@@ -36,7 +36,7 @@ function AuthProvider({ children }) {
       const { data: loggedUser } = await signup(user);
       saveUser(loggedUser);
       setState({ user: { ...loggedUser, isLogged: true } });
-      history.push('/products')
+      //history.push('/products')
       //<Redirect to="/products" />
       //history.push('/products')
     } catch (e) {
@@ -50,7 +50,7 @@ function AuthProvider({ children }) {
       removeUser();
       setState({ user: defaultUser() });
       console.log("logout")
-      history.push('/')
+      //history.push('/')
     } catch (e) {
       console.error(e);
     }

@@ -1,12 +1,11 @@
 import React from 'react';
 import { 
     createProduct as createProductService,
-    getMyProducts as getMyProductsService
+    getMyProducts as getMyProductsService, 
+    getMyProduct as getMyProductService
 } from '../service/products.service';
 
 export const ProductContext = React.createContext({});
-
-
 
 function ProductProvider({children}) {
 
@@ -24,10 +23,13 @@ function ProductProvider({children}) {
         setProducts((state) => state.concat(newProduct))
     }
 
-
+    const getMyProduct = async(productId) => {
+        const { data: myProduct } = await getMyProductService(productId)
+        setProducts(myProduct)
+    }
 
     return (
-        <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts }} >
+        <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts, getMyProduct }} >
             {children}
         </ProductContext.Provider>
     )

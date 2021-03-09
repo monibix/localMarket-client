@@ -1,7 +1,5 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom'
 import AuthForm from '../../components/AuthForm/AuthForm';
-import { login } from '../../service/auth.service';
 import { useAuth } from '../../context/AuthContext.utils';
 import Navbar from '../../components/Navbar/Navbar';
 

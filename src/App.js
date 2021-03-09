@@ -7,6 +7,9 @@ import Login from './views/Login/Login';
 import Products from './views/Products/Products';
 import AddProduct from './views/AddProduct/AddProduct'
 import Profile from './views/Profile/Profile'
+import PrivateRoute from "./components/Routes/PrivateRoute";
+//import AnonRoute from "./components/Routes/AnonRoute";
+import MyProductDetails from "./views/MyProductDetails/MyProductDetails";
 
 function App() {
 
@@ -22,15 +25,18 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
-        <Route path="/products">
+        <PrivateRoute exact path="/products">
           <Products />
-        </Route>
-        <Route path="/add">
+        </PrivateRoute>
+        <PrivateRoute path="/add">
           <AddProduct />
-        </Route>
-        <Route path="/profile">
+        </PrivateRoute>
+        <PrivateRoute path="/products/:productId">
+          <MyProductDetails />
+        </PrivateRoute>
+        <PrivateRoute path="/profile">
           <Profile />
-        </Route>
+        </PrivateRoute>
         
         <Route path="/">
           <Main />

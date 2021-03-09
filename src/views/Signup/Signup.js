@@ -1,6 +1,5 @@
 import React from 'react';
 import AuthForm from '../../components/AuthForm/AuthForm';
-import { signup } from '../../service/auth.service'
 import { useAuth } from '../../context/AuthContext.utils';
 import Navbar from '../../components/Navbar/Navbar';
 

@@ -1,19 +1,19 @@
 import React from 'react';
 import { Form, Label, Input, Button } from './styles';
-//import { useProducts } from '../../context/ProductsContext.utils'
-import { createProduct } from '../../service/products.service';
+import { useProducts } from '../../context/ProductsContext.utils'
+//import { createProduct } from '../../service/products.service';
 import { useHistory } from 'react-router-dom'
 
 
 function Productform() {
-    const initialState = [{
+    const initialState = {
         title: "", 
         price: ""
-    }];
+    };
 
     //si creo producto desde el contexto --> error: cannot read property concat of undefined. 
     //Es decir no funciona bien la funcion createProduct en ProductProvider
-    //const { createProduct } = useProducts()
+    const { createProduct } = useProducts()
 
     const history = useHistory()
 

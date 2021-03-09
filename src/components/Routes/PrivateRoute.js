@@ -5,7 +5,7 @@ import { useAuth } from "../../context/AuthContext.utils";
 function PrivateRoute({ path, exact, children }) {
   const { user } = useAuth();
   if (!user.isLogged) {
-    return <Redirect to="/login" />;
+    return <Redirect to="/" />;
   }
 
   return (
