@@ -10,6 +10,8 @@ import Profile from './views/Profile/Profile'
 import PrivateRoute from "./components/Routes/PrivateRoute";
 //import AnonRoute from "./components/Routes/AnonRoute";
 import MyProductDetails from "./views/MyProductDetails/MyProductDetails";
+import EditProduct from "./views/EditProduct/EditProduct";
+
 
 function App() {
 
@@ -31,8 +33,11 @@ function App() {
         <PrivateRoute path="/add">
           <AddProduct />
         </PrivateRoute>
-        <PrivateRoute path="/products/:productId">
+        <PrivateRoute exact path="/products/:productId">
           <MyProductDetails />
+        </PrivateRoute>
+        <PrivateRoute path="/products/:productId/edit">
+          <EditProduct />
         </PrivateRoute>
         <PrivateRoute path="/profile">
           <Profile />

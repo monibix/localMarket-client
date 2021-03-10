@@ -30,8 +30,10 @@ function Products() {
                                 <div key={key}>
                                     <h3> {item.title} </h3>
                                     <h3> {item.price} </h3>
+                                    <p>{item._id}</p>
                                     <p> {item.seller} </p>
                                     <Link to={`/products/${item._id}`} ><p>Product Details</p></Link>
+                                    <button>Delete Product</button>
                                 </div>
                             )
                         })

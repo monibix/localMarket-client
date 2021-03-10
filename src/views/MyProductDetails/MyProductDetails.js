@@ -3,7 +3,8 @@ import { Div } from './styles'
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useProducts } from '../../context/ProductsContext.utils';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+
 
 function MyProductDetails() {
     const {productId} = useParams()
@@ -25,8 +26,9 @@ function MyProductDetails() {
             <Div>
                 <Sidebar/>
                 <div className="content">
-                    <h1>My Products Details</h1>
+                    <h1>My Product Details</h1>
                     <h4> {products.title} </h4>
+                    <Link to={`/products/${products._id}/edit`}>Edit product</Link>
                 </div>
             </Div>
         </div>

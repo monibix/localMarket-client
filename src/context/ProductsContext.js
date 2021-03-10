@@ -2,7 +2,9 @@ import React from 'react';
 import { 
     createProduct as createProductService,
     getMyProducts as getMyProductsService, 
-    getMyProduct as getMyProductService
+    getMyProduct as getMyProductService, 
+    editProduct as editProductService, 
+    deleteProduct as deleteProductService
 } from '../service/products.service';
 
 export const ProductContext = React.createContext({});
@@ -28,8 +30,18 @@ function ProductProvider({children}) {
         setProducts(myProduct)
     }
 
+    const editProduct = async(productId, body) =>{
+        const { data: myProduct } = await editProductService(productId, body)
+        setProducts(myProduct)
+    }
+
+    // const deleteProduct = async(productId) =>{
+    //     const { data: myProduct } = await deleteProductService(productId)
+        
+    // }
+
     return (
-        <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts, getMyProduct }} >
+        <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts, getMyProduct, editProduct }} >
             {children}
         </ProductContext.Provider>
     )
