@@ -32,16 +32,24 @@ function ProductProvider({children}) {
 
     const editProduct = async(productId, body) =>{
         const { data: myProduct } = await editProductService(productId, body)
+        console.log("myproduct", myProduct)
         setProducts(myProduct)
     }
 
-    // const deleteProduct = async(productId) =>{
-    //     const { data: myProduct } = await deleteProductService(productId)
-        
+    const deleteProduct = async(product) =>{
+        const { data: myProduct } = await deleteProductService(product)
+        console.log("myproduct", myProduct)
+        const productsCopy = [...products]
+        setProducts(productsCopy.filter((item)=>item._id !== myProduct))
+    }
+
+    // const deleteAlumni = (al) => {
+    //     const alumnisCopy = [...alumnis]
+    //     setAlumnis(alumnisCopy.filter((item)=>item.id !== al))
     // }
 
     return (
-        <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts, getMyProduct, editProduct }} >
+        <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts, getMyProduct, editProduct, deleteProduct }} >
             {children}
         </ProductContext.Provider>
     )

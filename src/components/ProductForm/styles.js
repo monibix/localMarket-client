@@ -29,3 +29,13 @@ export const Button = styled.button`
     width: 15vw;
     align-self: center;
 `
+
+export const Select = styled.select`
+    width: 34vw;
+    padding: 1vw 2vw;
+    border-radius: 5px;
+    border: 2px solid #1687a7;
+    margin: 0.5vw;
+    align-self: center;
+    background-color: white;
+`

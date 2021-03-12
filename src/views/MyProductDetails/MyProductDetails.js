@@ -8,7 +8,6 @@ import { useParams, Link } from 'react-router-dom';
 
 function MyProductDetails() {
     const {productId} = useParams()
-    //const {productParams} = useParams()
     console.log("productparams", productId)
 
     const { products, getMyProduct } = useProducts();
@@ -28,6 +27,8 @@ function MyProductDetails() {
                 <div className="content">
                     <h1>My Product Details</h1>
                     <h4> {products.title} </h4>
+                    <h4> {products.price} </h4>
+                    <h4> {products.category} </h4>
                     <Link to={`/products/${products._id}/edit`}>Edit product</Link>
                 </div>
             </Div>

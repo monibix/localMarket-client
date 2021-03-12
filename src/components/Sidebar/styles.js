@@ -6,7 +6,7 @@ export const Div = styled.div`
     padding: 40px 0;
     ${'' /* align-items: center; */}
     ${'' /* justify-content: center; */}
-    width: 12vw;
+    min-width: 12vw;
     min-height: 98vh; 
     background-color: #253238;
     color: whitesmoke;
