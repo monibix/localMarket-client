@@ -1,9 +1,14 @@
 import React from 'react';
-import {Div} from './style'
+import { Div, Button } from './style'
 import Sidebar from '../../components/Sidebar/Sidebar'
-import Navbar from '../../components/Navbar/Navbar'
+import Navbar from '../../components/Navbar/Navbar';
+import { useAuth } from '../../context/AuthContext.utils.js';
+import { Link } from 'react-router-dom';
 
-function Products() {
+
+function Profile() {
+
+    const { user } = useAuth()
 
     return (
         <div>
@@ -15,10 +20,13 @@ function Products() {
                 <Sidebar/>
                 <div className="content">
                     <h1>Profile</h1>
+                    <Link to="/profile/edit"> <Button>Edit Profile</Button></Link>
+                    <h2> {user.user} </h2>
+
                 </div>
             </Div>
         </div>
     )
 }
 
-export default Products;
+export default Profile;

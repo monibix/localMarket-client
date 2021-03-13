@@ -6,7 +6,6 @@ import {
   removeUser,
   defaultUser,
 } from "./AuthContext.utils";
-//import {useHistory} from 'react-router-dom';
 
 export const AuthContext = React.createContext({});
 

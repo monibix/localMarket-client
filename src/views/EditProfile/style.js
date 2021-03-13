@@ -25,7 +25,6 @@ export const Input = styled.input`
     margin: 0.5vw;
     align-self: center;
 `
-
 export const Button = styled.button`
     border: 2px solid #1687a7;
     background-color: #1687a7;
@@ -36,24 +35,5 @@ export const Button = styled.button`
     font-weight: bold;
     margin: 1.5vw;
     width: 15vw;
-    align-self: center;
-`
-
-export const Select = styled.select`
-    width: 34vw;
-    padding: 1vw 2vw;
-    border-radius: 5px;
-    border: 2px solid #1687a7;
-    margin: 0.5vw;
-    align-self: center;
-    background-color: white;
-`
-
-export const Textarea = styled.textarea`
-    width: 30vw;
-    padding: 1vw 2vw;
-    border-radius: 5px;
-    border: 2px solid #1687a7;
-    margin: 0.5vw;
     align-self: center;
 `

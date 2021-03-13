@@ -37,16 +37,10 @@ function ProductProvider({children}) {
     }
 
     const deleteProduct = async(product) =>{
-        const { data: myProduct } = await deleteProductService(product)
-        console.log("myproduct", myProduct)
-        const productsCopy = [...products]
-        setProducts(productsCopy.filter((item)=>item._id !== myProduct))
+        await deleteProductService(product)
+        console.log("myproduct", product)
+        setProducts(products.filter((item)=>item._id !== product))
     }
-
-    // const deleteAlumni = (al) => {
-    //     const alumnisCopy = [...alumnis]
-    //     setAlumnis(alumnisCopy.filter((item)=>item.id !== al))
-    // }
 
     return (
         <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts, getMyProduct, editProduct, deleteProduct }} >

@@ -39,3 +39,12 @@ export const Select = styled.select`
     align-self: center;
     background-color: white;
 `
+
+export const Textarea = styled.textarea`
+    width: 30vw;
+    padding: 1vw 2vw;
+    border-radius: 5px;
+    border: 2px solid #1687a7;
+    margin: 0.5vw;
+    align-self: center;
+`
