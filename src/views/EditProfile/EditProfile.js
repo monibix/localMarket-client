@@ -2,11 +2,17 @@ import React from 'react';
 import { Div, Form, Input, Label, Button } from './style';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import { useAuth } from '../../context/AuthContext.utils';
+import { editUser } from '../../service/auth.service';
+import { useHistory } from 'react-router-dom'
 
 
 function EditProfile() {
 
-    
+    const history = useHistory()
+
+    const {user} = useAuth()
+    console.log("user id", user.id)
 
     const initialState = {username: "", direction: ""}
 
@@ -18,8 +24,10 @@ function EditProfile() {
         setState({...state, [name]:value })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        await editUser(user.id, state)
+        history.push('/profile')
     }
 
     return (
@@ -27,12 +35,12 @@ function EditProfile() {
             <div>
                 <Navbar/>
             </div>
-
             <Div>
                 <Sidebar/>
                 <div className="content">
                     <h1>Edit Profile</h1>
-                    <Form onSubmit={handleSubmit}>
+                    <h2>{user.user}</h2>
+                <Form onSubmit={handleSubmit}>
                     <Label htmlFor="username">Username</Label>
                     <Input 
                         type="text" 
@@ -48,7 +56,7 @@ function EditProfile() {
                         value={state.direction}
                     />
                     <Button type="submit">Edit Profile</Button>
-                    </Form>
+                </Form>
                 </div>
             </Div>
         </div>
