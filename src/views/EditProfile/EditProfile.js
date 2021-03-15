@@ -4,7 +4,8 @@ import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useAuth } from '../../context/AuthContext.utils';
 import { editUser } from '../../service/auth.service';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import {getUser as getUserService} from '../../service/auth.service';
 
 
 function EditProfile() {
@@ -12,11 +13,17 @@ function EditProfile() {
     const history = useHistory()
 
     const {user} = useAuth()
-    console.log("user id", user.id)
+    console.log("user id", user._id)
 
     const initialState = {username: "", direction: ""}
 
     const [state, setState] = React.useState(initialState)
+
+    React.useEffect(()=>{
+        getUserService().then(({data: currentUser})=>{
+            setState(currentUser)
+        })
+    }, [])
 
     const handleEdit = (e) => {
         const {name, value} = e.target
@@ -26,7 +33,7 @@ function EditProfile() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await editUser(user.id, state)
+        await editUser(state)
         history.push('/profile')
     }
 

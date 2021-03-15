@@ -12,9 +12,9 @@ function EditProduct() {
     console.log("productid en edit", productId)
 
     //recupero funciones para editar, borrar, traer información de producto
-    const { editProduct, deleteProduct, getMyProduct } = useProducts()
+    const { editProduct, deleteProduct } = useProducts()
 
-    const initialState = {title:"", price:"", category:"", ref:"", description:"", mainImage:""}
+    const initialState = {title:"", price:"", category:"", ref:"", description:"", image:""}
     const [product, setProduct] = React.useState(initialState)
     
     const history = useHistory()
@@ -104,12 +104,12 @@ function EditProduct() {
                             onChange={handleEdit}
                             value={product.description}
                         ></Textarea>
-                        <Label htmlFor="mainImage">Main Image</Label>
+                        <Label htmlFor="image">Main Image</Label>
                         <Input 
                             type="file" 
-                            name="mainImage"
+                            name="image"
                             onChange={handleUpload} 
-                            value={product.picture} 
+                            value={product.image} 
                         />
                         <Button type="submit" >Edit Product</Button>
                     </Form>

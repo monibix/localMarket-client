@@ -8,13 +8,13 @@ import { Link } from 'react-router-dom';
 
 function Profile() {
 
-    const { user, getUserInfo } = useAuth()
-    console.log("getuserinfo", getUserInfo)
+    const { user={}, getUserInfo } = useAuth()
+    console.log("userinfo", user)
 
     //Intento de traer la info del usuario
     React.useEffect(()=>{
         getUserInfo(user.user)
-    })
+    }, [])
 
     return (
         <div>
@@ -27,6 +27,9 @@ function Profile() {
                     <h1>Profile</h1>
                     <Link to="/profile/edit"> <Button>Edit Profile</Button></Link>
                     <h2> {user.user} </h2>
+                    <p>{user.email}</p>
+                    <p>{user.direction}</p>
+                    <p>{user.username}</p>
                 </div>
             </Div>
         </div>
@@ -34,3 +37,39 @@ function Profile() {
 }
 
 export default Profile;
+
+
+
+// function Profile() {
+//     const { user = {}, getUserInfo } = useAuth();
+//     React.useEffect(() => {
+//       getUserInfo(user.user);
+//     }, []);
+  
+  
+
+//     return (
+//       <div>
+//         <div>
+//           <Navbar />
+//         </div>
+//         <Div>
+//           <Sidebar />
+//           <div className="content">
+//             <h1>Profile</h1>
+//             <Link to="/profile/edit">
+//               <Button>Edit Profile</Button>
+//             </Link>
+//             <h2> {user.user} </h2>
+//             <p>{user.email}</p>
+//             <p>{user.direction}</p>
+//             <p>{user.username}</p>
+//           </div>
+//           </Div>
+//       </div>
+//       )
+
+
+//   }
+  
+//   export default Profile; 

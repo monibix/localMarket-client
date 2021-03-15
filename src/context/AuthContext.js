@@ -1,5 +1,10 @@
 import React from "react";
-import { login, logout, signup, editUser as editUserService, getUser } from "../service/auth.service";
+import { 
+  login, 
+  logout, 
+  signup, 
+  editUser as editUserService, 
+  getUser } from "../service/auth.service";
 import {
   getLocalUser,
   saveUser,
@@ -49,19 +54,19 @@ function AuthProvider({ children }) {
   }, []);
 
   //funcion para editar la informacion del usuario
-  const editUser = async(userId, body) => {
+  const editUser = async (userId, body) => {
     try {
-      const { data: userInfo} = await editUserService(userId, body)
-      setState(userInfo)
-    } catch(e) {
+      const { data: userInfo } = await editUserService(userId, body);
+      setState({ user: { ...userInfo, isLogged: true } });
+    } catch (e) {
       console.error(e)
     }
   }
   //funcion para extraer toda la informacion del usuario
-  const getUserInfo = async(userId) => {
+  const getUserInfo = async (userId) => {
     try {
-      const {data: userInfo} = await getUser(userId)
-      setState(userInfo)
+      const { data: userInfo } = await getUser(userId);
+      setState({ user: { ...userInfo, isLogged: true } });
     } catch (error) {
       console.error(error)
     }
@@ -69,7 +74,13 @@ function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ user: state.user, handleLogin, handleLogout, handleSignup, editUser, getUserInfo }}
+      value={{ 
+        user: state.user, 
+        handleLogin, 
+        handleLogout, 
+        handleSignup, 
+        editUser, 
+        getUserInfo }}
     >
       {children}
     </AuthContext.Provider>
