@@ -4,13 +4,14 @@ import AddProductImg from '../../assets/AddProductImg.png'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import Navbar from '../../components/Navbar/Navbar'
 import { useProducts } from '../../context/ProductsContext.utils';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function Products() {
 
     const { products, getMyProducts, setProducts, deleteProduct } = useProducts();
     console.log("products en products view", products) 
     
+    const history = useHistory()
 
     React.useEffect(()=>{
         getMyProducts()
@@ -22,9 +23,10 @@ function Products() {
         setProducts(product=>product.filter(item=>item.title.toLowerCase().includes(input)))
     }
 
-    const handleDelete = (productId) => {
+    const handleDelete = async (id) => {
         console.log("delete")
-        deleteProduct(productId)
+        await deleteProduct(id)
+        history.push("/products")
     }
 
     return (
@@ -54,7 +56,7 @@ function Products() {
                                     <p> {item.category} </p>
                                     <Link to={`/products/${item._id}`} ><Button>View Product</Button></Link>
                                     <Link to={`/products/${item._id}/edit`}><Button>Edit product</Button></Link>
-                                    <Button onClick={handleDelete}>Delete Product</Button>
+                                    <Button onClick={()=>handleDelete(item._id)}>Delete Product</Button>
                                 </ProductCard>
                             )
                         })
