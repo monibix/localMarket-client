@@ -48,6 +48,7 @@ function Products() {
                                 <ProductCard key={key}>
                                     <h3> {item.title} </h3>
                                     <h3> {item.price} </h3>
+                                    <img src={item.image} alt="card"/>
                                     <p>{item._id}</p>
                                     <p> {item.seller} </p>
                                     <p> {item.category} </p>

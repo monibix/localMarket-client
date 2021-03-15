@@ -1,8 +1,8 @@
 import React from 'react';
 import { Form, Label, Input, Button, Select, Textarea } from './styles';
 import { useProducts } from '../../context/ProductsContext.utils'
-//import { createProduct } from '../../service/products.service';
 import { useHistory } from 'react-router-dom'
+import { uploadProductImage } from '../../service/products.service';
 
 
 function Productform() {
@@ -12,11 +12,9 @@ function Productform() {
         category: "", 
         ref: "", 
         description: "", 
-        mainImage: ""
+        image: ""
     };
 
-    //si creo producto desde el contexto --> error: cannot read property concat of undefined. 
-    //Es decir no funciona bien la funcion createProduct en ProductProvider
     const { createProduct } = useProducts()
 
     const history = useHistory()
@@ -40,11 +38,11 @@ function Productform() {
     const handleUpload = async (e) => {
         setImageReady(false)
         const uploadData = new FormData() //para qué sirve?
-        uploadData.append('mainImage', e.target.files[0]);
+        uploadData.append('image', e.target.files[0]);
         
-        const {data} = await createProduct(uploadData) //uploadFileService
+        const {data} = await uploadProductImage(uploadData) //uploadFileService
         console.log("fileuploaded", data)
-        setState({...state, mainImage: data})
+        setState({...state, image: data})
         setImageReady(true)
     }
 
@@ -96,8 +94,8 @@ function Productform() {
                 value={state.description}
 
             ></Textarea>
-            <Label htmlFor="mainImage">Main Image</Label>
-            <Input type="file" name="mainImage" value={state.mainImage} onChange={handleUpload} />
+            <Label htmlFor="image">Main Image</Label>
+            <Input type="file" name="image" value={state.image} onChange={handleUpload} />
             <Button type="submit">Add</Button>
         </Form>
     )

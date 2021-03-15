@@ -3,8 +3,8 @@ import { Div, Form, Label, Input, Button, Select, Textarea } from './styles'
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useProducts } from '../../context/ProductsContext.utils';
-import { useParams, Redirect } from 'react-router-dom';
-
+import { useParams, Redirect, useHistory } from 'react-router-dom';
+import { getMyProduct as getMyProductService } from "../../service/products.service";
 
 function EditProduct() {
     //recupero el id del producto
@@ -12,26 +12,29 @@ function EditProduct() {
     console.log("productid en edit", productId)
 
     //recupero funciones para editar, borrar, traer información de producto
-    const { products, editProduct, deleteProduct, getMyProduct } = useProducts()
-    console.log("product to edit", products)
+    const { editProduct, deleteProduct, getMyProduct } = useProducts()
+
+    const initialState = {title:"", price:"", category:"", ref:"", description:"", mainImage:""}
+    const [product, setProduct] = React.useState(initialState)
+    
+    const history = useHistory()
 
     //useEffect para recuperar los datos del producto y popular el formulario de edit, q en teoria ya están en products linia 15
     React.useEffect(()=>{
-        getMyProduct(productId)
-    }, [])
+        getMyProductService(productId).then(( {data: currentProduct} )=>{
+            setProduct(currentProduct)
+        })
+    }, [productId])
 
-    const initialState = {title:"", price:"", category:"", ref:"", description:"", mainImage:""}
-    const [state, setState] = React.useState(initialState)
-    
     const handleEdit = (e) => {
         const {name, value} = e.target
         console.log("name, value", value)
-        setState({...state, [name]:value })
+        setProduct({...product, [name]:value })
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await editProduct(productId, state)
-        setState({...state, redirect: true})
+        await editProduct(productId, product)
+        setProduct({...product, redirect: true})
     }
 
     const handleUpload = () => {
@@ -41,9 +44,10 @@ function EditProduct() {
     const handleDelete = async () => {
         console.log("delete")
         await deleteProduct(productId)
+        history.push("/products")
     }
 
-    if (state.redirect) {
+    if (product.redirect) {
         return <Redirect to={`/products/${productId}`}/>
     }
 
@@ -62,18 +66,18 @@ function EditProduct() {
                             type="text"
                             name="title" 
                             onChange={handleEdit}
-                            value={products.title}    
+                            value={product.title}    
                         />
                         <Label htmlFor="price">Price</Label>
                         <Input 
                             type="text" 
                             name="price" 
                             onChange={handleEdit}
-                            value={products.price}    
+                            value={product.price}    
 
                         />
                         <Label htmlFor="category">Category</Label>
-                        <Select name="category" onChange={handleEdit} value={products.category} >
+                        <Select name="category" onChange={handleEdit} value={product.category} >
                             <option value="none">Selecciona una categoría</option>
                             <option value="joyeria">Joyería</option>
                             <option value="bebes">Bebés y Niños</option>
@@ -88,7 +92,7 @@ function EditProduct() {
                             name="ref"
                             placeholder="referencia"
                             onChange={handleEdit}
-                            value={products.ref}    
+                            value={product.ref}    
 
                         />
                         <Label htmlFor="description">Description</Label>
@@ -98,14 +102,14 @@ function EditProduct() {
                             rows="10"
                             placeholder="write a description"
                             onChange={handleEdit}
-                            value={products.description}
+                            value={product.description}
                         ></Textarea>
                         <Label htmlFor="mainImage">Main Image</Label>
                         <Input 
                             type="file" 
                             name="mainImage"
                             onChange={handleUpload} 
-                            value={products.picture} 
+                            value={product.picture} 
                         />
                         <Button type="submit" >Edit Product</Button>
                     </Form>
