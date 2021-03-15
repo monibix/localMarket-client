@@ -12,14 +12,16 @@ function Main() {
             </div>
             <h1>Home</h1>
             <Div>
-                <Link>
+                <Link to="/category">
                 <Category>
                     <h3>Joyería</h3>
                 </Category>
                 </Link>
+                <Link to="/">
                 <Category>
                     <h3>Bebés y niños</h3>
                 </Category>
+                </Link>
                 <Category>
                     <h3>Moda</h3>
                 </Category>

@@ -12,6 +12,7 @@ import PrivateRoute from "./components/Routes/PrivateRoute";
 import MyProductDetails from "./views/MyProductDetails/MyProductDetails";
 import EditProduct from "./views/EditProduct/EditProduct";
 import EditProfile from "./views/EditProfile/EditProfile";
+import ProductsByCategory from "./views/ProductsByCategory/ProductsByCategory";
 
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
         <PrivateRoute path="/profile/edit">
           <EditProfile />
         </PrivateRoute>
+        <Route path="/:category">
+          <ProductsByCategory />
+        </Route>
         
         <Route path="/">
           <Main />
