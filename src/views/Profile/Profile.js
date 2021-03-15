@@ -30,6 +30,7 @@ function Profile() {
                     <p>{user.email}</p>
                     <p>{user.direction}</p>
                     <p>{user.username}</p>
+                    <img src={user.userImage} alt="User"/>
                 </div>
             </Div>
         </div>

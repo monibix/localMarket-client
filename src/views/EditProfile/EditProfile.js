@@ -6,6 +6,7 @@ import { useAuth } from '../../context/AuthContext.utils';
 import { editUser } from '../../service/auth.service';
 import { useHistory } from 'react-router-dom';
 import {getUser as getUserService} from '../../service/auth.service';
+import { uploadProductImage } from '../../service/auth.service'
 
 
 function EditProfile() {
@@ -15,9 +16,11 @@ function EditProfile() {
     const {user} = useAuth()
     console.log("user id", user._id)
 
-    const initialState = {username: "", direction: ""}
+    const initialState = {username: "", direction: "", image: ""}
 
     const [state, setState] = React.useState(initialState)
+    const [imageReady, setImageReady] = React.useState(false)
+
 
     React.useEffect(()=>{
         getUserService().then(({data: currentUser})=>{
@@ -35,6 +38,16 @@ function EditProfile() {
         e.preventDefault()
         await editUser(state)
         history.push('/profile')
+    }
+
+    const handleUpload = async (e) => {
+        setImageReady(false)
+        const uploadData = new FormData()
+        uploadData.append('userImage', e.target.files[0]);
+        const {data} = await uploadProductImage(uploadData)
+        console.log("fileuploaded", data)
+        setState({...state, userImage: data})
+        setImageReady(true)
     }
 
     return (
@@ -62,6 +75,8 @@ function EditProfile() {
                         onChange={handleEdit}
                         value={state.direction}
                     />
+                    <Label htmlFor="image">User Image</Label>
+                    <Input type="file" name="image" value={state.image} onChange={handleUpload} />
                     <Button type="submit">Edit Profile</Button>
                 </Form>
                 </div>
