@@ -31,7 +31,7 @@ function MyProductDetails() {
                     <h4> {products.category} </h4>
                     <h4> {products.ref} </h4>
                     <h4> {products.description} </h4>
-                    <h4> {products.image} </h4>
+                    <img src={products.mainImage} alt="product details"/>
                     <Link to={`/products/${products._id}/edit`}>Edit product</Link>
                 </div>
             </Div>

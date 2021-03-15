@@ -1,5 +1,5 @@
 import React from 'react';
-import { Div, ProductCardContainer, ProductCard, Button, SearchBar } from './style';
+import { Div, ProductCardContainer, ProductCard, Button, SearchBar, Img } from './style';
 import AddProductImg from '../../assets/AddProductImg.png'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import Navbar from '../../components/Navbar/Navbar'
@@ -48,7 +48,7 @@ function Products() {
                                 <ProductCard key={key}>
                                     <h3> {item.title} </h3>
                                     <h3> {item.price} </h3>
-                                    <img src={item.image} alt="card"/>
+                                    <Img src={item.mainImage} alt="card"/>
                                     <p>{item._id}</p>
                                     <p> {item.seller} </p>
                                     <p> {item.category} </p>

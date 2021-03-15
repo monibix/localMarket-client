@@ -37,12 +37,11 @@ function Productform() {
 
     const handleUpload = async (e) => {
         setImageReady(false)
-        const uploadData = new FormData() //para qué sirve?
-        uploadData.append('image', e.target.files[0]);
-        
-        const {data} = await uploadProductImage(uploadData) //uploadFileService
+        const uploadData = new FormData()
+        uploadData.append('mainImage', e.target.files[0]);
+        const {data} = await uploadProductImage(uploadData)
         console.log("fileuploaded", data)
-        setState({...state, image: data})
+        setState({...state, mainImage: data})
         setImageReady(true)
     }
 

@@ -58,3 +58,7 @@ export const SearchBar = styled.input`
     border-radius: 5px;
     width: 20vw;
 `
+
+export const Img = styled.img`
+    width: 10vw;
+`
