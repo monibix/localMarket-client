@@ -13,7 +13,8 @@ import MyProductDetails from "./views/MyProductDetails/MyProductDetails";
 import EditProduct from "./views/EditProduct/EditProduct";
 import EditProfile from "./views/EditProfile/EditProfile";
 import ProductsByCategory from "./views/ProductsByCategory/ProductsByCategory";
-
+import ProductByCategory from "./views/ProductByCategoryDetail/ProductByCategoryDetail";
+import SellerDetails from "./views/SellerDetails/SellerDetails";
 
 function App() {
 
@@ -47,10 +48,15 @@ function App() {
         <PrivateRoute path="/profile/edit">
           <EditProfile />
         </PrivateRoute>
-        <Route path="/:category">
+        <Route exact path="/category">
           <ProductsByCategory />
         </Route>
-        
+        <Route path="/category/:productId">
+          <ProductByCategory />
+        </Route>
+        <Route path="/seller/:sellerId">
+          <SellerDetails />
+        </Route>
         <Route path="/">
           <Main />
         </Route>

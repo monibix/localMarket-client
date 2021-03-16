@@ -2,8 +2,8 @@ import React from "react";
 import { Div, ProductCard, Img, Button } from "./style";
 import Navbar from "../../components/Navbar/Navbar";
 import { useLocation, Link } from "react-router-dom";
-import { qs } from "qs";
-import { getProductsByCategory as getProductsByCategoryService } from "../../service/products.service"
+import { qs } from "qs"
+import { getProductsByCategory as getProductsByCategoryService } from "../../service/main.service"
 
 function ProductsByCategory() {
 
@@ -18,7 +18,7 @@ function ProductsByCategory() {
     // const { category } = qs(params)
     // console.log("category", category)
 
-    const category = "bebes"
+    const category = "joyeria"
 
     React.useEffect(()=>{
         getProductsByCategoryService(category).then(({data: categoryProducts})=>{
@@ -44,7 +44,7 @@ function ProductsByCategory() {
                                     <p>{item._id}</p>
                                     <p> {item.seller} </p>
                                     <p> {item.category} </p>
-                                    <Link to={`/products/${item._id}`} ><Button>View Product</Button></Link>
+                                    <Link to={`/category/${item._id}`} ><Button>View Product</Button></Link>
                                 </ProductCard>
                             )
                         })
