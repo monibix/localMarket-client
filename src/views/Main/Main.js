@@ -12,12 +12,12 @@ function Main() {
             </div>
             <h1>Home</h1>
             <Div>
-                <Link to="/category">
+                <Link to="/category?category=joyeria">
                 <Category>
                     <h3>Joyería</h3>
                 </Category>
                 </Link>
-                <Link to="/">
+                <Link to="/category?category=bebes">
                 <Category>
                     <h3>Bebés y niños</h3>
                 </Category>

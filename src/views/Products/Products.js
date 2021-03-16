@@ -48,12 +48,9 @@ function Products() {
                         products.map((item, key)=>{
                             return (
                                 <ProductCard key={key}>
+                                <Img src={item.mainImage} alt="card"/>
                                     <h3> {item.title} </h3>
                                     <h3> {item.price} </h3>
-                                    <Img src={item.mainImage} alt="card"/>
-                                    <p>{item._id}</p>
-                                    <p> {item.seller} </p>
-                                    <p> {item.category} </p>
                                     <Link to={`/products/${item._id}`} ><Button>View Product</Button></Link>
                                     <Link to={`/products/${item._id}/edit`}><Button>Edit product</Button></Link>
                                     <Button onClick={()=>handleDelete(item._id)}>Delete Product</Button>

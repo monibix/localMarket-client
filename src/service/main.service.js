@@ -10,3 +10,5 @@ export const getProductsByCategory = (category) => mainApi.get(`/category?catego
 export const getProductByCategory = (productId) => mainApi.get(`/category/${productId}`)
 
 export const getSellerDetails = (sellerId) => mainApi.get(`/seller/${sellerId}`)
+
+export const getSearchProducts = (search) => mainApi.get(`/query?query=${search}`)

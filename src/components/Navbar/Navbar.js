@@ -16,6 +16,9 @@ function Navbar () {
                 <Div>
                     <Link to="/"><Logo src="https://image.flaticon.com/icons/png/512/649/649742.png" alt="LocalMarket"/></Link>
                 </Div>
+                <Div className="searchbar">
+                    <Searchbar/>
+                </Div>
                 <Div className="list">
                     <Link to="/products"><Button>My Area</Button></Link>
                     <Link to="/add"><Button>Create Product</Button></Link>

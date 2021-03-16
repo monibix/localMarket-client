@@ -61,5 +61,4 @@ export const SearchBar = styled.input`
 
 export const Img = styled.img`
     width: 10vw;
-    border-bottom: 1px solid #1687A7;
 `

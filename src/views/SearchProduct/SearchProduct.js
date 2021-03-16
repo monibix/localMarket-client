@@ -3,40 +3,33 @@ import { Div, ProductCard, Img, Button } from "./style";
 import Navbar from "../../components/Navbar/Navbar";
 import { useLocation, Link } from "react-router-dom";
 import qs from "qs"
-import { getProductsByCategory as getProductsByCategoryService } from "../../service/main.service"
+import { getSearchProducts as getSearchProductsService } from "../../service/main.service"
 
-function ProductsByCategory() {
+function SearchProduct() {
 
-    const [products, setProducts] = React.useState([]);
+    const [prodToSearch, setProdToSearch] = React.useState([]);
 
     const { search } = useLocation()
     console.log("search", search)
 
-    // const params = search.split("?").pop();
-    // console.log("params", params)
-
-    // const { category } = qs(params)
-    // console.log("category", category)
-
-    const {category} = qs.parse(search, { ignoreQueryPrefix: true })
-    console.log("category", category)
-    //const category = "joyeria"
+    const {query} = qs.parse(search, { ignoreQueryPrefix: true })
+    console.log("query", query)
 
     React.useEffect(()=>{
-        getProductsByCategoryService(category).then(({data: categoryProducts})=>{
-            setProducts(categoryProducts)
+        getSearchProductsService(query).then(({data: searchedProducts})=>{
+            console.log("searchedproduct", searchedProducts)
+            setProdToSearch(searchedProducts)
         })
     }, [])
-
+    console.log("prodtosearch", prodToSearch)
     return (
         <div>
             <div>
                 <Navbar />
             </div>
-            <h1>Home</h1>
             <Div>
-                <h1>Products by Category</h1>
-                {
+                <h1>Search Products</h1>
+                {/* {
                         products.map((item, key)=>{
                             return (
                                 <ProductCard key={key}>
@@ -50,10 +43,9 @@ function ProductsByCategory() {
                                 </ProductCard>
                             )
                         })
-                    }
+                    } */}
             </Div>
         </div>
     )
 }
-
-export default ProductsByCategory;
+export default SearchProduct;

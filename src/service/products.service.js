@@ -16,7 +16,3 @@ export const editProduct = (productId, body) => productsApi.put(`/${productId}`,
 export const deleteProduct = (productId) => productsApi.delete(`/${productId}`)
 
 export const uploadProductImage = (file) => productsApi.post("/upload", file)
-
-//export const getProductsByCategory = (category) => productsApi.get(`/category?category=${category}`)
-
-//export const getProductByCategory = (productId) => productsApi.get(`/category?category=joyeria/${productId}`)

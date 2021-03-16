@@ -5,6 +5,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import { useProducts } from '../../context/ProductsContext.utils';
 import { useParams, Redirect, useHistory } from 'react-router-dom';
 import { getMyProduct as getMyProductService } from "../../service/products.service";
+import { uploadProductImage } from "../../service/products.service";
 
 function EditProduct() {
     //recupero el id del producto
@@ -16,15 +17,15 @@ function EditProduct() {
 
     const initialState = {title:"", price:"", category:"", ref:"", description:"", image:""}
     const [product, setProduct] = React.useState(initialState)
+    const [imageReady, setImageReady] = React.useState(false)
     
     const history = useHistory()
 
-    //useEffect para recuperar los datos del producto y popular el formulario de edit, q en teoria ya están en products linia 15
     React.useEffect(()=>{
         getMyProductService(productId).then(( {data: currentProduct} )=>{
             setProduct(currentProduct)
         })
-    }, [productId])
+    }, [])
 
     const handleEdit = (e) => {
         const {name, value} = e.target
@@ -34,11 +35,19 @@ function EditProduct() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         await editProduct(productId, product)
-        setProduct({...product, redirect: true})
+//        setProduct({...product, redirect: true})
+        history.push(`/products/${productId}`)
+
     }
 
-    const handleUpload = () => {
-
+    const handleUpload = async (e) => {
+        setImageReady(false)
+        const uploadData = new FormData()
+        uploadData.append('mainImage', e.target.files[0]);
+        const {data} = await uploadProductImage(uploadData)
+        console.log("fileuploaded", data)
+        setProduct({...product, mainImage: data})
+        setImageReady(true)
     }
 
     const handleDelete = async () => {

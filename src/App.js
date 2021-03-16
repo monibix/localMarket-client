@@ -15,6 +15,7 @@ import EditProfile from "./views/EditProfile/EditProfile";
 import ProductsByCategory from "./views/ProductsByCategory/ProductsByCategory";
 import ProductByCategory from "./views/ProductByCategoryDetail/ProductByCategoryDetail";
 import SellerDetails from "./views/SellerDetails/SellerDetails";
+import SearchProduct from "./views/SearchProduct/SearchProduct";
 
 function App() {
 
@@ -56,6 +57,9 @@ function App() {
         </Route>
         <Route path="/seller/:sellerId">
           <SellerDetails />
+        </Route>
+        <Route path="/query">
+          <SearchProduct />
         </Route>
         <Route path="/">
           <Main />
