@@ -20,16 +20,11 @@ function ProductByCategoryDetail() {
     console.log("product", product)
     
     return (    
-        
         <div>   
-        
             <div>   
-            
                 <Navbar/>   
-                
             </div>  
             <h1>My Product by Category Details</h1>
-
             <Div>
                     
                     <h4> {product.title} </h4>

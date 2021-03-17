@@ -1,6 +1,7 @@
 import React from 'react';
-import { Input } from './style';
-import { useHistory } from "react-router-dom"
+import { Input, Form } from './style';
+import { useHistory } from "react-router-dom";
+import * as S from "../../commons/commons.style";
 
 
 function Searchbar() {
@@ -22,15 +23,15 @@ function Searchbar() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <Input 
                 type="text" 
                 placeholder="search something..."
                 onChange={handleSearchBar}
                 value={searchedProducts}
                 />
-            <button type="submit">Search</button>
-        </form>    
+            <S.Button type="submit">Search</S.Button>
+        </Form>    
     )
 
 }
