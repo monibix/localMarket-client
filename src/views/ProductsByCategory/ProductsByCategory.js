@@ -12,21 +12,14 @@ function ProductsByCategory() {
     const { search } = useLocation()
     console.log("search", search)
 
-    // const params = search.split("?").pop();
-    // console.log("params", params)
-
-    // const { category } = qs(params)
-    // console.log("category", category)
-
     const {category} = qs.parse(search, { ignoreQueryPrefix: true })
     console.log("category", category)
-    //const category = "joyeria"
 
     React.useEffect(()=>{
         getProductsByCategoryService(category).then(({data: categoryProducts})=>{
             setProducts(categoryProducts)
         })
-    }, [])
+    }, [category])
 
     return (
         <div>

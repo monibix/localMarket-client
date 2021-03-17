@@ -1,7 +1,7 @@
 import React from 'react';
 import { Div } from "./style";
 import Navbar from '../../components/Navbar/Navbar';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getSellerDetails as getSellerDetailsService } from "../../service/main.service"
 
 
@@ -15,7 +15,7 @@ function SellerDetails() {
         getSellerDetailsService(sellerId).then(({data: sellerInfo})=>{
             setSeller(sellerInfo)
         })
-    }, [])
+    }, [sellerId])
 
     console.log("seller", seller)
     
@@ -34,7 +34,7 @@ function SellerDetails() {
                 <h2>Seller info</h2>
                 <h3>{seller.email}</h3>
                 <h3>{seller.direction}</h3>
-                <img src={seller.userImage} alt="image"/>
+                <img src={seller.userImage} alt="seller"/>
                 <h3>{seller.username}</h3>
             </Div>
         </div>

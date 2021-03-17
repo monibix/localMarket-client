@@ -94,7 +94,13 @@ function Productform() {
 
             ></Textarea>
             <Label htmlFor="image">Main Image</Label>
-            <Input type="file" name="image" value={state.image} onChange={handleUpload} />
+            <Input 
+                type="file"     
+                name="image" 
+                value={state.image} 
+                onChange={handleUpload}
+                disable={!imageReady} 
+            />
             <Button type="submit">Add</Button>
         </Form>
     )

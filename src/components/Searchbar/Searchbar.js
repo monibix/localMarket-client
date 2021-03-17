@@ -2,7 +2,6 @@ import React from 'react';
 import { Input } from './style';
 import { useHistory } from "react-router-dom"
 
-const initialState = {title:"", price:"", category:"", ref:"", description:"", image:""}
 
 function Searchbar() {
     const history = useHistory()
@@ -37,16 +36,3 @@ function Searchbar() {
 }
 
 export default Searchbar;
-
-
-// const handleSearchBar = (e) => {
-//     const input = e.target.value
-//     console.log("input", input)
-//     setProducts(product=>product.filter(item=>item.title.toLowerCase().includes(input)))
-// }
-
-// <SearchBar 
-//                         type="text" 
-//                         placeholder="Search your products..." 
-//                         onChange={handleSearchBar} 
-//                         value={products.title}  />

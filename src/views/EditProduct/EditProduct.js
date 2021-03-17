@@ -102,7 +102,6 @@ function EditProduct() {
                             placeholder="referencia"
                             onChange={handleEdit}
                             value={product.ref}    
-
                         />
                         <Label htmlFor="description">Description</Label>
                         <Textarea 
@@ -120,7 +119,7 @@ function EditProduct() {
                             onChange={handleUpload} 
                             value={product.image} 
                         />
-                        <Button type="submit" >Edit Product</Button>
+                        <Button type="submit" disable={!imageReady} >Edit Product</Button>
                     </Form>
                     <Button onClick={handleDelete} >Delete product</Button>
                 </div>

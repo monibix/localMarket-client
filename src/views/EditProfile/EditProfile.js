@@ -76,7 +76,13 @@ function EditProfile() {
                         value={state.direction}
                     />
                     <Label htmlFor="image">User Image</Label>
-                    <Input type="file" name="image" value={state.image} onChange={handleUpload} />
+                    <Input 
+                        type="file"     
+                        name="image" 
+                        value={state.image}     
+                        onChange={handleUpload}
+                        disable={!imageReady} 
+                    />
                     <Button type="submit">Edit Profile</Button>
                 </Form>
                 </div>

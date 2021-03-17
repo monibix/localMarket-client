@@ -1,7 +1,7 @@
 import React from "react";
-import { Div, ProductCard, Img, Button } from "./style";
+import { Div } from "./style";
 import Navbar from "../../components/Navbar/Navbar";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import qs from "qs"
 import { getSearchProducts as getSearchProductsService } from "../../service/main.service"
 
@@ -20,7 +20,7 @@ function SearchProduct() {
             console.log("searchedproduct", searchedProducts)
             setProdToSearch(searchedProducts)
         })
-    }, [])
+    }, [query])
     console.log("prodtosearch", prodToSearch)
     return (
         <div>

@@ -1,9 +1,10 @@
 import React from 'react';
-import {Logo, Nav, Button, Div} from './styles'
+import {Logo, Nav, Div} from './styles'
 import {Link} from 'react-router-dom';
 import Logout from '../../components/Logout/Logout';
 import Searchbar from '../Searchbar/Searchbar'
 import { useAuth } from '../../context/AuthContext.utils';
+import {Button} from "../../commons/commons.style"
 
 function Navbar () {
 

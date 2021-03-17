@@ -15,7 +15,7 @@ function ProductByCategoryDetail() {
         getProductByCategoryService(productId).then(({ data: productInfo })=>{
             setProduct(productInfo)
         })
-    }, [])
+    }, [productId])
 
     console.log("product", product)
     
