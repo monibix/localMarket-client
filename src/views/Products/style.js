@@ -50,6 +50,9 @@ export const Button = styled.p`
     margin: 2px;
     color: black;
     text-decoration: none;
+    :hover{
+        opacity: 0.8;
+    }
 `
 
 export const SearchBar = styled.input`

@@ -1,14 +1,12 @@
 import React from 'react';
 import * as S from "./style";
 import { useProducts } from '../../context/ProductsContext.utils';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Products(props) {
 
-    const { products, getMyProducts, setProducts, deleteProduct } = useProducts();
+    const { products, getMyProducts } = useProducts();
     console.log("products en products view", products) 
-    
-    const history = useHistory()
 
     React.useEffect(()=>{
         getMyProducts()
