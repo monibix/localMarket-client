@@ -1,25 +1,27 @@
 import React from "react";
 //import { Div, ProductCard, Img, Button } from "./style";
 import Navbar from "../../components/Navbar/Navbar";
-import { useLocation, Link } from "react-router-dom";
-import qs from "qs"
-import { getProductsByCategory as getProductsByCategoryService } from "../../service/main.service";
+//import { useLocation, Link } from "react-router-dom";
+//import qs from "qs"
+//import { getProductsByCategory as getProductsByCategoryService } from "../../service/main.service";
 import ProductsCard from "../../components/ProductsCard/ProductsCard"
+import Footer from "../../components/Footer/Footer";
+
 function ProductsByCategory() {
 
-    const [products, setProducts] = React.useState([]);
+    // const [products, setProducts] = React.useState([]);
 
-    const { search } = useLocation()
-    console.log("search", search)
+    // const { search } = useLocation()
+    // console.log("search", search)
 
-    const {category} = qs.parse(search, { ignoreQueryPrefix: true })
-    console.log("category", category)
+    // const {category} = qs.parse(search, { ignoreQueryPrefix: true })
+    // console.log("category", category)
 
-    React.useEffect(()=>{
-        getProductsByCategoryService(category).then(({data: categoryProducts})=>{
-            setProducts(categoryProducts)
-        })
-    }, [category])
+    // React.useEffect(()=>{
+    //     getProductsByCategoryService(category).then(({data: categoryProducts})=>{
+    //         setProducts(categoryProducts)
+    //     })
+    // }, [category])
 
     return (
         // <div>
@@ -49,6 +51,7 @@ function ProductsByCategory() {
         <div>
         <Navbar/>
         <ProductsCard/>
+        <Footer />
         </div>
     )
 }

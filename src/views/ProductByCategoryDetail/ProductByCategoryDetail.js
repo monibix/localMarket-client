@@ -1,8 +1,10 @@
 import React from 'react';
 import { Div } from "./style";
+import * as S from "./style"
 import Navbar from '../../components/Navbar/Navbar';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { getProductByCategory as getProductByCategoryService } from "../../service/main.service"
+import qs from "qs";
 
 
 function ProductByCategoryDetail() {
@@ -18,13 +20,30 @@ function ProductByCategoryDetail() {
     }, [productId])
 
     console.log("product", product)
+
+    const { search } = useLocation()
+    console.log("search", search)
+
+    const {category} = qs.parse(search, { ignoreQueryPrefix: true })
+    console.log("category", product.category)
     
     return (    
         <div>   
             <div>   
                 <Navbar/>   
             </div>  
-            <h1>My Product by Category Details</h1>
+
+            <S.SectionHead>
+                <S.DivMigas>
+                    <Link to="/"><p>Home &nbsp;</p></Link>
+                    <p> &#62; &nbsp;</p>
+                    <Link to={`/category?category=${product.category}`}><p>{product.category}&nbsp;</p></Link>
+                    <p> &#62; &nbsp;</p>
+                    <Link to={`/category/${product._id}`}><p>{product.title}&nbsp;</p></Link>
+
+                </S.DivMigas>
+            </S.SectionHead>
+
             <Div>
                     
                     <h4> {product.title} </h4>

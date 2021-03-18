@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { Button } from "../../commons/commons.style"
 
 export const Div = styled.div`
     background-color: whitesmoke;
     display: flex;
-    margin: 50px;
+    padding: 20px;
     .content{
         margin: 0 auto;
     }
@@ -31,7 +32,6 @@ export const ProductCard = styled.div`
     img {
         align-self: center;
         justify-content: center;
-        border-bottom: 1px solid #1687a7;
     }
     h4 {
         padding-top: 10px;
@@ -42,17 +42,26 @@ export const ProductCard = styled.div`
         background-color: #1687a7;
         opacity: 0.8;
     }
+    .title{
+        text-align: left;
+        padding: 10px 20px;
+
+    }
+    .price {
+        text-align: right;
+        padding: 0px 20px;
+    }
 `
 
-export const Button = styled.p`
-    border: 2px solid #1687a7 ;
-    padding: 5px 10px;
-    background-color: #eff8ff;
-    border-radius: 5px;
-    margin: 2px;
-    color: black;
-    text-decoration: none;
-`
+// export const Button = styled.p`
+//     border: 2px solid #1687a7 ;
+//     padding: 5px 10px;
+//     background-color: #eff8ff;
+//     border-radius: 5px;
+//     margin: 2px;
+//     color: black;
+//     text-decoration: none;
+// `
 
 export const SearchBar = styled.input`
     padding: 5px 10px;
@@ -63,4 +72,37 @@ export const SearchBar = styled.input`
 
 export const Img = styled.img`
     width: 10vw;
+`
+
+export const DivCarroussel = styled.div`
+    img {
+        width: 100%;
+        height: 70vh
+    }
+`
+
+export const SectionHead = styled.section`
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 90px;
+`
+
+export const DivMigas = styled.div`
+    display: flex;
+    p {
+        margin: auto 0;
+    }
+`
+
+export const DivFilters = styled.div`
+    display: flex;
+    p {
+        margin: auto 0;
+    }
+    select {
+        margin: 0 20px 0 5px;
+    }
+`
+export const ExtendedButton = styled(Button)`
+    margin: 30px 0;
 `

@@ -5,7 +5,7 @@ function Footer() {
     return (
         <S.FooterDiv>
             <h1>Footer</h1>
-            <figcaption>Desarrollado por Moni en Ironhack</figcaption>
+            <figcaption>Done with ❤️ at Ironhack</figcaption>
         </S.FooterDiv>
     )
 }
