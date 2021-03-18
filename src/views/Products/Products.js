@@ -5,6 +5,7 @@ import Sidebar from '../../components/Sidebar/Sidebar'
 import Navbar from '../../components/Navbar/Navbar'
 import { useProducts } from '../../context/ProductsContext.utils';
 import { Link, useHistory } from 'react-router-dom';
+import ProductCardComp from "../../components/ProductCardComp/ProductCardComp";
 
 function Products() {
 
@@ -44,11 +45,26 @@ function Products() {
                         onChange={handleSearchBar} 
                         value={products.title}  />
                     <ProductCardContainer>
-                    {
+
+                        {
+                        products.map((item, key)=>{
+                            return (
+                                <div>
+                                <ProductCardComp title={item.title} price={item.price} mainImage={item.mainImage} link={`/products/${item._id}`} />
+                                <Link to={`/products/${item._id}`} ><Button>View Product</Button></Link>
+                                <Link to={`/products/${item._id}/edit`}><Button>Edit product</Button></Link>
+                                <Button onClick={()=>handleDelete(item._id)}>Delete Product</Button>
+                                </div>
+                                
+                            )
+                        })
+                    }
+                        
+                    {/* {
                         products.map((item, key)=>{
                             return (
                                 <ProductCard key={key}>
-                                <Img src={item.mainImage} alt="card"/>
+                                <Link to={`/products/${item._id}`} ><Img src={item.mainImage} alt="card"/></Link>
                                     <h3> {item.title} </h3>
                                     <h3> {item.price} </h3>
                                     <Link to={`/products/${item._id}`} ><Button>View Product</Button></Link>
@@ -57,7 +73,7 @@ function Products() {
                                 </ProductCard>
                             )
                         })
-                    }
+                    } */}
                     <Link to="/add"><ProductCard>
                         <img src={AddProductImg} width='150px' text-align='center' alt="añadir producto"/>
                         <h3>Añadir producto</h3>

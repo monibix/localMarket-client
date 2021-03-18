@@ -8,7 +8,6 @@ import Products from './views/Products/Products';
 import AddProduct from './views/AddProduct/AddProduct'
 import Profile from './views/Profile/Profile'
 import PrivateRoute from "./components/Routes/PrivateRoute";
-//import AnonRoute from "./components/Routes/AnonRoute";
 import MyProductDetails from "./views/MyProductDetails/MyProductDetails";
 import EditProduct from "./views/EditProduct/EditProduct";
 import EditProfile from "./views/EditProfile/EditProfile";
@@ -22,7 +21,6 @@ function App() {
 
   return (
     <div className="App">
-
 
       <Switch>
         <Route path="/signup">

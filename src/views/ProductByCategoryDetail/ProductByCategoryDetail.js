@@ -4,10 +4,14 @@ import * as S from "./style"
 import Navbar from '../../components/Navbar/Navbar';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { getProductByCategory as getProductByCategoryService } from "../../service/main.service"
-import qs from "qs";
+import { Button, AddToCardButton } from '../../commons/commons.style';
+import { getSellerDetails as getSellerDetailsService } from "../../service/main.service"
+import Footer from '../../components/Footer/Footer';
+import ProductSheet from "../../components/ProductSheet/ProductSheet";
 
 
 function ProductByCategoryDetail() {
+
     const {productId} = useParams()
     console.log("productparams", productId)
 
@@ -24,8 +28,13 @@ function ProductByCategoryDetail() {
     const { search } = useLocation()
     console.log("search", search)
 
-    const {category} = qs.parse(search, { ignoreQueryPrefix: true })
-    console.log("category", product.category)
+    console.log("seller", product.seller)
+    const [seller, setSeller] = React.useState([])
+    React.useEffect(()=>{
+        getSellerDetailsService(product.seller).then(({data: sellerInfo})=>{
+            setSeller(sellerInfo)
+        })
+    }, [product.seller])
     
     return (    
         <div>   
@@ -44,17 +53,50 @@ function ProductByCategoryDetail() {
                 </S.DivMigas>
             </S.SectionHead>
 
-            <Div>
-                    
-                    <h4> {product.title} </h4>
-                    <h4> {product.price} </h4>
-                    <h4> {product.category} </h4>
-                    <h4> {product.ref} </h4>
-                    <h4> {product.description} </h4>
-                    <img src={product.mainImage} alt="product details"/>
-                    <h4> {product.seller} </h4>
-                    <Link to={`/seller/${product.seller}`}> <button> View seller profile</button></Link>
-            </Div>
+            {/* <Div>
+                <div className="content">
+                    <S.Head>
+
+                        <div>
+                            <S.Img src={product.mainImage} alt="product details"/>
+                        </div>
+                        <div className="title-section">
+                            <h1> {product.title} </h1>
+                            <p> Ref: {product.ref} </p>
+                            <h2> {product.price} €</h2>
+                            <div>
+                                <AddToCardButton>Añadir al carrito</AddToCardButton>
+                            </div>
+                        </div>
+                    </S.Head>
+                    <S.Description>
+                        <div>
+                            <h4>Descripción</h4>
+                            <p> {product.description} </p>
+                        </div>
+                        <div>
+                            <h4><img src={seller.userImage} alt="tienda"/>&nbsp;&nbsp; Tienda {seller.username} </h4>
+                            <p> {seller.description} Lorem ipsum It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing </p>
+                            <Link to={`/seller/${product.seller}`}> <Button> Saber más </Button></Link>
+                        </div>
+                    </S.Description>
+                </div>
+            </Div> */}
+
+            <ProductSheet                 
+                mainImage={product.mainImage} 
+                title={product.title} 
+                reference={product.ref} 
+                price={product.price} 
+                description={product.description} 
+                userImage={seller.userImage} 
+                userDescription={seller.description}
+                link={`/seller/${product.seller}`} 
+            />
+
+            <div>
+                <Footer />
+            </div>
         </div>
     )
 

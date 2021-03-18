@@ -2,9 +2,10 @@ import React from 'react';
 import {Logo, Nav, Div} from './styles'
 import {Link} from 'react-router-dom';
 import Logout from '../../components/Logout/Logout';
-import Searchbar from '../Searchbar/Searchbar'
+import Searchbar from '../Searchbar/Searchbar';
 import { useAuth } from '../../context/AuthContext.utils';
-import {Button} from "../../commons/commons.style"
+import {Button} from "../../commons/commons.style";
+import Carrito from "../../components/Carrito/Carrito";
 
 function Navbar () {
 
@@ -23,6 +24,7 @@ function Navbar () {
                 <Div className="list">
                     <Link to="/products"><Button>My Area</Button></Link>
                     <Link to="/add"><Button>Create Product</Button></Link>
+                    <Carrito />
                     <Logout/>
                 </Div>
             </Nav>
@@ -41,7 +43,7 @@ function Navbar () {
                 <Div className="list">
                     <Link to="/signup"><Button>Signup</Button></Link>
                     <Link to="/login"><Button>Login</Button></Link>
-                    {/* <Logout/> */}
+                    <Carrito />
                 </Div>
         </Nav>
         )   

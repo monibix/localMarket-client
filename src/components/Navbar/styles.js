@@ -31,4 +31,8 @@ export const Div = styled.div`
         width: 300px;
         background-color: red;
     }
+    ${'' /* img{
+        width: 35px;
+        margin: 0 20px 0 10px;
+    } */}
 `

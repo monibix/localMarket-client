@@ -5,10 +5,6 @@ import Footer from "../../components/Footer/Footer";
 import { Link } from 'react-router-dom';
 import Joyeria from "../../assets/joyeria770.png";
 import Bebes from "../../assets/bebes-tips-para-elegir-la-mejor-ropita--770x513.jpg";
-import Producto1 from "../../assets/producto.jpg"
-import Producto2 from "../../assets/Producto2.jpg";
-import Producto3 from "../../assets/Producto3.png";
-import Producto4 from "../../assets/Producto4.jpeg";
 import Carrousel1 from "../../assets/Carrousel1.jpeg";
 import Carrousel2 from "../../assets/Carrousel2.jpeg";
 import Carrousel3 from "../../assets/Carrousel3.jpeg";
@@ -53,14 +49,14 @@ function Main() {
                     <img class="d-block w-100" src={Carrousel3} alt="Third slide"/>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                {/* <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
                 <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
-                </a>
+                </a> */}
             </S.CarrouselDiv>
 
             <S.Div>

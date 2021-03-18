@@ -18,7 +18,7 @@
 //     margin: 10px;
 // `
 
-// export const ProductCard = styled.div`
+// export const ProductCardDiv = styled.div`
 //     width: 250px;
 //     min-height: 320px;
 //     display: flex;
@@ -61,6 +61,7 @@
 
 // export const Img = styled.img`
 //     width: 10vw;
+//     border-bottom: 1px solid #1687A7;
 // `
 
 import styled from 'styled-components';

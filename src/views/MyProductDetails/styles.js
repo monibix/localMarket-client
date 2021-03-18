@@ -48,7 +48,7 @@ export const P = styled.p`
 `
 
 export const H4 = styled.h2`
-
+    margin-top: 20px;
 `
 
 export const Description = styled.div`
