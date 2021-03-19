@@ -1,55 +1,48 @@
-// import styled from 'styled-components';
+import styled from 'styled-components';
+import { Button } from "../../commons/commons.style"
 
-// export const Div = styled.div`
-//     background-color: whitesmoke;
-//     display: flex;
-//     .content{
-//         margin: 0 auto;
-//     }
-// `
-
-// export const ProductCardContainer = styled.div`
-//     min-width: 300px;
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: center;
-//     padding: 5px;
-//     border-radius: 5px;
-//     margin: 10px;
-// `
+export const Div = styled.div`
+    background-color: whitesmoke;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    .content{
+        margin: 0 auto;
+    }
+`
 
 // export const ProductCard = styled.div`
 //     width: 250px;
 //     min-height: 320px;
 //     display: flex;
 //     flex-direction: column;
-//     padding: 5px;
 //     border-radius: 5px;
-//     margin: 10px;
 //     border: 2px solid #1687A7;
 //     background-color: white;
+//     margin-left: 50px;
+//     margin-bottom: 50px;
 //     img {
-//         padding: 40px;
 //         align-self: center;
 //         justify-content: center;
 //     }
-//     h3 {
+//     h4 {
+//         padding-top: 10px;
 //         text-decoration: none;
 //         color: black;
 //     }
-//     :hover {
-//         background-color: #eee8aa;
+//     div:hover {
+//         background-color: #1687a7;
+//         opacity: 0.8;
 //     }
-// `
+//     .title{
+//         text-align: left;
+//         padding: 10px 20px;
 
-// export const Button = styled.p`
-//     border: 2px solid #1687a7 ;
-//     padding: 5px 10px;
-//     background-color: #eff8ff;
-//     border-radius: 5px;
-//     margin: 2px;
-//     color: black;
-//     text-decoration: none;
+//     }
+//     .price {
+//         text-align: right;
+//         padding: 0px 20px;
+//     }
 // `
 
 // export const SearchBar = styled.input`
@@ -58,82 +51,6 @@
 //     border-radius: 5px;
 //     width: 20vw;
 // `
-
-// export const Img = styled.img`
-//     width: 10vw;
-// `
-
-import styled from 'styled-components';
-import { Button } from "../../commons/commons.style"
-
-export const Div = styled.div`
-    background-color: whitesmoke;
-    display: flex;
-    padding: 20px;
-    .content{
-        margin: 0 auto;
-    }
-`
-
-// export const ProductCardContainer = styled.div`
-//     min-width: 300px;
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: center;
-//     padding: 5px;
-//     border-radius: 5px;
-//     margin: 10px;
-// `
-
-export const ProductCard = styled.div`
-    width: 250px;
-    min-height: 320px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    border: 2px solid #1687A7;
-    background-color: white;
-    margin-left: 50px;
-    img {
-        align-self: center;
-        justify-content: center;
-    }
-    h4 {
-        padding-top: 10px;
-        text-decoration: none;
-        color: black;
-    }
-    div:hover {
-        background-color: #1687a7;
-        opacity: 0.8;
-    }
-    .title{
-        text-align: left;
-        padding: 10px 20px;
-
-    }
-    .price {
-        text-align: right;
-        padding: 0px 20px;
-    }
-`
-
-// export const Button = styled.p`
-//     border: 2px solid #1687a7 ;
-//     padding: 5px 10px;
-//     background-color: #eff8ff;
-//     border-radius: 5px;
-//     margin: 2px;
-//     color: black;
-//     text-decoration: none;
-// `
-
-export const SearchBar = styled.input`
-    padding: 5px 10px;
-    border: 2px solid #1687a7;
-    border-radius: 5px;
-    width: 20vw;
-`
 
 export const Img = styled.img`
     width: 10vw;

@@ -42,7 +42,7 @@ function MyProductDetails() {
                         description={products.description} 
                         userImage={products.userImage} 
                         userDescription={products.description}
-                        link={`/seller/${products.seller}`} 
+                        link={`/profile`} 
                     />
                     <div>
                         <Link to={`/products/${products._id}/edit`}> <Button> Edit product </Button></Link>

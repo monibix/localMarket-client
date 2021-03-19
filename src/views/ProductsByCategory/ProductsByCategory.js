@@ -26,6 +26,44 @@ function ProductsCard() {
         })
     }, [category])
 
+    //LÓGICA FILTROS
+    console.log("products", products)
+    const handleFilterPrice = ({target}) => {
+        console.log("filterprecio", products)
+        const productsCopy = [...products]
+        //const orderedArr = productsCopy.sort((a, b)=> b.price - a.price )
+        const orderedArr = productsCopy.sort((a, b)=>{
+            if (target.value === "ascendiente") {
+                return a.price - b.price
+            }
+            if (target.value === "descendiente") {
+                return b.price - a.price
+            }
+        })
+        console.log("orderedArr", orderedArr)
+        setProducts(orderedArr)
+    }
+    const handleFilterTitle = ({target}) => {
+        console.log("filter TITLE", products)
+        const productsCopy = [...products]
+        const orderedArr = productsCopy.sort((a, b) => {
+            if (target.value === "a-z") {
+                console.log("az")
+                if (a.title < b.title) return -1;
+                if (a.title > b.title) return 1;
+            }
+            if (target.value === "z-a") {
+                console.log("bz", target.value)
+                if (a.title < b.title) return 1;
+                if (a.title > b.title) return -1;
+            }
+            return a.title 
+        } )
+        
+        console.log("orderedArr", orderedArr)
+        setProducts(orderedArr)
+    }
+
     return (
         <div>
             <div>
@@ -59,41 +97,23 @@ function ProductsCard() {
                     <Link to="/"><p>Home &nbsp;</p></Link><p> &#62; &nbsp;</p><Link to={`/category?category=${category}`}><p>{category}&nbsp;</p></Link>
                 </S.DivMigas>
                 <S.DivFilters>
-                    <p>Ordena por fecha de publicación:</p>
+                    {/* <p>Ordena por fecha de publicación:</p>
                     <select name="" id="">
                         <option value="">Más reciente</option>
                         <option value="">Más antiguo</option>
-                    </select>
+                    </select> */}
                     <p>Ordena por nombre:</p>
-                    <select name="" id="">
-                        <option value="">A - Z</option>
-                        <option value="">Z - D</option>
+                    <select name="title" onChange={handleFilterTitle}>
+                        <option value="a-z">A - Z</option>
+                        <option value="z-a">Z - A</option>
                     </select>
                     <p>Ordena por precio:</p>
-                    <select name="" id="">
-                        <option value="">Ascedendiente</option>
-                        <option value="">Descendiente</option>
+                    <select name="precio" onChange={handleFilterPrice} >
+                        <option value="ascendiente">Ascedendiente</option>
+                        <option value="descendiente">Descendiente</option>
                     </select>
                 </S.DivFilters>
             </S.SectionHead>
-
-            {/* <S.Div>
-                {
-                        products.map((item, key)=>{
-                            return (
-                                <S.ProductCard key={key}>
-                                    <Link to={`/category/${item._id}`} >
-                                    <S.Img src={item.mainImage} alt="card"/>
-                                    <div>
-                                        <h4 className="title"> {item.title} </h4>
-                                        <h4 className="price"> {item.price} € </h4>
-                                    </div>
-                                    </Link>
-                                </S.ProductCard>
-                            )
-                        })
-                    }
-            </S.Div> */}
 
             <S.Div>
                 {

@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router";
 import { 
   login, 
   logout, 
@@ -19,6 +20,7 @@ const initialState = {
 };
 
 function AuthProvider({ children }) {
+  const history = useHistory()
   const [state, setState] = React.useState(initialState);
 
   const handleLogin = React.useCallback(async (user) => {
@@ -27,6 +29,7 @@ function AuthProvider({ children }) {
       console.log("loged user", loggedUser)
       saveUser(loggedUser);
       setState({ user: { ...loggedUser, isLogged: true } });
+      history.push("/products")
     } catch (e) {
       console.error(e);
     }
@@ -37,6 +40,7 @@ function AuthProvider({ children }) {
       const { data: loggedUser } = await signup(user);
       saveUser(loggedUser);
       setState({ user: { ...loggedUser, isLogged: true } });
+      history.push("/products")
     } catch (e) {
       console.error(e);
     }

@@ -95,6 +95,7 @@ export const ProductCard = styled.div`
     border: 2px solid #1687A7;
     background-color: white;
     margin-left: 50px;
+    margin-bottom: 50px;
     img {
         align-self: center;
         justify-content: center;

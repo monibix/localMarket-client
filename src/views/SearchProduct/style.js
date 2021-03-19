@@ -62,3 +62,25 @@ export const SearchBar = styled.input`
 export const Img = styled.img`
     width: 10vw;
 `
+
+export const SectionHead = styled.section`
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 90px;
+`
+
+export const DivMigas = styled.div`
+    display: flex;
+    p {
+        margin: auto 0;
+    }
+`
+export const DivFilters = styled.div`
+    display: flex;
+    p {
+        margin: auto 0;
+    }
+    select {
+        margin: 0 20px 0 5px;
+    }
+`
