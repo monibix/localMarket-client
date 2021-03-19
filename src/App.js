@@ -15,6 +15,7 @@ import ProductsByCategory from "./views/ProductsByCategory/ProductsByCategory";
 import ProductByCategory from "./views/ProductByCategoryDetail/ProductByCategoryDetail";
 import SellerDetails from "./views/SellerDetails/SellerDetails";
 import SearchProduct from "./views/SearchProduct/SearchProduct";
+import ShoppingCart from "./views/ShooppingCart/ShoppingCart";
 
 function App() {
 
@@ -58,6 +59,9 @@ function App() {
         </Route>
         <Route path="/query">
           <SearchProduct />
+        </Route>
+        <Route path="/shoppingcart">
+          <ShoppingCart />
         </Route>
         <Route path="/">
           <Main />

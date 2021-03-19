@@ -3,8 +3,22 @@ import { Div } from "./style";
 import * as S from "./style"
 import { Button, AddToCardButton } from '../../commons/commons.style';
 import {Link} from "react-router-dom";
+import { useCarrito } from "../../context/CarritoContext.utils";
 
 function ProductSheet(props) {
+
+    const { carrito, addToCarrito} = useCarrito()
+    console.log("carrito", carrito)
+    console.log("addtocarrito", addToCarrito)
+
+    const handleClick = () => {
+        console.log("añadido al carrito")
+        const title = props.title
+        console.log("title", title)
+        const productID = props.productId
+        const price = props.price
+        addToCarrito({productID, title, price})
+    }
     
     return (    
 
@@ -20,7 +34,7 @@ function ProductSheet(props) {
                             <p> Ref: {props.reference} </p>
                             <h2> {props.price} €</h2>
                             <div>
-                                <AddToCardButton>Añadir al carrito</AddToCardButton>
+                                <AddToCardButton onClick={handleClick} >Añadir al carrito</AddToCardButton>
                             </div>
                         </div>
                     </S.Head>

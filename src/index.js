@@ -6,13 +6,16 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import AuthProvider from "./context/AuthContext";
 import ProductProvider from "./context/ProductsContext";
+import CarritoProvider from "./context/CarritoContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <AuthProvider>
       <ProductProvider>
+      <CarritoProvider>
         <App />
+      </CarritoProvider>
       </ProductProvider>
       </AuthProvider>
       
