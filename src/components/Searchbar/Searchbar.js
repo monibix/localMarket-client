@@ -13,7 +13,6 @@ function Searchbar() {
         console.log("input", input)
         setSearchedProducts(input)
     }
-    console.log("searchedproducts", searchedProducts)
 
     const handleSubmit = (e) => {
         e.preventDefault()

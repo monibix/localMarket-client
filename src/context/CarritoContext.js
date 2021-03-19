@@ -11,13 +11,14 @@ function CarritoProvider({children}) {
         setCarrito((state) => state.concat({productId}))
     }
 
-    const getProductDetails = () => {
-
+    const deleteFromCarrito = (id) => {
+        console.log("delete context")
+        setCarrito(carrito.filter((item)=>item.productId.productID !== id ))
     }
 
 
     return (
-        <CarritoContext.Provider value={{carrito, addToCarrito }}>
+        <CarritoContext.Provider value={{carrito, addToCarrito, deleteFromCarrito }}>
             {children}
         </CarritoContext.Provider>
     )

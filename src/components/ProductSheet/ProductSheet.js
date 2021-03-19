@@ -11,13 +11,15 @@ function ProductSheet(props) {
     console.log("carrito", carrito)
     console.log("addtocarrito", addToCarrito)
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        e.preventDefault()
         console.log("añadido al carrito")
         const title = props.title
         console.log("title", title)
         const productID = props.productId
         const price = props.price
-        addToCarrito({productID, title, price})
+        const mainImage = props.mainImage
+        addToCarrito({productID, title, price, mainImage})
     }
     
     return (    
