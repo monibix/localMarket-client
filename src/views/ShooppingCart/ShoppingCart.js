@@ -7,9 +7,14 @@ import { useHistory } from "react-router";
 
 function ShoppingCart() {
     
+    //recupero order de localStorage
+    const order = localStorage.getItem("order");
+    console.log("order", order)
+
+
     const history = useHistory()
 
-    const { carrito, deleteFromCarrito } = useCarrito()
+    const { carrito, setCarrito, deleteFromCarrito } = useCarrito()
     console.log("carrito", carrito)
 
     const handleClick=(id)=>{
@@ -19,6 +24,31 @@ function ShoppingCart() {
 
     const handleSeguirComprando = () => {
         history.push("/")
+    }
+
+    const redirectHome = () => {
+        history.push("/")
+    }
+
+    const [message, setMessage] = React.useState("")
+    const [btnText, setBtnText] = React.useState("")
+    const [isActive, setIsActive] = React.useState(false)
+    const [action, setAction] = React.useState()
+    const handleOrder = () => {
+        if (carrito.length === 0) {
+            setMessage("No tienes productos en tu cesta")
+            setBtnText("Ver productos")
+            setIsActive(true)
+            //setAction() //redirige directamente!!
+        }
+        else {
+            setMessage("Gracias por tu compra")
+            setBtnText("Seguir mi pedido")
+            setIsActive(true)
+            //llamar a la api para guardar pedido en modelo user-orders[] order es igual a [] 
+            localStorage.removeItem("order") //borrar localStorage una vez se ha añadido el order al modelo
+            setCarrito([]) //vaciar carrito //error carrito is not a function
+        }
     }
 
     return(
@@ -59,7 +89,18 @@ function ShoppingCart() {
 
                 <div>
                     <Button onClick={handleSeguirComprando}>Seguir comprando</Button>
-                    <Button>Pagar</Button>
+                    <Button onClick={handleOrder}>Pagar</Button>
+                </div>
+                <div>
+                    {message}
+                    {
+                        isActive ? (
+                            <Button onClick={()=>action()}>{btnText}</Button>
+                        ) : (
+                            <p></p>
+                        )
+                    }
+                    
                 </div>
 
             </div>

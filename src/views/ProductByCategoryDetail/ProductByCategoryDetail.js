@@ -64,7 +64,6 @@ function ProductByCategoryDetail() {
                 link={`/seller/${product.seller}`} 
                 productId = {product._id}
             />
-
             <div>
                 <Footer />
             </div>

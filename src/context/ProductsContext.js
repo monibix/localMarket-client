@@ -12,7 +12,8 @@ export const ProductContext = React.createContext({});
 function ProductProvider({children}) {
 
     const [products, setProducts] = React.useState([]);
-    console.log("products en productProvider", products)
+    const [product, setProduct] = React.useState({})
+    //console.log("products en productProvider", products)
 
     const getMyProducts = async() => {
         const { data : myProducts } = await getMyProductsService()
@@ -26,14 +27,16 @@ function ProductProvider({children}) {
     }
 
     const getMyProduct = async(productId) => {
-        const { data: myProduct } = await getMyProductService(productId)
-        setProducts(myProduct)
+        // const { data: myProduct } = await getMyProductService(productId)
+        // setProducts(myProduct)
+        const {data: product} = await getMyProductService(productId)
+        setProduct(product)
     }
 
     const editProduct = async(productId, body) =>{
         const { data: myProduct } = await editProductService(productId, body)
         console.log("myproduct", myProduct)
-        setProducts(myProduct)
+        //setProduct(myProduct)
     }
 
     const deleteProduct = async(product) =>{
@@ -43,7 +46,7 @@ function ProductProvider({children}) {
     }
 
     return (
-        <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts, getMyProduct, editProduct, deleteProduct }} >
+        <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts, getMyProduct, editProduct, deleteProduct, product }} >
             {children}
         </ProductContext.Provider>
     )

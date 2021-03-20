@@ -25,6 +25,12 @@ function SearchProduct() {
         })
     }, [query])
     console.log("prodtosearch", prodToSearch)
+
+    // const [sentence, setSentece] = React.useState("")
+    // if(prodToSearch.length === 0) {
+    //     setSentece("No hay productos con tu busqueda")
+    // }
+
     return (
         <div>
             <div>
@@ -67,6 +73,7 @@ function SearchProduct() {
                         )
                     })
                 }
+                {/* <p>{sentence}</p> */}
             </Div>
         </div>
     )

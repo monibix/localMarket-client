@@ -58,7 +58,7 @@ function Productform() {
             />
             <Label htmlFor="price">Price</Label>
             <Input 
-                type="num" 
+                type="number" 
                 name="price" 
                 placeholder="Enter product's price"
                 onChange={handleChange}

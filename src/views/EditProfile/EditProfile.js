@@ -122,30 +122,7 @@ function EditProfile() {
                                     value={state.description}></S.Textarea>
                         </div>
                     </div>
-
-                    <S.Label htmlFor="username">Username</S.Label>
-                    <S.Input 
-                        type="text" 
-                        name="username"  
-                        onChange={handleEdit}
-                        value={state.username}
-                    />
-                    <S.Label htmlFor="direction">Direction</S.Label>
-                    <S.Input 
-                        type="text" 
-                        name="direction"
-                        onChange={handleEdit}
-                        value={state.direction}
-                    />
-                    <S.Label htmlFor="image">User Image</S.Label>
-                    <S.Input 
-                        type="file"     
-                        name="image" 
-                        value={state.image}     
-                        onChange={handleUpload}
-                        disable={!imageReady} 
-                    />
-                    <S.Button type="submit">Edit Profile</S.Button>
+                    <S.Button type="submit" disable={!imageReady} >Edit Profile</S.Button>
                 </S.Form>
                 </div>
             </S.Div>

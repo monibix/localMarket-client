@@ -43,6 +43,7 @@ function AuthProvider({ children }) {
       history.push("/products")
     } catch (e) {
       console.error(e);
+      //setError(e.response) 
     }
   }, []);
 

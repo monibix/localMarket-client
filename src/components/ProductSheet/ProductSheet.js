@@ -2,10 +2,19 @@ import React from 'react';
 import { Div } from "./style";
 import * as S from "./style"
 import { Button, AddToCardButton } from '../../commons/commons.style';
-import {Link} from "react-router-dom";
+import {Link, useLocation } from "react-router-dom";
 import { useCarrito } from "../../context/CarritoContext.utils";
 
 function ProductSheet(props) {
+
+    const locat = useLocation()
+    console.log("locat", locat)
+    const pathname = locat.pathname
+    console.log("pathmame", pathname)
+    if (pathname.includes("products")){
+        console.log("true")
+        //ocultar botón añadir carrito (ocultar, handleClick devuelve string "no puedes comprar tu producto", o algo así)
+    }
 
     const { carrito, addToCarrito} = useCarrito()
     console.log("carrito", carrito)

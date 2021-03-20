@@ -14,12 +14,14 @@ function MyProductDetails() {
     console.log("productparams", productId)
     const history = useHistory()
 
-    const { products, getMyProduct } = useProducts();
-    console.log("single product", products)
+    //const { products, getMyProduct } = useProducts();
+    const { product, getMyProduct } = useProducts()
+    //console.log("single product", products)
 
     React.useEffect(()=>{
-        getMyProduct(productId)
-    }, [])
+        getMyProduct(productId);
+        
+    }, [productId])
 
     const handleDelete =async (id) => {
         await deleteProduct(id)
@@ -35,18 +37,18 @@ function MyProductDetails() {
                 <Sidebar/>
                 <div>
                     <ProductSheet                 
-                        mainImage={products.mainImage} 
-                        title={products.title} 
-                        reference={products.ref} 
-                        price={products.price} 
-                        description={products.description} 
-                        userImage={products.userImage} 
-                        userDescription={products.description}
+                        mainImage={product.mainImage} 
+                        title={product.title} 
+                        reference={product.ref} 
+                        price={product.price} 
+                        description={product.description} 
+                        userImage={product.userImage} 
+                        userDescription={product.description}
                         link={`/profile`} 
                     />
                     <div>
-                        <Link to={`/products/${products._id}/edit`}> <Button> Edit product </Button></Link>
-                        <Button onClick={()=>handleDelete(products._id)}> Delete product </Button>
+                        <Link to={`/products/${product._id}/edit`}> <Button> Edit product </Button></Link>
+                        <Button onClick={()=>handleDelete(product._id)}> Delete product </Button>
                     </div>
                 </div>
             </Div>

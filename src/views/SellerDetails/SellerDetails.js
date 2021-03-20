@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from "./style"
 import Navbar from '../../components/Navbar/Navbar';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { getSellerDetails as getSellerDetailsService } from "../../service/main.service"
 import Footer from '../../components/Footer/Footer';
 import ProfileComp from "../../components/ProfileComp/ProfileComp";
@@ -9,6 +9,14 @@ import ProductCardComp from "../../components/ProductCardComp/ProductCardComp";
 
 
 function SellerDetails() {
+    
+    //Intento de recuperar url anterior
+    const history = useHistory()
+    const anterior = history.goBack
+    console.log("anterior", anterior)
+    console.log("history", history)
+
+
     const {sellerId} = useParams()
     console.log("sellerId", sellerId)
 
