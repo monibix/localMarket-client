@@ -11,17 +11,30 @@ function ProductSheet(props) {
     console.log("carrito", carrito)
     console.log("addtocarrito", addToCarrito)
 
+    let initialQuantity = 0;
+    const [quantity, setQuantity] = React.useState(initialQuantity)
+    const add = () => {
+        setQuantity(quantity + 1)
+    }
+    const substract = () => {
+        setQuantity( quantity <= 0 ? 0 : quantity -1 )
+    }
+
+    const [userResponse, setUserResponse] = React.useState("")
+
     const handleClick = (e) => {
         e.preventDefault()
         console.log("añadido al carrito")
         const title = props.title
-        console.log("title", title)
         const productID = props.productId
         const price = props.price
         const mainImage = props.mainImage
         addToCarrito({productID, title, price, mainImage})
+        setUserResponse(`${quantity} añadido`)
     }
-    
+
+
+
     return (    
 
             <Div>
@@ -35,8 +48,14 @@ function ProductSheet(props) {
                             <h1> {props.title} </h1>
                             <p> Ref: {props.reference} </p>
                             <h2> {props.price} €</h2>
+                            <div style={{display: "flex"}}>
+                                <button onClick={substract}>Menos</button><h2>{quantity}</h2><button onClick={add}>Mas</button>
+                            </div>
                             <div>
                                 <AddToCardButton onClick={handleClick} >Añadir al carrito</AddToCardButton>
+                                {
+                                    <h6 style={{color: "green"}}>{userResponse}</h6>
+                                }
                             </div>
                         </div>
                     </S.Head>
