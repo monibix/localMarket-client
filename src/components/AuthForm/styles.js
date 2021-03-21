@@ -4,7 +4,9 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: 
+  h5 {
+    color: red;
+  }
 `;
 
 export const Input = styled.input`

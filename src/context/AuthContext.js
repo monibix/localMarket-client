@@ -22,6 +22,7 @@ const initialState = {
 function AuthProvider({ children }) {
   const history = useHistory()
   const [state, setState] = React.useState(initialState);
+  const [error, setError] = React.useState("")
 
   const handleLogin = React.useCallback(async (user) => {
     try {
@@ -31,7 +32,9 @@ function AuthProvider({ children }) {
       setState({ user: { ...loggedUser, isLogged: true } });
       history.push("/products")
     } catch (e) {
-      console.error(e);
+      console.log("catch login", e.response.data.message)
+      console.error(e.response);
+      setError(e.response.data.message)
     }
   }, []);
 
@@ -85,7 +88,9 @@ function AuthProvider({ children }) {
         handleLogout, 
         handleSignup, 
         editUser, 
-        getUserInfo }}
+        getUserInfo, 
+        error
+        }}
     >
       {children}
     </AuthContext.Provider>

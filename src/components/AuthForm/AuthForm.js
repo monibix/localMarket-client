@@ -1,10 +1,11 @@
 import React from 'react';
+import { useAuth } from '../../context/AuthContext.utils';
 import { Form, Input, Button, Label } from "./styles";
 
 
 function AuthForm({btnText, onSubmit}) {
-
     const [state, setState] = React.useState({email: "", password: ""})
+    const { error } = useAuth()
 
     const handleChange = ({target}) => {
         setState({ ...state, [target.name]: target.value });
@@ -32,6 +33,7 @@ function AuthForm({btnText, onSubmit}) {
                 onChange={handleChange}
             />
             <Button type="submit">{btnText}</Button>
+            <h5>{error}</h5>
             </Form>
     )
 }
