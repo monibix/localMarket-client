@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
+
 import { 
   login, 
   logout, 
@@ -46,7 +47,7 @@ function AuthProvider({ children }) {
       history.push("/products")
     } catch (e) {
       console.error(e);
-      //setError(e.response) 
+      setError(e.response.data.message)
     }
   }, []);
 

@@ -21,6 +21,7 @@ function EditProduct() {
     
     React.useEffect(()=>{
         getMyProductService(productId).then(( {data: currentProduct} )=>{
+            console.log("currentproduct", currentProduct)
             setProduct(currentProduct)
         })
     }, [])
@@ -31,6 +32,7 @@ function EditProduct() {
         setProduct({...product, [name]:value })
     }
     const handleSubmit = async (e) => {
+        console.log("handlesubmit")
         e.preventDefault()
         await editProduct(productId, product)
         history.push(`/products/${productId}`)
@@ -125,8 +127,7 @@ function EditProduct() {
                             </div>
                         </S.Description>
 
-
-                        <S.Button type="submit" disabled={!imageReady} >Edit Product</S.Button>
+                        <S.Button type="submit" disable={!imageReady} >Edit Product</S.Button>
                     </S.Form>
                 </div>
             </S.Div>

@@ -31,7 +31,6 @@ function ProductsCard() {
     const handleFilterPrice = ({target}) => {
         console.log("filterprecio", products)
         const productsCopy = [...products]
-        //const orderedArr = productsCopy.sort((a, b)=> b.price - a.price )
         const orderedArr = productsCopy.sort((a, b)=>{
             if (target.value === "ascendiente") {
                 return a.price - b.price
@@ -59,7 +58,6 @@ function ProductsCard() {
             }
             return a.title 
         } )
-        
         console.log("orderedArr", orderedArr)
         setProducts(orderedArr)
     }

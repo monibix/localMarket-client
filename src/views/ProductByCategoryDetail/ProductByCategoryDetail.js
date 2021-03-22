@@ -6,7 +6,6 @@ import { getProductByCategory as getProductByCategoryService } from "../../servi
 import { getSellerDetails as getSellerDetailsService } from "../../service/main.service"
 import Footer from '../../components/Footer/Footer';
 import ProductSheet from "../../components/ProductSheet/ProductSheet";
-import { ProductContext } from '../../context/ProductsContext';
 
 
 function ProductByCategoryDetail() {

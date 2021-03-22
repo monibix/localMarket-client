@@ -15,12 +15,12 @@ function MyProductDetails() {
     const history = useHistory()
 
     //const { products, getMyProduct } = useProducts();
-    const { product, getMyProduct } = useProducts()
+    const { product, getMyProduct, cleanProduct } = useProducts()
     //console.log("single product", products)
 
     React.useEffect(()=>{
         getMyProduct(productId);
-        
+        return () => cleanProduct()
     }, [productId])
 
     const handleDelete =async (id) => {

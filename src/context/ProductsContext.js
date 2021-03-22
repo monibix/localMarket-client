@@ -34,10 +34,15 @@ function ProductProvider({children}) {
     }
 
     const editProduct = async(productId, body) =>{
+        console.log("editproducservice")
         const { data: myProduct } = await editProductService(productId, body)
         console.log("myproduct", myProduct)
-        //setProduct(myProduct)
+        setProduct(myProduct)
     }
+
+    const cleanProduct = () => {
+        setProduct({});
+    };
 
     const deleteProduct = async(product) =>{
         await deleteProductService(product)
@@ -46,7 +51,7 @@ function ProductProvider({children}) {
     }
 
     return (
-        <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts, getMyProduct, editProduct, deleteProduct, product }} >
+        <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts, getMyProduct, editProduct, deleteProduct, product, cleanProduct }} >
             {children}
         </ProductContext.Provider>
     )

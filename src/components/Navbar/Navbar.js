@@ -43,7 +43,6 @@ function Navbar () {
                 <Div className="list">
                     <Link to="/signup"><Button>Signup</Button></Link>
                     <Link to="/login"><Button>Login</Button></Link>
-                    <Carrito />
                 </Div>
         </Nav>
         )   

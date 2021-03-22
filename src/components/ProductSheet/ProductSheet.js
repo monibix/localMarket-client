@@ -14,11 +14,11 @@ function ProductSheet(props) {
     if (pathname.includes("products")){
         console.log("true")
         //ocultar botón añadir carrito (ocultar, handleClick devuelve string "no puedes comprar tu producto", o algo así)
+
     }
 
     const { carrito, addToCarrito} = useCarrito()
     console.log("carrito", carrito)
-    console.log("addtocarrito", addToCarrito)
 
     let initialQuantity = 0;
     const [quantity, setQuantity] = React.useState(initialQuantity)
@@ -39,10 +39,8 @@ function ProductSheet(props) {
         const price = props.price
         const mainImage = props.mainImage
         addToCarrito({productID, title, price, mainImage})
-        setUserResponse(`${quantity} añadido`)
+        setUserResponse(`Producto añadido al carrito`)
     }
-
-
 
     return (    
 

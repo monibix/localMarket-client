@@ -9,13 +9,11 @@ import ProductCardComp from "../../components/ProductCardComp/ProductCardComp";
 
 
 function SellerDetails() {
-    
     //Intento de recuperar url anterior
     const history = useHistory()
     const anterior = history.goBack
     console.log("anterior", anterior)
     console.log("history", history)
-
 
     const {sellerId} = useParams()
     console.log("sellerId", sellerId)
@@ -27,8 +25,7 @@ function SellerDetails() {
             setSeller(sellerInfo)
         })
     }, [sellerId])
-
-    console.log("sellerInfo", seller)
+    console.log("sellerInfo", seller) 
     
     return (    
         <div>   
@@ -57,10 +54,19 @@ function SellerDetails() {
                 />
             <S.Div>
                 <h4>Ver más productos de {seller.username}</h4>
-                <div>
-                    {/* ProductCard de esta tienda. Falta relación modelo usuario con productos */}
-                    <ProductCardComp/>
-                </div>
+                    {/* {
+                        seller.userProducts.map((item, key)=>{ //cannot read property map of undefined
+                            return (
+                                <ProductCardComp
+                                    id={item._id}
+                                    title={item.title}
+                                    mainImage={item.mainImage}
+                                    price={item.price}
+                                />
+                            )
+                        })
+                    } */}
+                    <ProductCardComp />
             </S.Div>
 
             <div>
