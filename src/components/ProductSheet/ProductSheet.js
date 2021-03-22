@@ -55,7 +55,6 @@ function ProductSheet(props) {
                         <div className="title-section">
                             <h1> {props.title} </h1>
                             <p> Ref: {props.reference} </p>
-                            <p>id: {props.productId}</p>
                             <Favourites id={props.productId} />
                             <h2> {props.price} €</h2>
                             {/* <div style={{display: "flex"}}>

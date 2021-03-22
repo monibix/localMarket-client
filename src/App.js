@@ -16,6 +16,7 @@ import ProductByCategory from "./views/ProductByCategoryDetail/ProductByCategory
 import SellerDetails from "./views/SellerDetails/SellerDetails";
 import SearchProduct from "./views/SearchProduct/SearchProduct";
 import ShoppingCart from "./views/ShooppingCart/ShoppingCart";
+import MyFavourites from "./views/MyFavourites/MyFavourites";
 
 function App() {
 
@@ -47,6 +48,9 @@ function App() {
         </PrivateRoute>
         <PrivateRoute path="/profile/edit">
           <EditProfile />
+        </PrivateRoute>
+        <PrivateRoute exact path="/favourites">
+          <MyFavourites />
         </PrivateRoute>
         <Route exact path="/category">
           <ProductsByCategory />

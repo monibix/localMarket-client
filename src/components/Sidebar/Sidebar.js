@@ -12,6 +12,8 @@ function Sidebar() {
             <Link to="/products"><h4>My products</h4></Link>
 
             <Link to="/add"><h4>Create product</h4></Link>
+
+            <Link to="/favourites"><h4>Favourites</h4></Link>
         </Div>
     )
 }
