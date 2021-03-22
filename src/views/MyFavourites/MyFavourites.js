@@ -5,26 +5,19 @@ import { Div } from "../../commons/commons.style"
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { ProductCardContainer } from "../Products/style";
 import ProductCardComp from "../../components/ProductCardComp/ProductCardComp";
-import { useAuth } from "../../context/AuthContext.utils";
-import { getMyFavourites as getMyFavouritesService } from "../../service/products.service"
+//import { useAuth } from "../../context/AuthContext.utils";
+//import { getMyFavourites as getMyFavouritesService } from "../../service/products.service"
+import { useProducts } from '../../context/ProductsContext.utils';
+
 
 function MyFavourites() {
 
-    const [ favourites, setFavourites] = React.useState({})
-    
-    React.useEffect(()=>{
-        getMyFavouritesService().then(({data: favourites})=>{
-            console.log("data",favourites)
-            setFavourites(favourites)
-        })
-    }, [])
-    console.log("favourites", favourites)
+    const { products, getMyFavourites } = useProducts();    
 
-    // React.useEffect(()=>{
-    //     getProductsByCategoryService(category).then(({data: categoryProducts})=>{
-    //         setProducts(categoryProducts)
-    //     })
-    // }, [category])
+    React.useEffect(()=>{
+        getMyFavourites()
+    },[])
+    console.log("products", products)
 
 
     return (
@@ -35,12 +28,15 @@ function MyFavourites() {
             <Div>
                 <Sidebar />
                 <ProductCardContainer>
-                    {/* {
-                        favourites.map(()=> {
-                            return <ProductCardComp title={favourites.title} />
+                    {
+                        products.map((item, key)=> {
+                            return <ProductCardComp 
+                                title={item.title} 
+                                mainImage={item.mainImage}
+                                price={item.price} />
                         })
                         
-                    } */}
+                    }
                 </ProductCardContainer>
 
             </Div>

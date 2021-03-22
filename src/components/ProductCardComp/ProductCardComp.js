@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 
 function Products(props) {
 
-    const { products, getMyProducts } = useProducts();
-    console.log("products en products view", products) 
+    // const { products, getMyProducts } = useProducts();
+    // console.log("products en products view", products) 
 
-    React.useEffect(()=>{
-        getMyProducts()
-    },[])
+    // React.useEffect(()=>{
+    //     getMyProducts()
+    // },[])
 
     return (
         <S.ProductCard key={props._id}>

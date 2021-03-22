@@ -4,7 +4,8 @@ import {
     getMyProducts as getMyProductsService, 
     getMyProduct as getMyProductService, 
     editProduct as editProductService, 
-    deleteProduct as deleteProductService
+    deleteProduct as deleteProductService, 
+    getMyFavourites as getMyFavouritesService
 } from '../service/products.service';
 
 export const ProductContext = React.createContext({});
@@ -50,8 +51,14 @@ function ProductProvider({children}) {
         setProducts(products.filter((item)=>item._id !== product))
     }
 
+    const getMyFavourites = async() => {
+        const { data : favourites } = await getMyFavouritesService()
+        setProducts(favourites)
+        console.log("myfavoruites", favourites)
+    }
+
     return (
-        <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts, getMyProduct, editProduct, deleteProduct, product, cleanProduct }} >
+        <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts, getMyProduct, editProduct, deleteProduct, product, cleanProduct, getMyFavourites }} >
             {children}
         </ProductContext.Provider>
     )
