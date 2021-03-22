@@ -42,10 +42,6 @@ export const Img = styled.img`
 
 `
 
-export const MoreImages = styled.img`
-    width: 5vw;
-`
-
 export const Head = styled.div`
     display: flex;
     justify-content: flex-start;

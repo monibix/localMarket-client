@@ -24,13 +24,6 @@ function SearchProduct() {
             setProdToSearch(searchedProducts)
         })
     }, [query])
-    console.log("prodtosearch", prodToSearch)
-    console.log("message", prodToSearch.message)
-
-    // const [sentence, setSentece] = React.useState("")
-    // if(prodToSearch.length === 0) {
-    //     setSentece("No hay productos con tu busqueda")
-    // }
 
     const handleFilterTitle = ({target}) => {
         console.log("filter TITLE", prodToSearch)
@@ -48,7 +41,6 @@ function SearchProduct() {
             }
             return a.title 
         } )
-        console.log("orderedArr", orderedArr)
         setProdToSearch(orderedArr)
     }
 
@@ -108,20 +100,6 @@ function SearchProduct() {
                         <p>{ prodToSearch.message }</p>
                     )
                 }
-                
-                {/* {
-                    prodToSearch.map((item,key)=>{
-                        return (
-                            <ProductCardComp 
-                                title={item.title}
-                                mainImage={item.mainImage}
-                                price={item.price}
-                                category={item.category}
-                            />
-                        )
-                    })
-                } */}
-                {/* <p>{sentence}</p> */}
             </Div>
         </div>
     )

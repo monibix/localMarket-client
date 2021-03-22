@@ -4,6 +4,7 @@ import * as S from "./style"
 import { Button, AddToCardButton } from '../../commons/commons.style';
 import {Link, useLocation } from "react-router-dom";
 import { useCarrito } from "../../context/CarritoContext.utils";
+import Favourites from '../Favourites/Favourites';
 
 function ProductSheet(props) {
 
@@ -20,14 +21,14 @@ function ProductSheet(props) {
     const { carrito, addToCarrito} = useCarrito()
     console.log("carrito", carrito)
 
-    let initialQuantity = 0;
-    const [quantity, setQuantity] = React.useState(initialQuantity)
-    const add = () => {
-        setQuantity(quantity + 1)
-    }
-    const substract = () => {
-        setQuantity( quantity <= 0 ? 0 : quantity -1 )
-    }
+    // let initialQuantity = 0;
+    // const [quantity, setQuantity] = React.useState(initialQuantity)
+    // const add = () => {
+    //     setQuantity(quantity + 1)
+    // }
+    // const substract = () => {
+    //     setQuantity( quantity <= 0 ? 0 : quantity -1 )
+    // }
 
     const [userResponse, setUserResponse] = React.useState("")
 
@@ -54,10 +55,12 @@ function ProductSheet(props) {
                         <div className="title-section">
                             <h1> {props.title} </h1>
                             <p> Ref: {props.reference} </p>
+                            <p>id: {props.productId}</p>
+                            <Favourites id={props.productId} />
                             <h2> {props.price} €</h2>
-                            <div style={{display: "flex"}}>
+                            {/* <div style={{display: "flex"}}>
                                 <button onClick={substract}>Menos</button><h2>{quantity}</h2><button onClick={add}>Mas</button>
-                            </div>
+                            </div> */}
                             <div>
                                 <AddToCardButton onClick={handleClick} >Añadir al carrito</AddToCardButton>
                                 {
