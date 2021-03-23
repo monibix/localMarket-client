@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import favorito from "../../assets/favorito.png"
-import favoritoDisable from "../../assets/favoritoDisable.png"
-import * as S from "./style";
+// import favorito from "../../assets/favorito.png"
+// import favoritoDisable from "../../assets/favoritoDisable.png"
+// import * as S from "./style";
 import { manageFavourites as manageFavouritesService } from "../../service/main.service";
 import { useAuth } from '../../context/AuthContext.utils.js';
 
@@ -23,16 +23,18 @@ function Favourites() {
     const [message, setMessage] = React.useState("")
 
     React.useEffect(()=>{
-        getUserInfo(user.user).then(()=>{
-            console.log("data", user.favourites) 
-            //Cannot read property 'includes' of undefined
-            // if (user.favourites.includes(productId)) {
-            //     setBtnText(addToFavourites)
-            // }
-            // if (!user.favourites.includes(productId)) {
-            //     setBtnText(removeFromFavourites)
-            // }
-        })
+        getUserInfo(user.user)
+        
+        //     .then(()=>{
+        //     console.log("data", user.favourites) 
+        //     //Cannot read property 'includes' of undefined
+        //     // if (user.favourites.includes(productId)) {
+        //     //     setBtnText(addToFavourites)
+        //     // }
+        //     // if (!user.favourites.includes(productId)) {
+        //     //     setBtnText(removeFromFavourites)
+        //     // }
+        // })
     }, [btnText])
     console.log("getUserInfo", user)
 
