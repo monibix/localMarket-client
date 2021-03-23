@@ -16,7 +16,7 @@ function Products() {
 
     React.useEffect(()=>{
         getMyProducts()
-    },[getMyProducts])
+    },[]) //si pongo getMyProducts (es lo q pide consola) no para de correr
 
     const handleSearchBar = (e) => {
         const input = e.target.value

@@ -30,6 +30,7 @@ function ProductByCategoryDetail() {
     const [seller, setSeller] = React.useState([])
     React.useEffect(()=>{
         getSellerDetailsService(product.seller).then(({data: sellerInfo})=>{
+            console.log("useeffect", product.seller)
             setSeller(sellerInfo)
         })
     }, [product.seller])
