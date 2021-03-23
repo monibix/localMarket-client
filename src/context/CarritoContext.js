@@ -4,14 +4,15 @@ export const CarritoContext = React.createContext({})
 
 function CarritoProvider({children}) {
 
-    const [carrito, setCarrito] = React.useState([]);
+    const initialState = localStorage.getItem("order")?JSON.parse(localStorage.getItem("order")):[]
+    console.log("initialstate", initialState)
+    const [carrito, setCarrito] = React.useState(initialState);
     console.log("carrito", carrito)
 
     const goToShoopingCart = () => {
         //SE GUARDA ARRAY DE PRODUCTOS PERO SI REFRESCAS SE PIERDE IGUALMENTE
         const strgyOrder = JSON.stringify(carrito)
         localStorage.setItem("order", strgyOrder)
-
     }
 
     const addToCarrito = (productId) => {

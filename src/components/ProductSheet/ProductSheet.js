@@ -19,7 +19,6 @@ function ProductSheet(props) {
 
     const [userResponse, setUserResponse] = React.useState("")
     const handleAddToCarrito = (e) => {
-        e.preventDefault()
         const title = props.title
         const productID = props.productId
         const price = props.price

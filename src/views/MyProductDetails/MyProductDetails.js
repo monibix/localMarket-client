@@ -13,6 +13,7 @@ function MyProductDetails() {
     const {productId} = useParams()
     console.log("productparams", productId)
     const history = useHistory()
+
     const { product, getMyProduct, cleanProduct } = useProducts()
 
     React.useEffect(()=>{
@@ -34,18 +35,18 @@ function MyProductDetails() {
                 <Sidebar/>
                 <div>
                     <ProductSheet                 
-                        mainImage={product.mainImage} 
-                        title={product.title} 
-                        reference={product.ref} 
-                        price={product.price} 
-                        description={product.description} 
-                        userImage={product.userImage} 
-                        userDescription={product.description}
+                        mainImage={product?.mainImage} 
+                        title={product?.title} 
+                        reference={product?.ref} 
+                        price={product?.price} 
+                        description={product?.description} 
+                        userImage={product?.userImage} 
+                        userDescription={product?.description}
                         link={`/profile`} 
                     />
                     <div>
-                        <Link to={`/products/${product._id}/edit`}> <Button> Edit product </Button></Link>
-                        <Button onClick={()=>handleDelete(product._id)}> Delete product </Button>
+                        <Link to={`/products/${product?._id}/edit`}> <Button> Edit product </Button></Link>
+                        <Button onClick={()=>handleDelete(product?._id)}> Delete product </Button>
                     </div>
                 </div>
             </Div>

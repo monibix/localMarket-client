@@ -69,7 +69,6 @@ function EditProduct() {
                                     type="file" 
                                     name="image"
                                     onChange={handleUpload} 
-                                    value={product.image} 
                                 />
                             </div>
 

@@ -35,6 +35,7 @@ function Favourites() {
         //     //     setBtnText(removeFromFavourites)
         //     // }
         // })
+        
     }, [btnText])
     console.log("getUserInfo", user)
 
@@ -56,15 +57,6 @@ function Favourites() {
         //     if (!user.favourites.includes(productId)) {
         //         setBtnText(removeFromFavourites)
         //     }
-        //     manageFavouritesService(productId)
-        // }
-        // if (!user.id) {
-        //     setMessage("Regístrate para guardar tus favoritos")
-        // } else if (user.favourites.includes(productId)) {
-        //     setBtnText(addToFavourites)
-        //     manageFavouritesService(productId)
-        // } else {
-        //     setBtnText(removeFromFavourites)
         //     manageFavouritesService(productId)
         // }
     }

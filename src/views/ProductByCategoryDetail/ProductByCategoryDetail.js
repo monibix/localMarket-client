@@ -26,14 +26,15 @@ function ProductByCategoryDetail() {
     const { search } = useLocation()
     console.log("search", search)
 
-    console.log("seller", product.seller) //undefined
+    //console.log("seller", product.seller) //undefined
     const [seller, setSeller] = React.useState([])
     React.useEffect(()=>{
         getSellerDetailsService(product.seller).then(({data: sellerInfo})=>{
             setSeller(sellerInfo)
         })
     }, [product.seller])
-    
+    console.log("seller", seller)
+
     return (    
         <div>   
             <div>   

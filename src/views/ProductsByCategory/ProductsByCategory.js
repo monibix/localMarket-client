@@ -68,16 +68,16 @@ function ProductsCard() {
                 <Navbar />
             </div>
 
-            <S.DivCarroussel id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                    <img class="d-block w-100" src={Product1} alt="First slide" />
+            <S.DivCarroussel id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+                <div className="carousel-inner">
+                    <div className="carousel-item active">
+                    <img className="d-block w-100" src={Product1} alt="First slide" />
                     </div>
-                    <div class="carousel-item">
-                    <img class="d-block w-100" src={Product2} alt="Second slide" />
+                    <div className="carousel-item">
+                    <img className="d-block w-100" src={Product2} alt="Second slide" />
                     </div>
-                    <div class="carousel-item">
-                    <img class="d-block w-100" src={Product3} alt="Third slide" /> 
+                    <div className="carousel-item">
+                    <img className="d-block w-100" src={Product3} alt="Third slide" /> 
                     </div>
                 </div>
                 {/* <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -118,6 +118,7 @@ function ProductsCard() {
                     products.map((item, key)=>{
                         return (
                             <ProductCardComp 
+                                key={item._id}
                                 title={item.title} 
                                 price={item.price} 
                                 mainImage={item.mainImage} 
