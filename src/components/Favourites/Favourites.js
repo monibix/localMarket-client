@@ -6,19 +6,26 @@ import * as S from "./style";
 import { manageFavourites as manageFavouritesService } from "../../service/main.service";
 import { useAuth } from '../../context/AuthContext.utils.js';
 
+// if (user.favourites.includes(productId)) {
+//     return initialBtnText = removeFromFavourites
+// } else{
+//     return initialBtnText = addToFavourites
+// }
+let initialBtnText;
 let addToFavourites = "Añadir a favoritos"
 let removeFromFavourites = "Quitar de favoritos"
 
 function Favourites() {
 
     const { user={}, getUserInfo } = useAuth()
-    const [btnText, setBtnText] = React.useState("")
+    const [btnText, setBtnText] = React.useState(addToFavourites)
     const {productId} = useParams()
     const [message, setMessage] = React.useState("")
 
     React.useEffect(()=>{
-        getUserInfo(user.user).then((data)=>{
-            console.log("data", user.favourites)
+        getUserInfo(user.user).then(()=>{
+            console.log("data", user.favourites) 
+            //Cannot read property 'includes' of undefined
             // if (user.favourites.includes(productId)) {
             //     setBtnText(addToFavourites)
             // }
@@ -27,7 +34,7 @@ function Favourites() {
             // }
         })
     }, [btnText])
-    console.log("getUserInfo", user.favourites)
+    console.log("getUserInfo", user)
 
     const manageFavourites = () => {
         if (user.favourites.includes(productId)) {

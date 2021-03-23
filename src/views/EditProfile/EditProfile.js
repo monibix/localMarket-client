@@ -89,6 +89,20 @@ function EditProfile() {
                                 onChange={handleEdit}
                                 value={state.direction}
                             />
+                            <S.Label htmlFor="instagram">Instagram</S.Label>
+                            <S.Input 
+                                type="text" 
+                                name="instagram"
+                                onChange={handleEdit}
+                                value={state.instagram}
+                            />
+                            <S.Label htmlFor="phone">Teléfono</S.Label>
+                            <S.Input 
+                                type="text" 
+                                name="phone"
+                                onChange={handleEdit}
+                                value={state.phone}
+                            />
                         </div>
 
                         <div className="valores">

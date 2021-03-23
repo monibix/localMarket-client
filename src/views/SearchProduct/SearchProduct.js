@@ -11,13 +11,8 @@ import { Link } from "react-router-dom"
 function SearchProduct() {
 
     const [prodToSearch, setProdToSearch] = React.useState([]);
-
     const { search } = useLocation()
-    console.log("search", search)
-
     const {query} = qs.parse(search, { ignoreQueryPrefix: true })
-    console.log("query", query)
-
     React.useEffect(()=>{
         getSearchProductsService(query).then(({data: searchedProducts})=>{
             console.log("searchedproduct", searchedProducts)
@@ -25,8 +20,8 @@ function SearchProduct() {
         })
     }, [query])
 
+    //LÓGICA FILTROS
     const handleFilterTitle = ({target}) => {
-        console.log("filter TITLE", prodToSearch)
         const productsCopy = [...prodToSearch]
         const orderedArr = productsCopy.sort((a, b) => {
             if (target.value === "a-z") {
@@ -43,9 +38,7 @@ function SearchProduct() {
         } )
         setProdToSearch(orderedArr)
     }
-
     const handleFilterPrice = ({target}) => {
-        console.log("filterprecio", prodToSearch)
         const productsCopy = [...prodToSearch]
         const orderedArr = productsCopy.sort((a, b)=>{
             if (target.value === "ascendiente") {
@@ -55,7 +48,6 @@ function SearchProduct() {
                 return b.price - a.price
             }
         })
-        console.log("orderedArr", orderedArr)
         setProdToSearch(orderedArr)
     }
 
@@ -93,6 +85,7 @@ function SearchProduct() {
                                 mainImage={item.mainImage}
                                 price={item.price}
                                 category={item.category}
+                                link={`/category/${item._id}`}
                             />
                         )
                     })

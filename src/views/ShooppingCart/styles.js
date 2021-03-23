@@ -29,5 +29,19 @@ export const Div = styled.div`
     }
     .checkout {
         margin: 5vw;
+        padding: 1vw;
+        border: 2px solid #1687a7;
+        .subtotal {
+            display: flex;
+            justify-content: space-between;
+        }
+        .envio {
+            display: flex;
+            justify-content: space-between;
+        }
+        .total-a-pagar {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 `

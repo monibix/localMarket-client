@@ -6,33 +6,36 @@ import { getSellerDetails as getSellerDetailsService } from "../../service/main.
 import Footer from '../../components/Footer/Footer';
 import ProfileComp from "../../components/ProfileComp/ProfileComp";
 import ProductCardComp from "../../components/ProductCardComp/ProductCardComp";
+import { useProducts } from '../../context/ProductsContext.utils';
 
 
 function SellerDetails() {
-    //Intento de recuperar url anterior
-    const history = useHistory()
-    const anterior = history.goBack
-    console.log("anterior", anterior)
-    console.log("history", history)
+    //Intento de recuperar url anterior para migas de pan
+    // const history = useHistory()
+    // const anterior = history.goBack
+    // console.log("anterior", anterior)
+    // console.log("history", history)
 
     const {sellerId} = useParams()
-    console.log("sellerId", sellerId)
 
     const [seller, setSeller] = React.useState([])
-
     React.useEffect(()=>{
         getSellerDetailsService(sellerId).then(({data: sellerInfo})=>{
             setSeller(sellerInfo)
         })
     }, [sellerId])
-    console.log("sellerInfo", seller) 
+
+    const { getRelatedUserProducts, products } = useProducts()
+    React.useEffect(()=>{
+        getRelatedUserProducts(sellerId)
+    }, [])
+    console.log("related user products", products)
     
     return (    
         <div>   
             <div>   
                 <Navbar/>   
             </div>  
-
             <S.SectionHead>
                 <S.DivMigas>
                     <Link to="/"><p>Home &nbsp;</p></Link>
@@ -54,19 +57,36 @@ function SellerDetails() {
                 />
             <S.Div>
                 <h4>Ver más productos de {seller.username}</h4>
+                <div>
                     {/* {
-                        seller.userProducts.map((item, key)=>{ //cannot read property map of undefined
+                        seller.userProducts.map((item, key)=>{ 
                             return (
                                 <ProductCardComp
                                     id={item._id}
                                     title={item.title}
                                     mainImage={item.mainImage}
                                     price={item.price}
+                                    //link={`/category/${item._id}`} // si pongo link cannot read property map of undefined
                                 />
                             )
                         })
                     } */}
+                    {
+                        products.map((item, key)=>{ 
+                            return (
+                                <ProductCardComp
+                                    key={item._id}
+                                    id={item._id}
+                                    title={item.title}
+                                    mainImage={item.mainImage}
+                                    price={item.price}
+                                    link={`/category/${item._id}`} // si pongo link cannot read property map of undefined
+                                />
+                            )
+                        })
+                    }
                     <ProductCardComp />
+                </div>    
             </S.Div>
 
             <div>

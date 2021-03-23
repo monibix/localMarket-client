@@ -14,3 +14,4 @@ export const getSellerDetails = (sellerId) => mainApi.get(`/seller/${sellerId}`)
 export const getSearchProducts = (search) => mainApi.get(`/query?query=${search}`)
 
 export const manageFavourites = (productId) => mainApi.post(`/category/${productId}`)
+

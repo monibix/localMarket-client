@@ -5,8 +5,6 @@ import { Div } from "../../commons/commons.style"
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { ProductCardContainer } from "../Products/style";
 import ProductCardComp from "../../components/ProductCardComp/ProductCardComp";
-//import { useAuth } from "../../context/AuthContext.utils";
-//import { getMyFavourites as getMyFavouritesService } from "../../service/products.service"
 import { useProducts } from '../../context/ProductsContext.utils';
 
 
@@ -18,7 +16,6 @@ function MyFavourites() {
         getMyFavourites()
     },[])
     console.log("products", products)
-
 
     return (
         <div>
@@ -33,7 +30,8 @@ function MyFavourites() {
                             return <ProductCardComp 
                                 title={item.title} 
                                 mainImage={item.mainImage}
-                                price={item.price} />
+                                price={item.price}
+                                link={`/category/${item._id}`}/>
                         })
                         
                     }

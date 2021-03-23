@@ -4,6 +4,7 @@ import * as S from "./styles";
 import { Button } from "../../commons/commons.style"
 import { useCarrito } from "../../context/CarritoContext.utils"
 import { useHistory } from "react-router";
+import { getShoopingList } from "../../service/main.service";
 
 function ShoppingCart() {
     
@@ -13,10 +14,14 @@ function ShoppingCart() {
 
     const history = useHistory()
 
-    const { carrito, setCarrito, deleteFromCarrito } = useCarrito()
+    const { carrito, setCarrito, deleteFromCarrito, checkout } = useCarrito()
     console.log("carrito", carrito)
 
-    const handleClick=(id)=>{
+    // React.useEffect(()=>{
+    //     getShoopingList(carrito)=>
+    // }, [])
+
+    const handleDeleteFromList=(id)=>{
         console.log("deleted from shopping list")
         deleteFromCarrito(id)
     }
@@ -36,9 +41,10 @@ function ShoppingCart() {
     const handleOrder = () => {
         if (carrito.length === 0) {
             setMessage("No tienes productos en tu cesta")
-            setBtnText("Ver productos")
+            setBtnText("Seguir comprando")
             setIsActive(true)
             //setAction() //redirige directamente!!
+            checkout()
         }
         else {
             setMessage("Gracias por tu compra")
@@ -46,7 +52,8 @@ function ShoppingCart() {
             setIsActive(true)
             //llamar a la api para guardar pedido en modelo user-orders[] order es igual a [] 
             localStorage.removeItem("order") //borrar localStorage una vez se ha añadido el order al modelo
-            setCarrito([]) //vaciar carrito //error carrito is not a function
+            //setCarrito([]) //vaciar carrito //error carrito is not a function
+            checkout()
         }
     }
 
@@ -71,7 +78,7 @@ function ShoppingCart() {
                                     </div>
                                 </div>
                                 <div className="button">
-                                    <Button onClick={() => handleClick(item.productId.productID)}>Quitar de la lista</Button>
+                                    <Button onClick={() => handleDeleteFromList(item.productId.productID)}>Quitar de la lista</Button>
                                 </div>
                             </div>
                         )
@@ -79,19 +86,36 @@ function ShoppingCart() {
                 }
                 </div>
                 <div className="checkout">
-                    <div>
+                    <div class>
                     <h3>Total:  </h3>
-                    { 
-                        carrito.reduce((acc, next)=>{
-                            return (
-                                acc + next.productId.price
-                            )
-                        }, 0)
-                    }
+                        <div className="subtotal">
+                            <h5>Subtotal</h5>
+                            { 
+                                carrito.reduce((acc, next)=>{
+                                    return (
+                                        acc + next.productId.price
+                                    )
+                                }, 0)
+                            }
+                        </div>
+                        <div className="envio">
+                            <h5>Envio</h5>
+                            <p>2,5€</p>
+                        </div>
+                        <div className="total-a-pagar">
+                            <h4>Total a pagar</h4>
+                            <h5>                        { 
+                            carrito.reduce((acc, next)=>{
+                                return (
+                                    ((acc + next.productId.price)+5)
+                                )
+                            }, 0)
+                        }</h5>
+                        </div>
                     </div>
                     <div>
                         <Button onClick={handleSeguirComprando}>Seguir comprando</Button>
-                        <Button onClick={handleOrder}>Pagar</Button>
+                        <Button onClick={handleOrder}>Realizar compra</Button>
                     </div>
                     <div>
                         {message}

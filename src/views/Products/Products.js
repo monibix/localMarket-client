@@ -9,7 +9,7 @@ import ProductCardComp from "../../components/ProductCardComp/ProductCardComp";
 
 function Products() {
 
-    const { products, getMyProducts, setProducts, deleteProduct } = useProducts();
+    const { products, getMyProducts, deleteProduct, searchMyProducts, setProducts } = useProducts();
     console.log("products en products view", products) 
     
     const history = useHistory()
@@ -22,6 +22,9 @@ function Products() {
         const input = e.target.value
         console.log("input", input)
         setProducts(product=>product.filter(item=>item.title.toLowerCase().includes(input)))
+        //searchMyProducts(input)
+        console.log("searchMyProducts", products)
+
     }
 
     const handleDelete = async (id) => {
@@ -43,29 +46,33 @@ function Products() {
                         type="text" 
                         placeholder="Search your products..." 
                         onChange={handleSearchBar} 
-                        value={products.title}  />
+                        value={products.title}  
+                    />
+
                     <ProductCardContainer>
-
                         {
-                        products.map((item, key)=>{
-                            return (
-                                <div>
-                                <ProductCardComp title={item.title} price={item.price} mainImage={item.mainImage} link={`/products/${item._id}`} />
-
-                                <Link to={`/products/${item._id}`} ><Button>View Product</Button></Link>
-                                <Link to={`/products/${item._id}/edit`}><Button>Edit product</Button></Link>
-                                <Link><Button onClick={()=>handleDelete(item._id)}>Delete Product</Button></Link>
-                                </div>
-                                
-                            )
-                        })
-                    }
+                            products.map((item, key)=>{
+                                return (
+                                    <div>
+                                    <ProductCardComp 
+                                        title={item.title} 
+                                        price={item.price} 
+                                        mainImage={item.mainImage} 
+                                        link={`/products/${item._id}`} />
+                                    <Link to={`/products/${item._id}`} ><Button>View Product</Button></Link>
+                                    <Link to={`/products/${item._id}/edit`}><Button>Edit product</Button></Link>
+                                    <Link><Button onClick={()=>handleDelete(item._id)}>Delete Product</Button></Link>
+                                    </div>
+                                )
+                            })
+                        }
                         
-                    <Link to="/add"><ProductCard>
-                        <img src={AddProductImg} width='150px' text-align='center' alt="añadir producto"/>
-                        <h3>Añadir producto</h3>
-                    </ProductCard>
-                    </Link>
+                        <Link to="/add">
+                            <ProductCard>
+                                <img src={AddProductImg} width='150px' text-align='center' alt="añadir producto"/>
+                                <h3>Añadir producto</h3>
+                            </ProductCard>
+                        </Link>
                     </ProductCardContainer>
                 </div>
             </Div>

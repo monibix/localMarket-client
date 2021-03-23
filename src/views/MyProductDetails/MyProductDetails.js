@@ -13,10 +13,7 @@ function MyProductDetails() {
     const {productId} = useParams()
     console.log("productparams", productId)
     const history = useHistory()
-
-    //const { products, getMyProduct } = useProducts();
     const { product, getMyProduct, cleanProduct } = useProducts()
-    //console.log("single product", products)
 
     React.useEffect(()=>{
         getMyProduct(productId);

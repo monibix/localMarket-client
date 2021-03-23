@@ -6,11 +6,9 @@ import { useAuth } from '../../context/AuthContext.utils.js';
 import { Link } from 'react-router-dom';
 import ProfileComp from "../../components/ProfileComp/ProfileComp";
 
-
 function Profile() {
 
     const { user={}, getUserInfo } = useAuth()
-    console.log("userinfo", user)
 
     React.useEffect(()=>{
         getUserInfo(user.user)
@@ -32,12 +30,12 @@ function Profile() {
                     user={user.user}
                     description={user.description}
                     valores={user.valores}
+                    instagram={user.instagram}
+                    phone={user.phone}
                     />
                     <Link to={`/profile/edit`} ><Button>Editar perfil</Button></Link>
                 </div>
-
             </Div>
-
         </div>
     )
 }

@@ -18,3 +18,5 @@ export const deleteProduct = (productId) => productsApi.delete(`/${productId}`)
 export const uploadProductImage = (file) => productsApi.post("/upload", file)
 
 export const getMyFavourites = () => productsApi.get("/favourites")
+
+//export const getSellerDetails = (sellerId) => productsApi.get(`/${sellerId}`)

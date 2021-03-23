@@ -2,23 +2,9 @@ import React from 'react';
 import { Div } from "./style";
 import Gmail from "../../assets/gmail.png"
 
-
 function ProfileComp(props) {
-    // const {sellerId} = useParams()
-    // console.log("sellerId", sellerId)
 
-    // const [seller, setSeller] = React.useState([])
-
-    // React.useEffect(()=>{
-    //     getSellerDetailsService(sellerId).then(({data: sellerInfo})=>{
-    //         setSeller(sellerInfo)
-    //     })
-    // }, [sellerId])
-
-    // console.log("seller", seller)
-    
     return (    
-
             <Div>
                 <div className="header">
                     <div>
@@ -27,7 +13,10 @@ function ProfileComp(props) {
                     <div className="title">
                         <h2>{props.username}</h2>
                         <p><img src={Gmail} alt="gmail"/> {props.direction}<br/>
-                        <img src={Gmail} alt="gmail"/> {props.email}</p>
+                        <img src={Gmail} alt="gmail"/> {props.email}<br />
+                        <img src={Gmail} alt="insta"/> {props.instagram}
+                        <br />
+                        <img src={Gmail} alt="phone"/> {props.phone}</p>
                     </div>
                 </div>  
                 <div className="valores">
@@ -42,19 +31,8 @@ function ProfileComp(props) {
                     <h4>Descripcion</h4>
                     <p>{props.description}</p>
                 </div>
-                
-                
-
-                {/* <h1>next</h1>
-                <h2>Seller info</h2>
-                <h3>{seller.email}</h3>
-                <h3>{seller.direction}</h3>
-                <img src={seller.userImage} alt="seller"/>
-                <h3>{seller.username}</h3> */}
             </Div>
-
     )
-
 }
 
 export default ProfileComp;

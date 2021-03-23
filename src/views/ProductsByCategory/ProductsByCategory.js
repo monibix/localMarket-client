@@ -117,7 +117,12 @@ function ProductsCard() {
                 {
                     products.map((item, key)=>{
                         return (
-                            <ProductCardComp title={item.title} price={item.price} mainImage={item.mainImage} link={`/category/${item._id}`} />
+                            <ProductCardComp 
+                                title={item.title} 
+                                price={item.price} 
+                                mainImage={item.mainImage} 
+                                link={`/category/${item._id}`} 
+                            />
                         )
                     })
                 }

@@ -5,8 +5,12 @@ import {
     getMyProduct as getMyProductService, 
     editProduct as editProductService, 
     deleteProduct as deleteProductService, 
-    getMyFavourites as getMyFavouritesService
+    getMyFavourites as getMyFavouritesService, 
+    getSellerDetails as getSellerDetailsService
 } from '../service/products.service';
+import {
+    getSellerDetails as getSellerDetailsService2
+} from '../service/main.service';
 
 export const ProductContext = React.createContext({});
 
@@ -28,8 +32,6 @@ function ProductProvider({children}) {
     }
 
     const getMyProduct = async(productId) => {
-        // const { data: myProduct } = await getMyProductService(productId)
-        // setProducts(myProduct)
         const {data: product} = await getMyProductService(productId)
         setProduct(product)
     }
@@ -40,6 +42,11 @@ function ProductProvider({children}) {
         console.log("myproduct", myProduct)
         setProduct(myProduct)
     }
+
+    //const searchMyProducts = async(input) => {
+    //    setProducts(products => products.filter(item=>item.title.toLowerCase().includes(input)))
+    //    console.log("searchMyProducts", products)
+    //}
 
     const cleanProduct = () => {
         setProduct({});
@@ -56,9 +63,15 @@ function ProductProvider({children}) {
         setProducts(favourites)
         console.log("myfavoruites", favourites)
     }
+    
+    const getRelatedUserProducts = async(sellerId) => {
+        const { data: sellerInfo } = await getSellerDetailsService2(sellerId)
+        console.log("sellerinfo", sellerInfo.userProducts)
+        setProducts(sellerInfo.userProducts)
+    }
 
     return (
-        <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts, getMyProduct, editProduct, deleteProduct, product, cleanProduct, getMyFavourites }} >
+        <ProductContext.Provider value={{ products, setProducts, createProduct, getMyProducts, getMyProduct, editProduct, deleteProduct, product, cleanProduct, getMyFavourites, getRelatedUserProducts }} >
             {children}
         </ProductContext.Provider>
     )

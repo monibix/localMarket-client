@@ -1,16 +1,8 @@
 import React from 'react';
 import * as S from "./style";
-import { useProducts } from '../../context/ProductsContext.utils';
 import { Link } from 'react-router-dom';
 
 function Products(props) {
-
-    // const { products, getMyProducts } = useProducts();
-    // console.log("products en products view", products) 
-
-    // React.useEffect(()=>{
-    //     getMyProducts()
-    // },[])
 
     return (
         <S.ProductCard key={props._id}>
