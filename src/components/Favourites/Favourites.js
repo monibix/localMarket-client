@@ -11,7 +11,7 @@ import { useAuth } from '../../context/AuthContext.utils.js';
 // } else{
 //     return initialBtnText = addToFavourites
 // }
-let initialBtnText;
+//let initialBtnText;
 let addToFavourites = "Añadir a favoritos"
 let removeFromFavourites = "Quitar de favoritos"
 
@@ -35,15 +35,17 @@ function Favourites() {
         //     //     setBtnText(removeFromFavourites)
         //     // }
         // })
-        
+
     }, [btnText])
     console.log("getUserInfo", user)
 
     const manageFavourites = () => {
         if (user.favourites.includes(productId)) {
             setBtnText(addToFavourites)
+            setMessage("Producto añadido a tus favoritos")
         }
         if (!user.favourites.includes(productId)) {
+            setMessage("Producto quitado de tus favoritos")
             setBtnText(removeFromFavourites)
         }
         manageFavouritesService(productId)

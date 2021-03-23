@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from "./style"
 import Navbar from '../../components/Navbar/Navbar';
-import { useParams, Link, useHistory } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getSellerDetails as getSellerDetailsService } from "../../service/main.service"
 import Footer from '../../components/Footer/Footer';
 import ProfileComp from "../../components/ProfileComp/ProfileComp";
@@ -40,10 +40,6 @@ function SellerDetails() {
                 <S.DivMigas>
                     <Link to="/"><p>Home &nbsp;</p></Link>
                     <p> &#62; &nbsp;</p>
-                    {/* <Link to={`/category?category=${product.category}`}><p>{product.category}&nbsp;</p></Link>
-                    <p> &#62; &nbsp;</p>
-                    <Link to={`/category/${product._id}`}><p>{product.title}&nbsp;</p></Link> */}
-
                 </S.DivMigas>
             </S.SectionHead>
 
@@ -58,19 +54,6 @@ function SellerDetails() {
             <S.Div>
                 <h4>Ver más productos de {seller.username}</h4>
                 <div>
-                    {/* {
-                        seller.userProducts.map((item, key)=>{ 
-                            return (
-                                <ProductCardComp
-                                    id={item._id}
-                                    title={item.title}
-                                    mainImage={item.mainImage}
-                                    price={item.price}
-                                    //link={`/category/${item._id}`} // si pongo link cannot read property map of undefined
-                                />
-                            )
-                        })
-                    } */}
                     {
                         products.map((item, key)=>{ 
                             return (

@@ -6,7 +6,6 @@ import {
   editProduct as editProductService,
   deleteProduct as deleteProductService,
   getMyFavourites as getMyFavouritesService,
-  getSellerDetails as getSellerDetailsService,
 } from "../service/products.service";
 import { getSellerDetails as getSellerDetailsService2 } from "../service/main.service";
 

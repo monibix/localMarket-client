@@ -9,14 +9,14 @@ import ProductCardComp from "../../components/ProductCardComp/ProductCardComp";
 
 function Products() {
 
-    const { products, getMyProducts, deleteProduct, searchMyProducts, setProducts } = useProducts();
+    const { products, getMyProducts, deleteProduct, setProducts } = useProducts();
     console.log("products en products view", products) 
     
     const history = useHistory()
 
     React.useEffect(()=>{
         getMyProducts()
-    },[])
+    },[getMyProducts])
 
     const handleSearchBar = (e) => {
         const input = e.target.value
@@ -24,7 +24,6 @@ function Products() {
         setProducts(product=>product.filter(item=>item.title.toLowerCase().includes(input)))
         //searchMyProducts(input)
         console.log("searchMyProducts", products)
-
     }
 
     const handleDelete = async (id) => {
@@ -53,7 +52,7 @@ function Products() {
                         {
                             products.map((item, key)=>{
                                 return (
-                                    <div>
+                                    <div key={item._id}>
                                     <ProductCardComp 
                                         title={item.title} 
                                         price={item.price} 
@@ -61,7 +60,7 @@ function Products() {
                                         link={`/products/${item._id}`} />
                                     <Link to={`/products/${item._id}`} ><Button>View Product</Button></Link>
                                     <Link to={`/products/${item._id}/edit`}><Button>Edit product</Button></Link>
-                                    <Link><Button onClick={()=>handleDelete(item._id)}>Delete Product</Button></Link>
+                                    <Button onClick={()=>handleDelete(item._id)}>Delete Product</Button>
                                     </div>
                                 )
                             })

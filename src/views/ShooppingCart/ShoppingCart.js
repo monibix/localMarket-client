@@ -4,7 +4,7 @@ import * as S from "./styles";
 import { Button } from "../../commons/commons.style"
 import { useCarrito } from "../../context/CarritoContext.utils"
 import { useHistory } from "react-router";
-import { getShoopingList } from "../../service/main.service";
+//import { getShoopingList } from "../../service/main.service";
 
 function ShoppingCart() {
     
@@ -14,7 +14,7 @@ function ShoppingCart() {
 
     const history = useHistory()
 
-    const { carrito, setCarrito, deleteFromCarrito, checkout } = useCarrito()
+    const { carrito, deleteFromCarrito, checkout } = useCarrito()
     console.log("carrito", carrito)
 
     // React.useEffect(()=>{
@@ -27,10 +27,6 @@ function ShoppingCart() {
     }
 
     const handleSeguirComprando = () => {
-        history.push("/")
-    }
-
-    const redirectHome = () => {
         history.push("/")
     }
 

@@ -1,5 +1,4 @@
 import React from "react";
-import Favourites from "../../components/Favourites/Favourites";
 import Navbar from "../../components/Navbar/Navbar";
 import { Div } from "../../commons/commons.style"
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -14,7 +13,7 @@ function MyFavourites() {
 
     React.useEffect(()=>{
         getMyFavourites()
-    },[])
+    },[getMyFavourites])
     console.log("products", products)
 
     return (
@@ -28,6 +27,7 @@ function MyFavourites() {
                     {
                         products.map((item, key)=> {
                             return <ProductCardComp 
+                                key={item._id}
                                 title={item.title} 
                                 mainImage={item.mainImage}
                                 price={item.price}
