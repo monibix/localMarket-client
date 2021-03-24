@@ -26,16 +26,20 @@ function ShoppingCart() {
         history.push("/")
     }
 
+    const redirectMyOrders = () => {
+        history.push("/orders")
+    }
+
     const [message, setMessage] = React.useState("")
     const [btnText, setBtnText] = React.useState("")
     const [isActive, setIsActive] = React.useState(false)
-    const [action, setAction] = React.useState()
+    //const [action, setAction] = React.useState(()=>{})
     const handleOrder = () => {
         if (carrito.length === 0) {
             setMessage("No tienes productos en tu cesta")
             setBtnText("Seguir comprando")
-            setIsActive(true)
-            //setAction() //redirige directamente!!
+            //setIsActive(true)
+            //setAction(handleSeguirComprando) //redirige directamente!!
             checkout()
         }
         else {
@@ -43,9 +47,10 @@ function ShoppingCart() {
             setBtnText("Seguir mi pedido")
             setIsActive(true)
             //llamar a la api para guardar pedido en modelo user-orders[] order es igual a [] 
-            localStorage.removeItem("order") //borrar localStorage una vez se ha añadido el order al modelo
+            //localStorage.removeItem("order") //borrar localStorage una vez se ha añadido el order al modelo
             //setCarrito([]) //vaciar carrito //error carrito is not a function
             checkout()
+            //setAction(redirectMyOrders)
         }
     }
 
@@ -113,7 +118,7 @@ function ShoppingCart() {
                         {message}
                         {
                             isActive ? (
-                                <Button onClick={()=>action()}>{btnText}</Button>
+                                <Button onClick={redirectMyOrders}>{btnText}</Button>
                             ) : (
                                 <p></p>
                             )
