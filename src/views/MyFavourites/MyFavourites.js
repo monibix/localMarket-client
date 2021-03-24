@@ -13,7 +13,7 @@ function MyFavourites() {
 
     React.useEffect(()=>{
         getMyFavourites()
-    },[getMyFavourites])
+    },[])
     console.log("products", products)
 
     return (

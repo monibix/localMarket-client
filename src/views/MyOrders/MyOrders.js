@@ -10,15 +10,6 @@ function MyOrders() {
     const { user, getUserInfo } = useAuth()
     console.log("user", user)
 
-    const [ userOrders, setUserOrders] = React.useState([])
-
-    // React.useEffect(()=>{
-    //     getUserInfo(user).then(()=> {
-    //         setUserOrders(user.orders)
-    //     })
-    // }, [])
-    // console.log("userorders", userOrders)
-
     React.useEffect(()=>{
         getUserInfo(user)
     }, [])

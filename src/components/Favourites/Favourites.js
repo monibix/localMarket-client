@@ -24,27 +24,23 @@ function Favourites() {
 
     React.useEffect(()=>{
         getUserInfo(user.user)
-        
-        //     .then(()=>{
-        //     console.log("data", user.favourites) 
-        //     //Cannot read property 'includes' of undefined
-        //     // if (user.favourites.includes(productId)) {
-        //     //     setBtnText(addToFavourites)
-        //     // }
-        //     // if (!user.favourites.includes(productId)) {
-        //     //     setBtnText(removeFromFavourites)
-        //     // }
-        // })
 
     }, [btnText])
     console.log("getUserInfo", user)
 
+    //segundo useeffect para definir texto boton favoritos en funcion de si está o no dicho producto al array de favoritos
+    // const isFavorite = user?.favourites?.includes(productId)
+    // React.useEffect(() => {
+    //     const btnText = isFavorite ? "quitar de favorito" : "agregar a favorito"
+    //     setBtnText(btnText)
+    // }, [isFavorite, setBtnText])
+
     const manageFavourites = () => {
-        if (user.favourites.includes(productId)) {
+        if (user.favourites?.includes(productId)) {
             setBtnText(addToFavourites)
             setMessage("Producto añadido a tus favoritos")
         }
-        if (!user.favourites.includes(productId)) {
+        if (!user.favourites?.includes(productId)) {
             setMessage("Producto quitado de tus favoritos")
             setBtnText(removeFromFavourites)
         }

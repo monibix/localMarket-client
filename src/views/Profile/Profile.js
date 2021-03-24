@@ -9,6 +9,7 @@ import ProfileComp from "../../components/ProfileComp/ProfileComp";
 function Profile() {
 
     const { user={}, getUserInfo } = useAuth()
+    console.log("user", user)
 
     React.useEffect(()=>{
         getUserInfo(user.user)

@@ -5,28 +5,34 @@ import { Button, AddToCardButton } from '../../commons/commons.style';
 import {Link, useLocation } from "react-router-dom";
 import { useCarrito } from "../../context/CarritoContext.utils";
 import Favourites from '../Favourites/Favourites';
+import { useAuth } from '../../context/AuthContext.utils';
 
 function ProductSheet(props) {
 
+    const { user } = useAuth()
+    console.log("user", user)
+    const { addToCarrito } = useCarrito()
+    const [userResponse, setUserResponse] = React.useState("")
     const [isSellerDetails, setSellerDetails ] = React.useState(true)
     const {pathname} = useLocation()
+
     React.useEffect(()=>{
         pathname.includes("products") ? setSellerDetails(false) : setSellerDetails(true)
     }, [pathname])
 
-    const { carrito, addToCarrito} = useCarrito()
-    console.log("carrito", carrito)
-
-    const [userResponse, setUserResponse] = React.useState("")
     const handleAddToCarrito = (e) => {
+        if (!user.isLogged) {
+            console.log("no hay user!!")
+            setUserResponse("Regístrate para añadir productos a tu carrito")
+        } else {
         const title = props.title
         const productID = props.productId
         const price = props.price
         const mainImage = props.mainImage
         const reference = props.reference
         addToCarrito({productID, title, price, mainImage, reference})
-        //addToCarrito(props.productId)
         setUserResponse(`Producto añadido al carrito`)
+        }
     }
 
     return (    
