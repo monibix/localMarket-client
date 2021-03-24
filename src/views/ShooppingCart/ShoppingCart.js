@@ -17,10 +17,6 @@ function ShoppingCart() {
     const { carrito, deleteFromCarrito, checkout } = useCarrito()
     console.log("carrito", carrito)
 
-    // React.useEffect(()=>{
-    //     getShoopingList(carrito)=>
-    // }, [])
-
     const handleDeleteFromList=(id)=>{
         console.log("deleted from shopping list")
         deleteFromCarrito(id)
@@ -67,14 +63,14 @@ function ShoppingCart() {
                         return (
                             <div className="shopping-list-item" key={item.productID}>
                                 <div className="top">
-                                    <S.Img src={item.productId.mainImage} />
+                                    <S.Img src={item.mainImage} />
                                     <div className="title-price">
-                                        <h3>{item.productId.title}</h3>
-                                        <h3>{item.productId.price}€</h3>
+                                        <h3>{item.title}</h3>
+                                        <h3>{item.price}€</h3>
                                     </div>
                                 </div>
                                 <div className="button">
-                                    <Button onClick={() => handleDeleteFromList(item.productId.productID)}>Quitar de la lista</Button>
+                                    <Button onClick={() => handleDeleteFromList(item.productID)}>Quitar de la lista</Button>
                                 </div>
                             </div>
                         )
@@ -89,7 +85,7 @@ function ShoppingCart() {
                             { 
                                 carrito.reduce((acc, next)=>{
                                     return (
-                                        acc + next.productId.price
+                                        acc + next.price
                                     )
                                 }, 0)
                             }
@@ -103,7 +99,7 @@ function ShoppingCart() {
                             <h5>                        { 
                             carrito.reduce((acc, next)=>{
                                 return (
-                                    ((acc + next.productId.price)+5)
+                                    ((acc + next.price)+5)
                                 )
                             }, 0)
                         }</h5>

@@ -17,6 +17,7 @@ import SellerDetails from "./views/SellerDetails/SellerDetails";
 import SearchProduct from "./views/SearchProduct/SearchProduct";
 import ShoppingCart from "./views/ShooppingCart/ShoppingCart";
 import MyFavourites from "./views/MyFavourites/MyFavourites";
+import MyOrders from "./views/MyOrders/MyOrders";
 
 function App() {
 
@@ -51,6 +52,9 @@ function App() {
         </PrivateRoute>
         <PrivateRoute exact path="/favourites">
           <MyFavourites />
+        </PrivateRoute>
+        <PrivateRoute exact path="/orders">
+          <MyOrders />
         </PrivateRoute>
         <Route exact path="/category">
           <ProductsByCategory />

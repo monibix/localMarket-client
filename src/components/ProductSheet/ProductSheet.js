@@ -23,7 +23,8 @@ function ProductSheet(props) {
         const productID = props.productId
         const price = props.price
         const mainImage = props.mainImage
-        addToCarrito({productID, title, price, mainImage})
+        const reference = props.reference
+        addToCarrito({productID, title, price, mainImage, reference})
         //addToCarrito(props.productId)
         setUserResponse(`Producto añadido al carrito`)
     }
