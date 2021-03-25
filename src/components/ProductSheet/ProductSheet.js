@@ -1,6 +1,6 @@
 import React from 'react';
-import { Div } from "./style";
-import * as S from "./style"
+import * as S from "./style";
+
 import { Button, AddToCardButton } from '../../commons/commons.style';
 import {Link, useLocation } from "react-router-dom";
 import { useCarrito } from "../../context/CarritoContext.utils";
@@ -36,21 +36,22 @@ function ProductSheet(props) {
     }
 
     return (    
-            <Div>
+            <S.Div>
                 <div className="content">
                     <S.Head>
                         <div>
-                            <S.Img src={props.mainImage} alt="product details"/>
+                            <img src={props.mainImage} alt="product details"/>
                         </div>
                         <div className="title-section">
-                            <h1> {props.title} </h1>
+                            <h3> {props.title} </h3>
                             <p> Ref: {props.reference} </p>
-                            <Favourites id={props.productId} />
                             <h2> {props.price} €</h2>
+                            <Favourites id={props.productId} />
+
                             {
                                 isSellerDetails ? (
-                                    <div>
-                                    <AddToCardButton onClick={handleAddToCarrito} >Añadir al carrito</AddToCardButton>
+                                    <div className="addtocart-button">
+                                    <Button onClick={handleAddToCarrito} >AÑADIR A LA CESTA</Button>
                                         {
                                             <h6 style={{color: "green"}}>{userResponse}</h6>
                                         }
@@ -62,14 +63,16 @@ function ProductSheet(props) {
                         </div>
                     </S.Head>
                     <S.Description>
-                        <div>
-                            <h4>Descripción</h4>
+                        <div className="description">
+                            <h4>DESCRIPCIÓN</h4>
                             <p style={{whiteSpace: "pre"}}> {props.description} </p>
                         </div>
                         {
                             isSellerDetails ? (
-                                <div>
-                                    <h4><img src={props.userImage} alt="tienda"/>&nbsp;&nbsp; Tienda {props.username} </h4>
+                                <div className="seller">
+                                    <h4>Vendedor: </h4>
+                                    <img src={props.userImage} alt="tienda"/>
+                                    <h3>{props.username}</h3>
                                     <p> {props.userDescription} </p>
                                     <Link to={props.link}> <Button> Saber más </Button></Link>
                                 </div>
@@ -79,7 +82,7 @@ function ProductSheet(props) {
                         }
                     </S.Description>
                 </div>
-            </Div>
+            </S.Div>
             
     )
 

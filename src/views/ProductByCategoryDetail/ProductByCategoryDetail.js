@@ -1,5 +1,6 @@
 import React from 'react';
-import * as S from "./style"
+import * as S from "./style";
+import { SectionHead, DivMigas, SubNavbar  } from "../../commons/commons.style"
 import Navbar from '../../components/Navbar/Navbar';
 import { useParams, Link } from 'react-router-dom';
 import { getProductByCategory as getProductByCategoryService } from "../../service/main.service"
@@ -25,18 +26,25 @@ function ProductByCategoryDetail() {
         <div>   
             <div>   
                 <Navbar/>   
+                <SubNavbar>
+                    <Link>Complementos</Link>
+                    <Link>Moda</Link>
+                    <Link>Muebles y Decoración</Link>
+                    <Link>Joyería</Link>
+                    <Link>Bebes y Niños</Link>
+                    <Link>Cosmética</Link>
+                </SubNavbar>
             </div>  
 
-            <S.SectionHead>
-                <S.DivMigas>
-                    <Link to="/"><p>Home &nbsp;</p></Link>
-                    <p> &#62; &nbsp;</p>
-                    <Link to={`/category?category=${detail.category}`}><p>{detail.category}&nbsp;</p></Link>
-                    <p> &#62; &nbsp;</p>
+            <SectionHead>
+                <DivMigas>
+                    <Link to="/"><p>Home</p></Link>
+                    <p>&nbsp; &#62; &nbsp;</p>
+                    <Link to={`/category?category=${detail.category}`}><h5 style={{textTransform: "uppercase"}}>{detail.category}</h5></Link>
+                    <p>&nbsp; | &nbsp;</p>
                     <Link to={`/category/${detail._id}`}><p>{detail.title}&nbsp;</p></Link>
-
-                </S.DivMigas>
-            </S.SectionHead>
+                </DivMigas>
+            </SectionHead>
 
             <ProductSheet                 
                 mainImage={detail.mainImage} 

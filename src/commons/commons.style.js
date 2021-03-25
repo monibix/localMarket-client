@@ -9,6 +9,20 @@ export const NavbarContainer = styled.div`
     z-index: 1000;
     width: 100%; */}
 `
+export const SubNavbar = styled.div`
+    display: flex; 
+    justify-content: space-around;
+    background-color: ${palette.blackColor};
+    color: #fff;
+    padding: 0.8vw 13vw;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25vw;
+    a {
+        text-decoration: none;
+        color: white;
+    }
+`
 
 export const Button = styled.button`
     border: 1px solid ${palette.goldenColor} ;
@@ -27,10 +41,62 @@ export const Button = styled.button`
 export const Div = styled.div`
     background-color: whitesmoke;
     display: flex;
+    font-family: ${palette.fontContent}
     .content{
         margin: 0 auto;
     }
 `
+//ESTIL DIV DE PRODUCTS BY CATEGORY DETAIL
+// export const Div = styled.div`
+//     background-color: white;
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     margin: 0 auto;
+// `
+
+//MIGAS DE PAN
+export const SectionHead = styled.section`
+    display: flex;
+    justify-content: space-between;
+    padding: 2vw 9vw;
+    font-family: 'Montserrat';
+    font-size: 1.1vw;
+`
+export const DivMigas = styled.div`
+    display: flex;
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    p {
+        margin: auto 0;
+    }
+    p:hover {
+        text-decoration: underline;
+    }
+    h5 {
+        margin: auto 0;
+        font-weight: 700;
+        font-size: 1.5vw;
+    }
+    h5:hover {
+        text-decoration: underline;
+    }
+    
+`
+export const DivFilters = styled.div`
+    display: flex;
+    p {
+        margin: auto 0;
+    }
+    select {
+        margin: 0 20px 0 5px;
+    }
+`
+
+
+
 
 export const AddToCardButton = styled.button`
     border: 2px solid #f25797 ;

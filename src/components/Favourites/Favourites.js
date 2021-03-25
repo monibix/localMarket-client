@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-// import favorito from "../../assets/favorito.png"
-// import favoritoDisable from "../../assets/favoritoDisable.png"
-// import * as S from "./style";
+import favoriteWhite from "../../assets/favorite-white.png"
+import favoriteBlack from "../../assets/favorite-black.png"
+import * as S from "./style";
 import { manageFavourites as manageFavouritesService } from "../../service/main.service";
 import { useAuth } from '../../context/AuthContext.utils.js';
 
@@ -12,8 +12,8 @@ import { useAuth } from '../../context/AuthContext.utils.js';
 //     return initialBtnText = addToFavourites
 // }
 //let initialBtnText;
-let addToFavourites = "Añadir a favoritos"
-let removeFromFavourites = "Quitar de favoritos"
+let addToFavourites = <img src={favoriteWhite} alt="addfav"/>
+let removeFromFavourites = <img src={favoriteBlack} alt="removefav"/>
 
 function Favourites() {
 
@@ -31,7 +31,7 @@ function Favourites() {
     //segundo useeffect para definir texto boton favoritos en funcion de si está o no dicho producto al array de favoritos
     const isFavorite = user?.favourites?.includes(productId)
     React.useEffect(() => {
-        const btnText = isFavorite ? "quitar de favorito" : "agregar a favorito"
+        const btnText = isFavorite ? removeFromFavourites : addToFavourites
         setBtnText(btnText)
     }, [isFavorite, setBtnText])
 
@@ -51,11 +51,11 @@ function Favourites() {
         } else {
             if (user.favourites?.includes(productId)) {
                 setBtnText(addToFavourites)
-                setMessage("Producto quitado de tus favoritos")
+                // setMessage("Producto quitado de tus favoritos")
             }
             if (!user.favourites?.includes(productId)) {
                 setBtnText(removeFromFavourites)
-                setMessage("Producto añadido a tus favoritos")
+                // setMessage("Producto añadido a tus favoritos")
             }
             manageFavouritesService(productId)
         }
@@ -63,7 +63,7 @@ function Favourites() {
 
     return (
         <div>
-            <button onClick={manageFavourites}>{btnText}</button>
+            <S.FavoriteButton onClick={manageFavourites}>{btnText}</S.FavoriteButton>
             {message}
         </div>
     )
