@@ -1,5 +1,6 @@
 import React from 'react';
-import * as S from './style'
+import * as S from './style';
+import  { NavbarContainer } from "../../commons/commons.style";
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from "../../components/Footer/Footer";
 import { Link } from 'react-router-dom';
@@ -14,9 +15,9 @@ function Main() {
 
     return (
         <div>
-            <div>
+            <NavbarContainer>
                 <Navbar />
-            </div>
+            </NavbarContainer>
             
             {/* <S.CarrouselDiv id="carouselExampleSlidesOnly" className="carousel slide">
             <div className="carousel-inner">

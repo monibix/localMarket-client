@@ -1,14 +1,24 @@
 import styled from 'styled-components';
+import * as S from "../../commons/commons.style";
+import * as palette from "../../commons/variables"
 
 export const Input = styled.input`
-    background-color: whitesmoke;
-    border: 2px solid #1687a7;
-    border-radius: 5px; 
-    padding:5px 20px;
-    width: 50vw
+    font-family: "Montserrat";
+    font-size: 1.1vw;
+    border: 1px solid #000;
+    padding: 0.5vw 1.5vw;
+    width: 40vw;
+
 `
 export const Form = styled.form`
     display: flex;
     background-color: white;
     border: none;
+    
+`
+export const Button = styled(S.Button)`
+    font-size: 1.1vw;
+    background-color: ${palette.goldenColor};
+    padding: 0.5vw 1.5vw;
+    margin: 0px 0 0 0.4vw;
 `
