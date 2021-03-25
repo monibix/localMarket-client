@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { uploadProductImage } from '../../service/products.service';
 
 
+
 function Productform() {
     const initialState = {
         title: "", 
@@ -33,9 +34,7 @@ function Productform() {
         e.preventDefault(e)
         await createProduct(state)
         setState(initialState)
-        if (error !== "") {
             history.push("/products")
-        }
     }
 
     const handleUpload = async (e) => {
