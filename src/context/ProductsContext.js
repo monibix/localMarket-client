@@ -14,6 +14,7 @@ export const ProductContext = React.createContext({});
 function ProductProvider({ children }) {
   const [products, setProducts] = React.useState([]);
   const [product, setProduct] = React.useState({});
+  const [error, setError] = React.useState("")
   //console.log("products en productProvider", products)
 
   const getMyProducts = async () => {
@@ -23,8 +24,13 @@ function ProductProvider({ children }) {
   };
 
   const createProduct = async (product) => {
-    const { data: newProduct } = await createProductService(product);
-    setProducts((state) => state.concat(newProduct));
+    try {
+      const { data: newProduct } = await createProductService(product);
+      setProducts((state) => state.concat(newProduct));
+    } catch (error) {
+      console.log("error create", error.response.data.message)
+      setError(error.response.data.message)
+    }
   };
 
   const getMyProduct = async (productId) => {
@@ -81,6 +87,7 @@ function ProductProvider({ children }) {
         cleanProduct,
         getMyFavourites,
         getRelatedUserProducts,
+        error
       }}
     >
       {children}

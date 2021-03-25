@@ -50,6 +50,8 @@ function SellerDetails() {
                 userImage={seller.userImage}
                 user={seller.user}
                 description={seller.description}
+                instagram={seller.instagram}
+                phone={seller.phone}
                 />
             <S.Div>
                 <h4>Ver más productos de {seller.username}</h4>

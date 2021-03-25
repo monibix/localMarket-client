@@ -64,7 +64,7 @@ function ProductSheet(props) {
                     <S.Description>
                         <div>
                             <h4>Descripción</h4>
-                            <p> {props.description} </p>
+                            <p style={{whiteSpace: "pre"}}> {props.description} </p>
                         </div>
                         {
                             isSellerDetails ? (

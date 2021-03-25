@@ -25,7 +25,7 @@ function MyOrders() {
 
                     <h1>MyOrders</h1>
                     <S.OrderContainer>
-                    <table>
+                    {/* <table>
                         <thead>
                             <tr>
                                 <th>Reference</th>
@@ -51,8 +51,30 @@ function MyOrders() {
 
                     }
                         </tbody>
-                    </table>
+                    </table> */}
                     
+                    {
+                        user.orders?.length ? (
+
+                            user.orders?.map((item)=>{
+
+                                return (
+                                        item.map((it, key)=>{
+                                            return <OrderProduct 
+                                                reference={it.reference} 
+                                                title={it.title}
+                                                price={it.price}  
+                                                key={Math.random()}  
+                                                />
+                                        })
+                                    )
+                                })
+
+                        ) : (
+                            <h3>No tienes compras. Podrás hacer seguimiento de tus compras desde aquí.</h3>
+                        )
+                    }
+
                     </S.OrderContainer>
             </Div>
             

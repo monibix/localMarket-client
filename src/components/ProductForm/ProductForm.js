@@ -15,7 +15,8 @@ function Productform() {
         image: ""
     };
 
-    const { createProduct } = useProducts()
+    const { createProduct, error } = useProducts()
+    console.log("error", error)
 
     const history = useHistory()
 
@@ -32,7 +33,9 @@ function Productform() {
         e.preventDefault(e)
         await createProduct(state)
         setState(initialState)
-        history.push("/products")
+        if (error !== "") {
+            history.push("/products")
+        }
     }
 
     const handleUpload = async (e) => {
@@ -66,7 +69,7 @@ function Productform() {
                 required
             />
             <Label htmlFor="category">Category</Label>
-            <Select name="category" onChange={handleChange} value={state.category} >
+            <Select name="category" onChange={handleChange} value={state.category} required >
                 <option value="none">Selecciona una categoría</option>
                 <option value="joyeria">Joyería</option>
                 <option value="bebes">Bebés y Niños</option>
@@ -91,7 +94,7 @@ function Productform() {
                 placeholder="write a description"
                 onChange={handleChange}
                 value={state.description}
-
+                wrap="hard"
             ></Textarea>
             <Label htmlFor="image">Main Image</Label>
             <Input 
@@ -102,6 +105,7 @@ function Productform() {
                 disable={!imageReady} 
             />
             <Button type="submit">Add</Button>
+            <h5 style={{color: "red"}}>{error}</h5>
         </Form>
     )
 }

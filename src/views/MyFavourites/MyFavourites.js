@@ -10,11 +10,21 @@ import { useProducts } from '../../context/ProductsContext.utils';
 function MyFavourites() {
 
     const { products, getMyFavourites } = useProducts();    
+    const [ message, setMessage ] = React.useState("")
 
     React.useEffect(()=>{
         getMyFavourites()
     },[])
     console.log("products", products)
+
+    // const isFavorite = user?.favourites?.includes(productId)
+    // React.useEffect(() => {
+    //     const btnText = isFavorite ? "quitar de favorito" : "agregar a favorito"
+    //     setBtnText(btnText)
+    // }, [isFavorite, setBtnText])
+
+    //const favoritesProducts = products?.length
+
 
     return (
         <div>
@@ -25,15 +35,18 @@ function MyFavourites() {
                 <Sidebar />
                 <ProductCardContainer>
                     {
-                        products.map((item, key)=> {
+                        products?.length ? (
+                            products.map((item, key)=> {
                             return <ProductCardComp 
                                 key={item._id}
                                 title={item.title} 
                                 mainImage={item.mainImage}
                                 price={item.price}
                                 link={`/category/${item._id}`}/>
-                        })
-                        
+                            })
+                        ) : (
+                            <h1>No tienes favoritos. Añade alguno aquí. </h1>
+                        )
                     }
                 </ProductCardContainer>
 

@@ -21,19 +21,6 @@ function ProductByCategoryDetail() {
     }, [])
     console.log("product", detail)
 
-    // const { search } = useLocation()
-    // console.log("search")
-
-    //console.log("seller", product.seller) 
-    // const [seller, setSeller] = React.useState([])
-    // React.useEffect(()=>{
-    //     getSellerDetailsService(product.seller).then(({data: sellerInfo})=>{
-    //         console.log("useeffect", product.seller)
-    //         setSeller(sellerInfo)
-    //     })
-    // }, [product.seller])
-    // console.log("seller", seller)
-
     return (    
         <div>   
             <div>   
