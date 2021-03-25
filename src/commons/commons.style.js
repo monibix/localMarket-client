@@ -3,11 +3,11 @@ import * as palette from "./variables";
 
 export const NavbarContainer = styled.div`
     ${'' /* Fija barra navegación */}
-    transform: translateZ(0);
+    ${'' /* transform: translateZ(0);
     -webkit-transform: translateZ(0);
     position: fixed;
     z-index: 1000;
-    width: 100%;
+    width: 100%; */}
 `
 
 export const Button = styled.button`
@@ -31,8 +31,6 @@ export const Div = styled.div`
         margin: 0 auto;
     }
 `
-
-
 
 export const AddToCardButton = styled.button`
     border: 2px solid #f25797 ;

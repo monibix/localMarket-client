@@ -1,23 +1,42 @@
 import styled from 'styled-components';
+import * as palette from "../../commons/variables"
+
+
+export const CarrouselDiv = styled.div`
+    margin: 0px auto;
+    img{
+        ${'' /* height: 70vh; */}
+    } 
+`
+
+export const MinHeightContainer = styled.div`
+
+`
+
+
 
 export const Div = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: ${palette.backgroundColor};
+    .category-left {
+        display: flex;
+        flex-direction: column;
+    }
+    .category-right {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 4vw;
+    }
 
 `
 
 export const Category = styled.div`
-    border: 2px solid  #1687A7;
-    border-radius: 5px;
     min-width: 20vw;
     min-height: 10vh;
-    margin: 40px;
-    padding: 20px;
-    color: black;
-    background-color: #1687a7;
+    margin: 4vw 4vw 0 0;
     opacity:0.9;
-    color: whitesmoke;
     a:link {
         text-decoration: none;
     }
@@ -25,20 +44,9 @@ export const Category = styled.div`
         opacity: 0.8;
     }
     img {
-        width: 40vw;
-        height: 40vh;
+        width: 37vw;
     }
     h2{
         margin-top: 10px;
-    }
-`
-
-export const CarrouselDiv = styled.div`
-    margin: 0px auto;
-    border: 2px solid black;
-
-    img {
-        width: 100%;
-        height: 70vh;
     }
 `

@@ -5,11 +5,9 @@ export const Nav = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 10px 1.25vw;
     border-bottom: 2px solid grey;
     box-shadow: 0.5px 0.5px 0.5px 0.5px #253238;    
-    position: static;  
-
 `
 
 export const Logo = styled.img`
