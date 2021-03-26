@@ -4,7 +4,6 @@ import * as palette from "../../commons/variables"
 export const ProductSheetContainer = styled.div`
     margin-left: 9vw;
     border: 2px solid black;
-    background-color: red;
 `
 
 export const RelatedProductsContainer = styled.div`

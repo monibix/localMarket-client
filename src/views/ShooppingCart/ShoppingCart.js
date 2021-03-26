@@ -5,6 +5,8 @@ import { Button, SubNavbar } from "../../commons/commons.style"
 import { useCarrito } from "../../context/CarritoContext.utils"
 import { useHistory} from "react-router";
 import { Link } from "react-router-dom"
+import Footer from "../../components/Footer/Footer";
+import DefaultImage from "../../assets/default-image_450.png"
 //import { getShoopingList } from "../../service/main.service";
 
 function ShoppingCart() {
@@ -71,31 +73,42 @@ function ShoppingCart() {
             </div>
 
             <S.Div>
-                <div>
+                <div className="shopping-list-container">
                 {
-                    carrito.map((item,key)=>{
+                    carrito.length ? (
+                        carrito.map((item,key)=>{
                         return (
                             <div className="shopping-list-item" key={item.productID}>
                                 <div className="top">
                                     <S.Img src={item.mainImage} />
                                     <div className="title-price">
                                         <h3>{item.title}</h3>
-                                        <h3>{item.price}€</h3>
+                                        <h4>{item.price}€</h4>
+                                        <S.ReestyledButton onClick={() => handleDeleteFromList(item.productID)}>Quitar de la lista</S.ReestyledButton>
                                     </div>
                                 </div>
-                                <div className="button">
-                                    <Button onClick={() => handleDeleteFromList(item.productID)}>Quitar de la lista</Button>
-                                </div>
                             </div>
-                        )
-                    })
+                            )
+                        })
+                    ) : (
+                        <div className="shopping-list-item">
+                                <div className="top">
+                                    <S.Img src={DefaultImage} />
+                                    <div className="title-price">
+                                        <h3>Todavía no tienes productos en tu cesta</h3>
+                                        <h4></h4>
+                                        <S.ReestyledButton onClick={() => history.push("/")}>Añadir productos</S.ReestyledButton>
+                                    </div>
+                                </div>
+                        </div>
+                    )
                 }
                 </div>
                 <div className="checkout">
-                    <div class>
-                    <h3>Total:  </h3>
+                    <div>
                         <div className="subtotal">
                             <h5>Subtotal</h5>
+                            <h5>
                             { 
                                 carrito.reduce((acc, next)=>{
                                     return (
@@ -103,10 +116,11 @@ function ShoppingCart() {
                                     )
                                 }, 0)
                             }
+                            €</h5>
                         </div>
                         <div className="envio">
-                            <h5>Envio</h5>
-                            <p>2,5€</p>
+                            <h6>Gastos de envío</h6>
+                            <h6>0 €</h6>
                         </div>
                         <div className="total-a-pagar">
                             <h4>Total a pagar</h4>
@@ -116,10 +130,10 @@ function ShoppingCart() {
                                     ((acc + next.price)+5)
                                 )
                             }, 0)
-                        }</h5>
+                        }€</h5>
                         </div>
                     </div>
-                    <div>
+                    <div className="checkout-buttons">
                         <Button onClick={handleSeguirComprando}>Seguir comprando</Button>
                         <Button onClick={handleOrder}>Realizar compra</Button>
                     </div>
@@ -134,9 +148,10 @@ function ShoppingCart() {
                         }
                     </div>
                 </div>
-
             </S.Div>
-
+            <div>
+                <Footer />
+            </div>
         </div>
 
     )

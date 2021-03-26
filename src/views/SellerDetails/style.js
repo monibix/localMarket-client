@@ -13,6 +13,7 @@ export const DivMigas = styled.div`
     }
 `
 export const Div = styled.div`
+
     background-color: whitesmoke;
     padding: 50px;
     text-align: left;

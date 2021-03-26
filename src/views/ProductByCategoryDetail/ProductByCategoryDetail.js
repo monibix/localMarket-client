@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from "./style";
-import { SectionHead, DivMigas, SubNavbar, ProductCardContainer  } from "../../commons/commons.style"
+import { SectionHead, DivMigas, SubNavbar  } from "../../commons/commons.style"
 import Navbar from '../../components/Navbar/Navbar';
 import { useParams, Link } from 'react-router-dom';
 import { getProductByCategory as getProductByCategoryService } from "../../service/main.service"
@@ -81,7 +81,7 @@ function ProductByCategoryDetail() {
                 </DivMigas>
             </SectionHead>
 
-            <S.ProductSheetContainer style={{backgroundColor:"red"}}>
+            <S.ProductSheetContainer>
 
                 <ProductSheet                 
                     mainImage={detail.mainImage} 

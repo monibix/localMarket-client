@@ -17,20 +17,12 @@ function ProfileComp(props) {
                         <img src={Gmail} alt="insta"/> {props.instagram}
                         <br />
                         <img src={Gmail} alt="phone"/> {props.phone}</p>
+                        <div className="description">
+                            <h4>Descripcion</h4>
+                            <p>{props.description}</p>
+                        </div>
                     </div>
-                </div>  
-                <div className="valores">
-                    <h4>Valores</h4>
-                    <p>Ecológico</p>
-                    <p>Ecológico</p>
-                    <p>Ecológico</p>
-                    <p>Ecológico</p>
-                    <p>Ecológico</p>
-                </div>  
-                <div className="description">
-                    <h4>Descripcion</h4>
-                    <p>{props.description}</p>
-                </div>
+                </div>   
             </Div>
     )
 }

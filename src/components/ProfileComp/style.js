@@ -1,61 +1,63 @@
 import styled from 'styled-components';
+import * as palette from "../../commons/variables"
 
-export const SectionHead = styled.section`
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 90px;
-`
+// export const SectionHead = styled.section`
+//     display: flex;
+//     justify-content: space-between;
+//     padding: 20px 90px;
+// `
 
-export const DivMigas = styled.div`
-    display: flex;
-    p {
-        margin: auto 0;
-    }
-`
 export const Div = styled.div`
-    background-color: whitesmoke;
-    padding: 50px;
+    background-color: white;
     text-align: left;
+    margin-left: 10vw;
+    font-family: ${palette.fontContent};
+    padding-bottom: 2vw;
     .header{
         display: flex;
         img {
-        width: 29vw;
-        border-radius: 5px;
-    }
+            width: 25vw;
+        }
     .title {
-        padding-left: 20px;
+        padding-left: 4vw;
         p {
             font-size: 1.2em;
-            font-weight: 400;
+            font-weight: 300;
         }
         img {
-            width: 50px;
+            width: 3vw;
         }
     }
-    }
-    .valores {
-        margin-top: 50px;
-        display: flex;
-        h4{
-            margin: 10px 0;
-        }
-        p {
-            margin-left: 20px;
-            border: 2px solid #b8daba;
-            padding: 10px 25px;
-            background-color: #b8daba; 
-        }
     }
     .description {
-        margin-top: 50px;
+        margin-top: 2vw;
         display: flex;
+        flex-direction: column;
+        max-width: 50vw;
         h4{
+            font-size: 1.2vw;
             margin: 15px 0;
         }
         p {
-            padding: 0 200px 0 20px;
-            font-size: 1.2em;
+            font-size: 1vw;
+            font-weight: 300;
+            margin-left: 1vw;
         }
     }
 
 `
+
+
+
+// export const SectionHead = styled.section`
+//     display: flex;
+//     justify-content: space-between;
+//     padding: 20px 90px;
+// `
+
+// export const DivMigas = styled.div`
+//     display: flex;
+//     p {
+//         margin: auto 0;
+//     }
+// `

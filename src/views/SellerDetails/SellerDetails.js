@@ -1,5 +1,6 @@
 import React from 'react';
-import * as S from "./style"
+import * as S from "./style";
+import { SectionHead, DivMigas, SubNavbar  } from "../../commons/commons.style"
 import Navbar from '../../components/Navbar/Navbar';
 import { useParams, Link } from 'react-router-dom';
 import { getSellerDetails as getSellerDetailsService } from "../../service/main.service"
@@ -35,13 +36,23 @@ function SellerDetails() {
         <div>   
             <div>   
                 <Navbar/>   
+                <SubNavbar>
+                    <Link>Complementos</Link>
+                    <Link>Moda</Link>
+                    <Link>Muebles y Decoración</Link>
+                    <Link>Joyería</Link>
+                    <Link>Bebes y Niños</Link>
+                    <Link>Cosmética</Link>
+                </SubNavbar>
             </div>  
-            <S.SectionHead>
-                <S.DivMigas>
-                    <Link to="/"><p>Home &nbsp;</p></Link>
-                    <p> &#62; &nbsp;</p>
-                </S.DivMigas>
-            </S.SectionHead>
+
+            <SectionHead>
+                <DivMigas>
+                    <Link to="/"><p>Home</p></Link>
+                    <p>&nbsp; &#62; &nbsp;</p>
+                    <Link to={`/seller/${seller.username}`}><h5 style={{textTransform: "uppercase"}}>{seller.username}</h5></Link>
+                </DivMigas>
+            </SectionHead>
 
             <ProfileComp 
                 username={seller.username} 
