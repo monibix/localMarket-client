@@ -1,25 +1,68 @@
 import styled from 'styled-components';
+import * as palette from "../../commons/variables"
 
-export const Div = styled.div`
-    background-color: whitesmoke;
-    display: flex;
-    .content{
-        margin: 0 auto;
-    }
+
+export const SearchBar = styled.input`
+    font-family: "Montserrat";
+    font-size: 1.1vw;
+    border: 1px solid #000;
+    padding: 0.5vw 1.5vw;
+    width: 29vw;
+    margin-bottom: 3vw;
 `
 
+
+
+export const MyAreaContainer = styled.div`
+    background-color: white;
+    display: flex;
+    .content{
+        margin: 3vw auto;
+        h3 {
+            margin-bottom: 1vw;
+        }
+    }
+`
 export const ProductCardContainer = styled.div`
-    min-width: 300px;
+    ${'' /* min-width: 300px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 5px;
     border-radius: 5px;
-    margin: 10px;
+    margin: 10px; */}
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 4vw 0 9vw;
+    .control-btns-container {
+        ${'' /* border: 2px solid black; */}
+        margin: -3vw 5.2vw 3vw 0vw;
+        border-top: none;
+        border-bottom: none;
+        a {
+            ${'' /* border: 2px solid blue; */}
+        }
+        button {
+            width: 5.33vw;
+            background-color: white;
+            border: 1px solid black;
+            border-top: none;
+            :hover {
+                background-color: ${palette.backgroundColor}
+            }
+        }
+    }
 `
 
-export const ProductCard = styled.div`
-    width: 250px;
+
+
+
+
+
+export const AddNewProductCard = styled.div`
+    ${'' /* width: 250px;
     min-height: 320px;
     display: flex;
     flex-direction: column;
@@ -27,42 +70,86 @@ export const ProductCard = styled.div`
     border-radius: 5px;
     margin: 10px;
     border: 2px solid #1687A7;
+    background-color: white; */}
+
+    width: 16vw;
+    height: 20vw;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000;
     background-color: white;
-    img {
+    margin: 0 5.2vw 3vw 0vw;
+    border: 1px solid #000;
+    :hover {
+        background-color: #F8F8FF;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+        }
+    .card-image{
+        height: 15vw;
+        img {
+            padding: 2vw;
+            width: 80%;
+        }
+    }
+    .card-content {
+        font-family: ${palette.fontContent};
+        text-align: left;
+        padding: 1.1vw 1vw;
+        height: 25%;
+        .title{
+            font-size: 1vw;
+            font-weight: 400;
+            text-decoration: none;
+            color: black;
+            text-align: center;
+
+        }
+    }
+
+
+    ${'' /* img {
         padding: 40px;
         align-self: center;
         justify-content: center;
-    }
-    h3 {
+    } */}
+    ${'' /* h3 {
         text-decoration: none;
         color: black;
-    }
-    :hover {
+    } */}
+    ${'' /* :hover {
         background-color: #eee8aa;
-    }
+    } */}
 `
 
-export const Button = styled.p`
-    border: 2px solid #1687a7 ;
-    padding: 5px 10px;
-    background-color: #eff8ff;
-    border-radius: 5px;
-    margin: 2px;
-    color: black;
-    text-decoration: none;
-    :hover{
-        opacity: 0.8;
-    }
-`
+// export const Button = styled.p`
+//     border: 2px solid #1687a7 ;
+//     padding: 5px 10px;
+//     background-color: #eff8ff;
+//     border-radius: 5px;
+//     margin: 2px;
+//     color: black;
+//     text-decoration: none;
+//     :hover{
+//         opacity: 0.8;
+//     }
+// `
 
-export const SearchBar = styled.input`
-    padding: 5px 10px;
-    border: 2px solid #1687a7;
-    border-radius: 5px;
-    width: 20vw;
-`
 
-export const Img = styled.img`
-    width: 10vw;
-    border-bottom: 1px solid #1687A7;
-`
+
+// export const Img = styled.img`
+//     width: 10vw;
+//     border-bottom: 1px solid #1687A7;
+// `
+
+
+
+// export const MyAreaContainer = styled.div`
+//     background-color: white;
+//     display: flex;
+//     .content{
+//         margin: 0 auto;
+//     }
+// `

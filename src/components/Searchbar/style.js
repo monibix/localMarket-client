@@ -8,7 +8,6 @@ export const Input = styled.input`
     border: 1px solid #000;
     padding: 0.5vw 1.5vw;
     width: 29vw;
-
 `
 export const Form = styled.form`
     display: flex;

@@ -136,7 +136,7 @@ function EditProfile() {
                                     value={state.description}></S.Textarea>
                         </div>
                     </div>
-                    <S.Button type="submit" disable={!imageReady} >Edit Profile</S.Button>
+                    <S.Button type="submit" disable={!imageReady} >Guardar</S.Button>
                 </S.Form>
                 </div>
             </S.Div>

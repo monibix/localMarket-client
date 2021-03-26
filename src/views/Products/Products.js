@@ -1,5 +1,7 @@
 import React from 'react';
-import { Div, ProductCardContainer, ProductCard, Button, SearchBar } from './style';
+import * as S from "./style";
+import { ProductCard, Button } from './style';
+import { MyAreaContainer, ProductCardContainer } from "../../commons/commons.style"
 import AddProductImg from '../../assets/AddProductImg.png'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import Navbar from '../../components/Navbar/Navbar'
@@ -37,18 +39,18 @@ function Products() {
             <div>
                 <Navbar/>
             </div>
-            <Div>
+            <S.MyAreaContainer>
                 <Sidebar/>
                 <div className="content">
-                    <h1>Products</h1>
-                    <SearchBar 
+                <h3>Gestiona tus productos</h3>
+                    <S.SearchBar 
                         type="text" 
-                        placeholder="Search your products..." 
+                        placeholder="Search here your products..." 
                         onChange={handleSearchBar} 
                         value={products.title}  
                     />
 
-                    <ProductCardContainer>
+                    <S.ProductCardContainer>
                         {
                             products.map((item, key)=>{
                                 return (
@@ -57,24 +59,35 @@ function Products() {
                                         title={item.title} 
                                         price={item.price} 
                                         mainImage={item.mainImage} 
-                                        link={`/products/${item._id}`} />
-                                    <Link to={`/products/${item._id}`} ><Button>View Product</Button></Link>
-                                    <Link to={`/products/${item._id}/edit`}><Button>Edit product</Button></Link>
-                                    <Button onClick={()=>handleDelete(item._id)}>Delete Product</Button>
+                                        link={`/products/${item._id}`} 
+                                    />
+                                    <div className="control-btns-container">
+                                        <Link to={`/products/${item._id}`} >
+                                            <button>VER</button>
+                                        </Link>
+                                        <Link to={`/products/${item._id}/edit`}>
+                                            <button>EDITAR</button>
+                                        </Link>
+                                        <button onClick={()=>handleDelete(item._id)}>BORRAR</button>
+                                    </div>
                                     </div>
                                 )
                             })
                         }
                         
                         <Link to="/add">
-                            <ProductCard>
-                                <img src={AddProductImg} width='150px' text-align='center' alt="añadir producto"/>
-                                <h3>Añadir producto</h3>
-                            </ProductCard>
+                            <S.AddNewProductCard>
+                                <div className="card-image">
+                                    <img src={AddProductImg} width='150px' text-align='center' alt="añadir producto"/>
+                                </div>
+                                <div className="card-content">
+                                    <h3 className="title">Añadir producto</h3>
+                                </div>
+                            </S.AddNewProductCard>
                         </Link>
-                    </ProductCardContainer>
+                    </S.ProductCardContainer>
                 </div>
-            </Div>
+            </S.MyAreaContainer>
         </div>
     )
 }

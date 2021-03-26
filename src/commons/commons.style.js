@@ -113,9 +113,7 @@ export const DivFilters = styled.div`
     }
 `
 
-
-
-
+//CREC Q NO ESTA APLICANT
 export const AddToCardButton = styled.button`
     border: 2px solid #f25797 ;
     padding: 5px 10px;
@@ -128,3 +126,13 @@ export const AddToCardButton = styled.button`
         opacity: 0.8;
     }
 `
+
+
+//MY AREA
+// export const MyAreaContainer = styled.div`
+//     background-color: white;
+//     display: flex;
+//     .content{
+//         margin: 0 auto;
+//     }
+// `
