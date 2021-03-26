@@ -1,33 +1,46 @@
 import styled from 'styled-components';
+import { Button } from "../../commons/commons.style";
+import * as palette from "../../commons/variables"
+
+export const LoginSignupContainer = styled.div`
+    border: 2px solid red;
+    background-color: ${palette.backgroundColor};
+    min-height: 65vh;
+    div {
+      margin: 3vw 30vw;
+      background-color: white;
+      opacity: 1;
+      h3 {
+        padding: 2vw 0vw 1vw;
+        font-size: 2vw;
+        
+      }
+    }
+`
 
 export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  h5 {
-    color: red;
-  }
-`;
+    display: flex;
+    flex-direction: column;
+    p {
+      margin-top: -1vw;
+      font-size: 0.8vw;
+    }
+`
+export const Label = styled.label`
+    font-weight: bold;
+    justify-content: center;
+`
 
 export const Input = styled.input`
-  border: 2px solid #1687a7;
-  border-radius: 5px;
-  padding: 10px;
-  width: 20%;
-  margin: 10px auto;
-`;
+    width: 23vw;
+    padding: 0.5vw 1vw;
+    border: 2px solid ${palette.blackColor};
+    margin: 0.5vw 0vw 1vw;
+    align-self: center;
+`
 
-export const Button = styled.button`
-  border: 1px solid #1687a7;
-  border-radius: 5px;
-  padding: 10px;
-  width: 10%;
-  margin: 10px auto;
-  color: #fff;
-  font-weight: bold;
-  background-color: #1687a7;
-`;
-
-export const Label = styled.label`
-  font-weight: bold;
-`;
+export const StyledButton = styled(Button)`
+    margin: 2vw;
+    width: 10vw;
+    align-self: center;
+`

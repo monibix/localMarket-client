@@ -2,7 +2,9 @@ import React from 'react';
 import AuthForm from '../../components/AuthForm/AuthForm';
 import { useAuth } from '../../context/AuthContext.utils';
 import Navbar from '../../components/Navbar/Navbar';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { SubNavbar } from "../../commons/commons.style"
+import Footer from '../../components/Footer/Footer';
 
 function Signup() {
     
@@ -10,13 +12,22 @@ function Signup() {
     console.log("handleSignup", handleSignup)
 
     return (
-        <div>
+        <div>   
+            <div>   
+                <Navbar/>   
+                <SubNavbar>
+                    <Link>Complementos</Link>
+                    <Link>Moda</Link>
+                    <Link>Muebles y Decoración</Link>
+                    <Link>Joyería</Link>
+                    <Link>Bebes y Niños</Link>
+                    <Link>Cosmética</Link>
+                </SubNavbar>
+            </div>  
+            <AuthForm btnText="SIGNUP" onSubmit={handleSignup} />
             <div>
-                <Navbar/>
+                <Footer />
             </div>
-            <h1>Signup</h1>
-            <AuthForm btnText="signup" onSubmit={handleSignup} />
-            <p>Already registered? Please <Link to="/login">log in</Link></p>
         </div>
     )
 }

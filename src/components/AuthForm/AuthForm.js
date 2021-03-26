@@ -1,7 +1,8 @@
 import React from 'react';
+import * as S from "./styles";
 import { useAuth } from '../../context/AuthContext.utils';
-import { Form, Input, Button, Label } from "./styles";
-
+import { Form, Input, Label, StyledButton } from "./styles";
+import { Link, useLocation } from "react-router-dom";
 
 function AuthForm({btnText, onSubmit}) {
     const [state, setState] = React.useState({email: "", password: ""})
@@ -16,7 +17,12 @@ function AuthForm({btnText, onSubmit}) {
         onSubmit(state)
     }
 
+    const location = useLocation()
+
     return (
+        <S.LoginSignupContainer>
+            <div>
+            <h3>{btnText}</h3>
         <Form onSubmit={handleSubmit}>
             <Label>Email</Label>
             <Input
@@ -32,9 +38,18 @@ function AuthForm({btnText, onSubmit}) {
                 value={state.password}
                 onChange={handleChange}
             />
-            <Button type="submit">{btnText}</Button>
+            <StyledButton type="submit">{btnText}</StyledButton>
+            {
+                location.pathname.includes("signup") ? (
+                    <p>Already registered? Please <Link to="/login">login</Link></p>
+                ) : (
+                    <p>Don't have an account? Register <Link to="/signup">here</Link></p>
+                )
+            }
             <h5>{error}</h5>
             </Form>
+            </div>
+        </S.LoginSignupContainer>
     )
 }
 
