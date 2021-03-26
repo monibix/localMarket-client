@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 export const Content = styled.div`
-    width: 85vw;
+    width: 75vw;
+    border: 2px solid violet;
 `
 
 export const Head = styled.div`
+    border: 2px solid blue;
     display: flex;
     justify-content: flex-start;
     .image-container {
@@ -19,10 +21,11 @@ export const Head = styled.div`
         }   
     }
     .title-section{
+        border: 2px solid red;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        margin: 0 3vw;
+        padding: 0 3vw;
         h3 {
             font-size: 2.25vw;
             font-weight: 400;
@@ -49,16 +52,18 @@ export const Description = styled.div`
     margin-top: 2vw;
     .description{
         width: 45vw;
+        border: 2px solid red;
         h4 {
             font-size: 1.5vw;
         }
         p {
             font-size: 1.25vw;
+
         }
     }
     .seller {
         width: 20vw;
-        padding: 0 3vw 0 2vw;
+        padding: 0 3vw 0 5vw;
         h4 {
             font-size: 1.5vw;
         }

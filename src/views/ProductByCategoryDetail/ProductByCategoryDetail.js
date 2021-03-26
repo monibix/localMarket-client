@@ -81,18 +81,21 @@ function ProductByCategoryDetail() {
                 </DivMigas>
             </SectionHead>
 
-            <ProductSheet                 
-                mainImage={detail.mainImage} 
-                title={detail.title} 
-                reference={detail.ref} 
-                price={detail.price} 
-                description={detail.description} 
-                username={detail.seller?.username}
-                userImage={detail.seller?.userImage}
-                userDescription={detail.seller?.description}
-                link={`/seller/${detail.seller?._id}`} 
-                productId = {detail._id}
-            />
+            <S.ProductSheetContainer style={{backgroundColor:"red"}}>
+
+                <ProductSheet                 
+                    mainImage={detail.mainImage} 
+                    title={detail.title} 
+                    reference={detail.ref} 
+                    price={detail.price} 
+                    description={detail.description} 
+                    username={detail.seller?.username}
+                    userImage={detail.seller?.userImage}
+                    userDescription={detail.seller?.description}
+                    link={`/seller/${detail.seller?._id}`} 
+                    productId = {detail._id}
+                />
+            </S.ProductSheetContainer>  
             <S.RelatedProductsContainer>
                 <div className="related-title">
                     <h5>TAMBIÉN TE PUEDE GUSTAR</h5>

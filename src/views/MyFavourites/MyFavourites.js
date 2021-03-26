@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
-import { Div } from "../../commons/commons.style"
+import * as S from "./style";
+
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { ProductCardContainer } from "../Products/style";
 import ProductCardComp from "../../components/ProductCardComp/ProductCardComp";
@@ -31,26 +32,29 @@ function MyFavourites() {
             <div>
                 <Navbar />
             </div>
-            <Div>
+            <S.MyAreaContainer>
                 <Sidebar />
-                <ProductCardContainer>
-                    {
-                        products?.length ? (
-                            products.map((item, key)=> {
-                            return <ProductCardComp 
-                                key={item._id}
-                                title={item.title} 
-                                mainImage={item.mainImage}
-                                price={item.price}
-                                link={`/category/${item._id}`}/>
-                            })
-                        ) : (
-                            <h1>No tienes favoritos. Añade alguno aquí. </h1>
-                        )
-                    }
-                </ProductCardContainer>
-
-            </Div>
+                <div className="content">
+                    <h3>Tus productos favoritos</h3>
+                    
+                        <ProductCardContainer>
+                            {
+                                products?.length ? (
+                                    products.map((item, key)=> {
+                                    return <ProductCardComp 
+                                        key={item._id}
+                                        title={item.title} 
+                                        mainImage={item.mainImage}
+                                        price={item.price}
+                                        link={`/category/${item._id}`}/>
+                                    })
+                                ) : (
+                                    <h1>No tienes favoritos. Añade alguno aquí. </h1>
+                                )
+                            }
+                        </ProductCardContainer>
+                </div>
+            </S.MyAreaContainer>
         </div>
     )
 }

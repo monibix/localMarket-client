@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 import * as palette from "../../commons/variables"
 
+export const ProductSheetContainer = styled.div`
+    margin-left: 9vw;
+    border: 2px solid black;
+    background-color: red;
+`
+
 export const RelatedProductsContainer = styled.div`
     background-color: #F7F3E2;
     padding: 3vw 1vw 2vw 1vw;

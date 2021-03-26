@@ -6,7 +6,6 @@ export const ExtendedButton = styled(Button)`
 `
 
 
-
 //CARROUSEL NO IMPLEMENTADO
 // export const DivCarroussel = styled.div`
 //     img {

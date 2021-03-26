@@ -65,7 +65,7 @@ function ProductSheet(props) {
                     <S.Description>
                         <div className="description">
                             <h4>DESCRIPCIÓN</h4>
-                            <p style={{whiteSpace: "pre"}}> {props.description} </p>
+                            <p> {props.description} </p>
                         </div>
                         {
                             isSellerDetails ? (
@@ -77,7 +77,8 @@ function ProductSheet(props) {
                                     <Link to={props.link}> <Button> Saber más </Button></Link>
                                 </div>
                             ) :  (
-                                <p></p>
+                                <div className="seller">
+                                </div>
                             )
                         }
                     </S.Description>

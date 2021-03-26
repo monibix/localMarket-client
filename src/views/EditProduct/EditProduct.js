@@ -1,5 +1,6 @@
 import React from 'react';
-import * as S from "./styles"
+import * as S from "./styles";
+import { Button } from "../../commons/commons.style";
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useProducts } from '../../context/ProductsContext.utils';
@@ -57,14 +58,15 @@ function EditProduct() {
             <div>
                 <Navbar/>
             </div>
-            <S.Div>
+            <S.MyAreaContainer>
                 <Sidebar/>
                 <div className="content">
-                    <h1>Edit Product </h1>
+                    <h3>Edita tu producto</h3>
+                    
                     <S.Form onSubmit={handleSubmit}>
                         <S.Head>
-                            <div>
-                                <S.Label htmlFor="image">Main Image</S.Label>
+                            <div className="image-container">
+                                <S.Label htmlFor="image">Imagen</S.Label>
                                 <S.Input 
                                     type="file" 
                                     name="image"
@@ -73,31 +75,38 @@ function EditProduct() {
                             </div>
 
                             <div className="title-section">
-                                <S.Label htmlFor="title">Title</S.Label>
-                                <S.Input 
-                                    type="text"
-                                    name="title" 
-                                    onChange={handleEdit}
-                                    value={product.title}    
-                                />
+                                <div className="field-container">
+                                    <S.Label htmlFor="title">Title</S.Label>
+                                    <S.Input 
+                                        type="text"
+                                        name="title" 
+                                        onChange={handleEdit}
+                                        value={product.title}    
+                                    />
+                                </div>
                                 
-                                <S.Label htmlFor="ref">Referencia</S.Label>
-                                <S.Input
-                                    type="text"
-                                    name="ref"
-                                    placeholder="referencia"
-                                    onChange={handleEdit}
-                                    value={product.ref}    
-                                />
+                                <div className="field-container">
+                                    <S.Label htmlFor="ref">Referencia</S.Label>
+                                    <S.Input
+                                        type="text"
+                                        name="ref"
+                                        placeholder="referencia"
+                                        onChange={handleEdit}
+                                        value={product.ref}    
+                                    />
+                                </div>
 
-                                <S.Label htmlFor="price">Price</S.Label>
-                                <S.Input 
-                                    type="number" 
-                                    name="price" 
-                                    onChange={handleEdit}
-                                    value={product.price}    
-                                />
-                                <div>
+                                <div className="field-container">
+                                    <S.Label htmlFor="price">Price</S.Label>
+                                    <S.Input 
+                                        type="number" 
+                                        name="price" 
+                                        onChange={handleEdit}
+                                        value={product.price}    
+                                    />
+                                </div>
+                                
+                                <div className="field-container">
                                 <S.Label htmlFor="category">Category</S.Label>
                                 <S.Select name="category" onChange={handleEdit} value={product.category} >
                                     <option value="none">Selecciona una categoría</option>
@@ -113,7 +122,7 @@ function EditProduct() {
                         </S.Head>
 
                         <S.Description>
-                            <div>
+                            <div className="description-container">
                                 <S.Label htmlFor="description">Description</S.Label>
                                 <S.Textarea 
                                     name="description" 
@@ -126,10 +135,14 @@ function EditProduct() {
                             </div>
                         </S.Description>
 
-                        <S.Button type="submit" disable={!imageReady} >Edit Product</S.Button>
+                        <div>
+                            <Button type="submit" disable={!imageReady} >Guardar</Button>
+                            <Button onClick={()=>{(history.push(`/products/${product._id}`))}}>Descartar</Button>
+                        </div>
+
                     </S.Form>
                 </div>
-            </S.Div>
+            </S.MyAreaContainer>
         </div>
     )
 

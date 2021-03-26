@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Div } from "../../commons/commons.style"
+import { Button } from "../../commons/commons.style";
+import * as S from "./styles";
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useProducts } from '../../context/ProductsContext.utils';
@@ -31,28 +32,29 @@ function MyProductDetails() {
             <div>
                 <Navbar/>
             </div>
-            <Div>
+            <S.MyAreaContainer>
                 <Sidebar/>
-                <div>
-                    <ProductSheet                 
-                        mainImage={product?.mainImage} 
-                        title={product?.title} 
-                        reference={product?.ref} 
-                        price={product?.price} 
-                        description={product?.description} 
-                        userImage={product?.userImage} 
-                        userDescription={product?.description}
-                        link={`/profile`} 
-                    />
+                <div className="content">
+                    <h3>Detalle de producto</h3>
+
+                        <ProductSheet                 
+                            mainImage={product?.mainImage} 
+                            title={product?.title} 
+                            reference={product?.ref} 
+                            price={product?.price} 
+                            description={product?.description} 
+                            userImage={product?.userImage} 
+                            userDescription={product?.description}
+                            link={`/profile`} 
+                        />
+
                     <div>
-                        <Link to={`/products/${product?._id}/edit`}> <Button> Edit product </Button></Link>
-                        <Button onClick={()=>handleDelete(product?._id)}> Delete product </Button>
+                        <Link to={`/category/${product?._id}`}> <Button> Ver online </Button></Link>
+                        <Link to={`/products/${product?._id}/edit`}> <Button> Editar producto </Button></Link>
+                        <Button onClick={()=>handleDelete(product?._id)}> Borrar producto </Button>
                     </div>
                 </div>
-            </Div>
-            <div>
-                <Footer />
-            </div>
+            </S.MyAreaContainer>
 
         </div>
     )

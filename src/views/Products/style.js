@@ -20,22 +20,16 @@ export const MyAreaContainer = styled.div`
         margin: 3vw auto;
         h3 {
             margin-bottom: 1vw;
+            font-family: ${palette.fontContent}
         }
     }
 `
 export const ProductCardContainer = styled.div`
-    ${'' /* min-width: 300px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 10px; */}
     background-color: white;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin: 0 4vw 0 9vw;
+    margin: 0 0vw 0 13vw;
     .control-btns-container {
         ${'' /* border: 2px solid black; */}
         margin: -3vw 5.2vw 3vw 0vw;
@@ -62,16 +56,6 @@ export const ProductCardContainer = styled.div`
 
 
 export const AddNewProductCard = styled.div`
-    ${'' /* width: 250px;
-    min-height: 320px;
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 10px;
-    border: 2px solid #1687A7;
-    background-color: white; */}
-
     width: 16vw;
     height: 20vw;
     display: flex;

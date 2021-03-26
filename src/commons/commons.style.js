@@ -69,7 +69,7 @@ export const ProductCardContainer = styled.div`
 export const ProductSheetContainer = styled.div`
     background-color: white;
     display: flex;
-    padding: 1vw 10vw 3vw 9vw;
+    padding: 1vw 0vw 3vw 0vw;
     font-family: ${palette.fontContent};
 `
 
