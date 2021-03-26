@@ -1,28 +1,22 @@
 import styled from 'styled-components';
-import * as palette from "../../commons/variables"
 
-
-export const Div = styled.div`
-    background-color: whitesmoke;
-    display: flex;
-    padding: 1vw 10vw 3vw 10vw;
-    font-family: ${palette.fontContent}
-
-    ${'' /* .content{
-        margin: 0 auto;
-    }
-    img {
-        width: 29vw;
-    } */}
+export const Content = styled.div`
+    width: 85vw;
 `
-
 
 export const Head = styled.div`
     display: flex;
     justify-content: flex-start;
-    img {
-        width: 35vw;
+    .image-container {
+        width: 45vw;
+        height: 35vw;
         border: 1px solid black;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }   
     }
     .title-section{
         display: flex;
@@ -30,17 +24,17 @@ export const Head = styled.div`
         align-items: flex-start;
         margin: 0 3vw;
         h3 {
-            font-size: 2.5vw;
+            font-size: 2.25vw;
             font-weight: 400;
         }
         p {
-            margin-top: -1vw;
-            font-size: 1.25vw;
+            margin-top: -0.8vw;
+            font-size: 1vw;
         }
         h2 {
-            font-size: 3vw;
+            font-size: 2.5vw;
             font-weight: bold;
-            margin-top: -1vw;
+            margin-top: -0.5vw;
         }
         .addtocart-button {
             margin: 3vw -1.5vw;
@@ -50,13 +44,11 @@ export const Head = styled.div`
 `
 export const Description = styled.div`
     text-align: left;
-    ${'' /* margin: 0 35vw 0 0; */}
     font-size: 1.1em;
     display: flex;
-    justify-content: space-between;
     margin-top: 2vw;
     .description{
-        width: 50%;
+        width: 45vw;
         h4 {
             font-size: 1.5vw;
         }
@@ -65,8 +57,8 @@ export const Description = styled.div`
         }
     }
     .seller {
-        width: 50%;
-        padding: 0 19vw 0 2vw;
+        width: 20vw;
+        padding: 0 3vw 0 2vw;
         h4 {
             font-size: 1.5vw;
         }
@@ -82,17 +74,6 @@ export const Description = styled.div`
             font-size: 1vw;
         }
     }
-    ${'' /* div {
-        width: 50%;
-        padding-right: 100px;
-    }
-    div h4 {
-        margin-top: 2vw;
-        img {
-            width: 40px;
-            border-radius: 5px;
-        }
-    } */}
 `
 
 // export const SectionHead = styled.section`
@@ -121,3 +102,16 @@ export const Description = styled.div`
 // `
 
 
+// export const Div = styled.div`
+//     background-color: whitesmoke;
+//     display: flex;
+//     padding: 1vw 10vw 3vw 10vw;
+//     font-family: ${palette.fontContent}
+
+//     ${'' /* .content{
+//         margin: 0 auto;
+//     }
+//     img {
+//         width: 29vw;
+//     } */}
+// `

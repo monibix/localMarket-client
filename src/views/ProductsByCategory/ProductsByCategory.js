@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./style";
-import { SubNavbar, SectionHead, DivMigas, DivFilters  } from "../../commons/commons.style"
+import { SubNavbar, SectionHead, DivMigas, DivFilters, ProductCardContainer  } from "../../commons/commons.style"
 import { useLocation, Link } from "react-router-dom";
 import qs from "qs"
 import { getProductsByCategory as getProductsByCategoryService } from "../../service/main.service"
@@ -125,7 +125,7 @@ function ProductsCard() {
                 </DivFilters>
             </SectionHead>
 
-            <S.Div>
+            <ProductCardContainer>
                 {
                     products.map((item, key)=>{
                         return (
@@ -139,7 +139,7 @@ function ProductsCard() {
                         )
                     })
                 }
-            </S.Div>
+            </ProductCardContainer>
 
             <div>
                 <S.ExtendedButton>Ver más</S.ExtendedButton>

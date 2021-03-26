@@ -41,11 +41,22 @@ export const Button = styled.button`
 export const Div = styled.div`
     background-color: whitesmoke;
     display: flex;
+    justify-content: flex-start;
     font-family: ${palette.fontContent}
-    .content{
+    ${'' /* .content{
         margin: 0 auto;
-    }
+    } */}
 `
+
+
+export const ProductCardContainer = styled.div`
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 4vw 0 9vw;
+`
+
 //ESTIL DIV DE PRODUCTS BY CATEGORY DETAIL
 // export const Div = styled.div`
 //     background-color: white;
@@ -54,6 +65,13 @@ export const Div = styled.div`
 //     justify-content: center;
 //     margin: 0 auto;
 // `
+
+export const ProductSheetContainer = styled.div`
+    background-color: white;
+    display: flex;
+    padding: 1vw 10vw 3vw 9vw;
+    font-family: ${palette.fontContent};
+`
 
 //MIGAS DE PAN
 export const SectionHead = styled.section`

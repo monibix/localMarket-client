@@ -9,7 +9,7 @@ export const ProductCard = styled.div`
     flex-direction: column;
     border: 1px solid #000;
     background-color: white;
-    margin: 0 3vw 3vw 3vw;
+    margin: 0 5.2vw 3vw 0vw;
     border: 1px solid #000;
     :hover {
         background-color: #F8F8FF;

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from "./style";
 
-import { Button, AddToCardButton } from '../../commons/commons.style';
+import { Button, ProductSheetContainer } from '../../commons/commons.style';
 import {Link, useLocation } from "react-router-dom";
 import { useCarrito } from "../../context/CarritoContext.utils";
 import Favourites from '../Favourites/Favourites';
@@ -36,10 +36,10 @@ function ProductSheet(props) {
     }
 
     return (    
-            <S.Div>
-                <div className="content">
+            <ProductSheetContainer>
+                <S.Content>
                     <S.Head>
-                        <div>
+                        <div className="image-container">
                             <img src={props.mainImage} alt="product details"/>
                         </div>
                         <div className="title-section">
@@ -81,8 +81,8 @@ function ProductSheet(props) {
                             )
                         }
                     </S.Description>
-                </div>
-            </S.Div>
+                </S.Content>
+            </ProductSheetContainer>
             
     )
 

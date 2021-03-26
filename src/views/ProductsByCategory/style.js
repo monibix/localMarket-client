@@ -1,15 +1,5 @@
 import styled from 'styled-components';
-import * as palette from "../../commons/variables"
 import { Button } from "../../commons/commons.style"
-
-
-export const Div = styled.div`
-    background-color: white;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-`
 
 export const ExtendedButton = styled(Button)`
     margin: 3vw 0;

@@ -1,7 +1,8 @@
 import React from "react";
 import * as S from "./style"
-import { Div } from "../../commons/commons.style"
+import { SectionHead, DivMigas, DivFilters, ProductCardContainer, SubNavbar } from "../../commons/commons.style"
 import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 import { useLocation } from "react-router-dom";
 import qs from "qs"
 import { getSearchProducts as getSearchProductsService } from "../../service/main.service";
@@ -52,16 +53,24 @@ function SearchProduct() {
     }
 
     return (
-        <div>
+        <S.SearchProductContainer>
             <div>
                 <Navbar />
+                <SubNavbar>
+                    <Link>Complementos</Link>
+                    <Link>Moda</Link>
+                    <Link>Muebles y Decoración</Link>
+                    <Link>Joyería</Link>
+                    <Link>Bebes y Niños</Link>
+                    <Link>Cosmética</Link>
+                </SubNavbar>
             </div>
 
-            <S.SectionHead>
-                <S.DivMigas>
+            <SectionHead>
+                <DivMigas>
                     <Link to="/"><p>Home &nbsp;</p></Link><p> &#62; &nbsp;</p><Link to={`/query?query=${query}`}><p>Search&nbsp;</p></Link>
-                </S.DivMigas>
-                <S.DivFilters>
+                </DivMigas>
+                <DivFilters>
                 <p>Ordena por nombre:</p>
                     <select name="title" onChange={handleFilterTitle}  >
                         <option value="a-z">A - Z</option>
@@ -72,10 +81,10 @@ function SearchProduct() {
                         <option value="ascendiente">Ascedendiente</option>
                         <option value="descendiente">Descendiente</option>
                     </select>
-                </S.DivFilters>
-            </S.SectionHead>
+                </DivFilters>
+            </SectionHead>
 
-            <Div>
+            <ProductCardContainer>
                 {
                     prodToSearch.length ? (
                         prodToSearch.map((item,key)=>{
@@ -93,8 +102,16 @@ function SearchProduct() {
                         <p>{ prodToSearch.message }</p>
                     )
                 }
-            </Div>
-        </div>
+            </ProductCardContainer>
+            <div>
+            <div>
+                <S.ExtendedButton>Ver más</S.ExtendedButton>
+            </div>
+            </div>
+            <div>
+                <Footer />
+            </div>
+        </S.SearchProductContainer>
     )
 }
 export default SearchProduct;
