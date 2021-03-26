@@ -43,6 +43,8 @@ export const ProductCardContainer = styled.div`
             background-color: white;
             border: 1px solid black;
             border-top: none;
+            font-family: ${palette.fontTitle};
+            font-size: 0.9vw;
             :hover {
                 background-color: ${palette.backgroundColor}
             }

@@ -45,7 +45,7 @@ function Products() {
                 <h3>Gestiona tus productos</h3>
                     <S.SearchBar 
                         type="text" 
-                        placeholder="Search here your products..." 
+                        placeholder="Busca aquí tus productos. . ." 
                         onChange={handleSearchBar} 
                         value={products.title}  
                     />

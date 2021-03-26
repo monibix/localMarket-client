@@ -1,5 +1,5 @@
 import React from 'react';
-import { Div } from './style';
+import * as S from './style';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import ProductForm from '../../components/ProductForm/ProductForm'
@@ -9,13 +9,13 @@ function AddProduct() {
     return (
         <div>
             <Navbar/>
-            <Div>
+            <S.MyAreaContainer>
                 <Sidebar/>
                 <div className="content">
-                    <h1>Form to add a new product</h1>
+                    <h3>Crea un producto</h3>
                     <ProductForm/>
                 </div>
-            </Div>
+            </S.MyAreaContainer>
         </div>
     )
 }

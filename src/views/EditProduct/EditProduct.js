@@ -66,7 +66,7 @@ function EditProduct() {
                     <S.Form onSubmit={handleSubmit}>
                         <S.Head>
                             <div className="image-container">
-                                <S.Label htmlFor="image">Imagen</S.Label>
+                                <S.Label htmlFor="image">Imagen principal</S.Label>
                                 <S.Input 
                                     type="file" 
                                     name="image"
@@ -76,7 +76,7 @@ function EditProduct() {
 
                             <div className="title-section">
                                 <div className="field-container">
-                                    <S.Label htmlFor="title">Title</S.Label>
+                                    <S.Label htmlFor="title">Título</S.Label>
                                     <S.Input 
                                         type="text"
                                         name="title" 
@@ -97,7 +97,7 @@ function EditProduct() {
                                 </div>
 
                                 <div className="field-container">
-                                    <S.Label htmlFor="price">Price</S.Label>
+                                    <S.Label htmlFor="price">Precio</S.Label>
                                     <S.Input 
                                         type="number" 
                                         name="price" 
@@ -107,7 +107,7 @@ function EditProduct() {
                                 </div>
                                 
                                 <div className="field-container">
-                                <S.Label htmlFor="category">Category</S.Label>
+                                <S.Label htmlFor="category">Categoría</S.Label>
                                 <S.Select name="category" onChange={handleEdit} value={product.category} >
                                     <option value="none">Selecciona una categoría</option>
                                     <option value="joyeria">Joyería</option>
@@ -123,7 +123,7 @@ function EditProduct() {
 
                         <S.Description>
                             <div className="description-container">
-                                <S.Label htmlFor="description">Description</S.Label>
+                                <S.Label htmlFor="description">Descripción</S.Label>
                                 <S.Textarea 
                                     name="description" 
                                     cols="30" 

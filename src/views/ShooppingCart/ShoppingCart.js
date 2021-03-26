@@ -1,9 +1,10 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import * as S from "./styles";
-import { Button } from "../../commons/commons.style"
+import { Button, SubNavbar } from "../../commons/commons.style"
 import { useCarrito } from "../../context/CarritoContext.utils"
-import { useHistory } from "react-router";
+import { useHistory} from "react-router";
+import { Link } from "react-router-dom"
 //import { getShoopingList } from "../../service/main.service";
 
 function ShoppingCart() {
@@ -59,6 +60,14 @@ function ShoppingCart() {
 
             <div>
                 <Navbar />
+                <SubNavbar>
+                    <Link>Complementos</Link>
+                    <Link>Moda</Link>
+                    <Link>Muebles y Decoración</Link>
+                    <Link>Joyería</Link>
+                    <Link>Bebes y Niños</Link>
+                    <Link>Cosmética</Link>
+                </SubNavbar>
             </div>
 
             <S.Div>

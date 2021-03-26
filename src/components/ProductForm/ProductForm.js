@@ -1,10 +1,10 @@
 import React from 'react';
-import { Form, Label, Input, Button, Select, Textarea } from './styles';
+// import { Form, Label, Input, Button, Select, Textarea } from './styles';
+import * as S from "./styles";
+import { Button } from "../../commons/commons.style";
 import { useProducts } from '../../context/ProductsContext.utils'
 import { useHistory } from 'react-router-dom'
 import { uploadProductImage } from '../../service/products.service';
-
-
 
 function Productform() {
     const initialState = {
@@ -48,64 +48,92 @@ function Productform() {
     }
 
     return (
-        <Form onSubmit={handleSubmit} >
-            <Label htmlFor="title">Title</Label>
-            <Input 
-                type="text" 
-                name="title" 
-                placeholder="Enter product's title"
-                onChange={handleChange}
-                value={state.title}
-                required
-            />
-            <Label htmlFor="price">Price</Label>
-            <Input 
-                type="number" 
-                name="price" 
-                placeholder="Enter product's price"
-                onChange={handleChange}
-                value={state.price}
-                required
-            />
-            <Label htmlFor="category">Category</Label>
-            <Select name="category" onChange={handleChange} value={state.category} required >
-                <option value="none">Selecciona una categoría</option>
-                <option value="joyeria">Joyería</option>
-                <option value="bebes">Bebés y Niños</option>
-                <option value="moda">Moda</option>
-                <option value="muebles">Muebles y Decoración</option>
-                <option value="complementos">Complementos</option>
-                <option value="cosmetica">Cosmética</option>
-            </Select>
-            <Label htmlFor="ref">Referencia</Label>
-            <Input
-                type="text"
-                name="ref"
-                placeholder="referencia"
-                onChange={handleChange}
-                value={state.ref}
-            />
-            <Label htmlFor="description">Description</Label>
-            <Textarea 
-                name="description" 
-                cols="30" 
-                rows="10"
-                placeholder="write a description"
-                onChange={handleChange}
-                value={state.description}
-                wrap="hard"
-            ></Textarea>
-            <Label htmlFor="image">Main Image</Label>
-            <Input 
-                type="file"     
-                name="image" 
-                value={state.image} 
-                onChange={handleUpload}
-                disable={!imageReady} 
-            />
-            <Button type="submit">Add</Button>
-            <h5 style={{color: "red"}}>{error}</h5>
-        </Form>
+        <S.MyAreaContainer>
+
+            <S.Form onSubmit={handleSubmit} >
+            <S.Head>
+                <div className="image-container">
+                    <S.Label htmlFor="image">Imagen principal</S.Label>
+                    <S.Input 
+                        type="file"     
+                        name="image" 
+                        value={state.image} 
+                        onChange={handleUpload}
+                        disable={!imageReady} 
+                    />
+                </div>
+
+                <div className="title-section">
+                    <div className="field-container">
+                        <S.Label htmlFor="title">Título</S.Label>
+                        <S.Input 
+                            type="text" 
+                            name="title" 
+                            placeholder="Enter product's title"
+                            onChange={handleChange}
+                            value={state.title}
+                            required
+                        />
+                    </div>
+
+                    <div className="field-container">
+                        <S.Label htmlFor="price">Precio</S.Label>
+                        <S.Input 
+                            type="number" 
+                            name="price" 
+                            placeholder="Enter product's price"
+                            onChange={handleChange}
+                            value={state.price}
+                            required
+                        />
+                    </div>
+
+                    <div className="field-container">
+                        <S.Label htmlFor="category">Categoría</S.Label>
+                        <S.Select name="category" onChange={handleChange} value={state.category} required >
+                            <option value="none">Selecciona una categoría</option>
+                            <option value="joyeria">Joyería</option>
+                            <option value="bebes">Bebés y Niños</option>
+                            <option value="moda">Moda</option>
+                            <option value="muebles">Muebles y Decoración</option>
+                            <option value="complementos">Complementos</option>
+                            <option value="cosmetica">Cosmética</option>
+                        </S.Select>
+                    </div>
+                    <div className="field-container">
+                        <S.Label htmlFor="ref">Referencia</S.Label>
+                        <S.Input
+                            type="text"
+                            name="ref"
+                            placeholder="referencia"
+                            onChange={handleChange}
+                            value={state.ref}
+                        />
+                    </div>
+                </div>
+            </S.Head>
+
+            <S.Description>
+                <div className="description-container">
+                    <S.Label htmlFor="description">Descripción</S.Label>
+                    <S.Textarea 
+                        name="description" 
+                        cols="30" 
+                        rows="10"
+                        placeholder="write a description"
+                        onChange={handleChange}
+                        value={state.description}
+                        wrap="hard"
+                    ></S.Textarea>
+                </div>
+            </S.Description>
+                <div>
+                    <Button type="submit">CREAR</Button>  
+                    <Button onclick={()=>{history.push(`/products`)}}>DESCARTAR</Button>  
+                    <h5 style={{color: "red"}}>{error}</h5>
+                </div>
+            </S.Form>
+        </S.MyAreaContainer>
     )
 }
 
