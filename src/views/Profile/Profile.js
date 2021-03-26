@@ -1,5 +1,6 @@
 import React from 'react';
 import { Div, Button } from "../../commons/commons.style";
+import * as S from "./style";
 import Sidebar from '../../components/Sidebar/Sidebar'
 import Navbar from '../../components/Navbar/Navbar';
 import { useAuth } from '../../context/AuthContext.utils.js';
@@ -20,9 +21,10 @@ function Profile() {
             <div>
                 <Navbar/>
             </div>
-            <Div>
-                <Sidebar/>    
-                <div>
+            <S.MyAreaContainer>
+                <Sidebar/>
+                <div className="content">
+                    <h3></h3>
                     <ProfileComp 
                     username={user.username} 
                     email={user.email}
@@ -36,7 +38,7 @@ function Profile() {
                     />
                     <Link to={`/profile/edit`} ><Button>Editar perfil</Button></Link>
                 </div>
-            </Div>
+            </S.MyAreaContainer>
         </div>
     )
 }

@@ -3,7 +3,6 @@ import * as palette from "../../commons/variables"
 
 export const ProductSheetContainer = styled.div`
     margin-left: 9vw;
-    border: 2px solid black;
 `
 
 export const RelatedProductsContainer = styled.div`

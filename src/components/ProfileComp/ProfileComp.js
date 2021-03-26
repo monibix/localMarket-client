@@ -19,7 +19,9 @@ function ProfileComp(props) {
                         <img src={Gmail} alt="phone"/> {props.phone}</p>
                         <div className="description">
                             <h4>Descripcion</h4>
-                            <p>{props.description}</p>
+                            <div>
+                                <p className="text-description">{props.description}</p>
+                            </div>
                         </div>
                     </div>
                 </div>   

@@ -1,5 +1,6 @@
 import React from 'react';
 import * as S from "./style";
+import { Button } from "../../commons/commons.style";
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useAuth } from '../../context/AuthContext.utils';
@@ -55,17 +56,15 @@ function EditProfile() {
             <div>
                 <Navbar/>
             </div>
-            <S.Div>
+            <S.MyAreaContainer>
                 <Sidebar/>
-
                 <div className="content">
-                    <h1>Edit Profile</h1>
-                    <h4>{user.user}</h4>
+                    <h3>Actualiza tu perfil</h3>
+            
                 <S.Form onSubmit={handleSubmit}>
-
-                    <div className="header">
-                        <div>
-                            <S.Label htmlFor="image">User Image</S.Label>
+                    <S.Head>
+                        <div className="image-container">
+                            <S.Label htmlFor="image">Imagen de perfil</S.Label>
                             <S.Input 
                                 type="file"     
                                 name="image" 
@@ -74,58 +73,48 @@ function EditProfile() {
                                 disable={!imageReady} 
                             />
                         </div>
-                        <div className="title">
-                            <S.Label htmlFor="username">Username</S.Label>
-                            <S.Input 
-                                type="text" 
-                                name="username"  
-                                onChange={handleEdit}
-                                value={state.username}
-                            />
-                            <S.Label htmlFor="direction">Direction</S.Label>
-                            <S.Input 
-                                type="text" 
-                                name="direction"
-                                onChange={handleEdit}
-                                value={state.direction}
-                            />
-                            <S.Label htmlFor="instagram">Instagram</S.Label>
-                            <S.Input 
-                                type="text" 
-                                name="instagram"
-                                onChange={handleEdit}
-                                value={state.instagram}
-                            />
-                            <S.Label htmlFor="phone">Teléfono</S.Label>
-                            <S.Input 
-                                type="text" 
-                                name="phone"
-                                onChange={handleEdit}
-                                value={state.phone}
-                            />
+                        <div className="title-section">
+                            <div className="field-container">
+                                <S.Label htmlFor="username">Nombre de usuario</S.Label>
+                                <S.Input 
+                                    type="text" 
+                                    name="username"  
+                                    onChange={handleEdit}
+                                    value={state.username}
+                                />
+                            </div>
+                            <div className="field-container">
+                                <S.Label htmlFor="direction">Dirección postal</S.Label>
+                                <S.Input 
+                                    type="text" 
+                                    name="direction"
+                                    onChange={handleEdit}
+                                    value={state.direction}
+                                />
+                            </div>
+                            <div className="field-container">
+                                <S.Label htmlFor="instagram">Instagram</S.Label>
+                                <S.Input 
+                                    type="text" 
+                                    name="instagram"
+                                    onChange={handleEdit}
+                                    value={state.instagram}
+                                />
+                            </div>
+                            <div className="field-container">
+                                <S.Label htmlFor="phone">Teléfono</S.Label>
+                                <S.Input 
+                                    type="text" 
+                                    name="phone"
+                                    onChange={handleEdit}
+                                    value={state.phone}
+                                />
+                            </div>
                         </div>
+                    </S.Head>
 
-                        <div className="valores">
-                            <h2>Valores</h2>
-                            <input 
-                                type="checkbox" 
-                                name="valores" 
-                                value={state.value} 
-                                onChange={handleEdit}
-                                checked={state.valores}
-                            />
-                            <S.Label>Ecología</S.Label>
-                            <input 
-                                type="checkbox" 
-                                name="valores" 
-                                value={state.value} 
-                                onChange={handleEdit} 
-                                checked={state.valores}
-                            />
-                            <S.Label>Proximidad</S.Label>
-                        </div>
-
-                        <div className="description">
+                    <S.Description>
+                        <div className="description-container">
                             <S.Label>Descripción</S.Label>
                             <S.Textarea                                     
                                     name="description" 
@@ -135,11 +124,14 @@ function EditProfile() {
                                     onChange={handleEdit}
                                     value={state.description}></S.Textarea>
                         </div>
+                    </S.Description>
+                    <div>
+                        <Button type="submit" disable={!imageReady} >Guardar</Button>
+                        <Button onClick={()=>{history.push(`/profile`)}} >Descartar</Button>
                     </div>
-                    <S.Button type="submit" disable={!imageReady} >Guardar</S.Button>
                 </S.Form>
                 </div>
-            </S.Div>
+            </S.MyAreaContainer>
         </div>
     )
 }

@@ -1,18 +1,13 @@
 import styled from 'styled-components';
 import * as palette from "../../commons/variables"
 
-// export const SectionHead = styled.section`
-//     display: flex;
-//     justify-content: space-between;
-//     padding: 20px 90px;
-// `
 
 export const Div = styled.div`
     background-color: white;
     text-align: left;
     margin-left: 10vw;
     font-family: ${palette.fontContent};
-    padding-bottom: 2vw;
+    padding-bottom: 4vw;
     .header{
         display: flex;
         img {
@@ -21,7 +16,7 @@ export const Div = styled.div`
     .title {
         padding-left: 4vw;
         p {
-            font-size: 1.2em;
+            font-size: 1em;
             font-weight: 300;
         }
         img {
@@ -34,14 +29,13 @@ export const Div = styled.div`
         display: flex;
         flex-direction: column;
         max-width: 50vw;
+        margin-right: 6vw;
         h4{
             font-size: 1.2vw;
             margin: 15px 0;
         }
         p {
-            font-size: 1vw;
-            font-weight: 300;
-            margin-left: 1vw;
+            margin-left: 0.5vw;
         }
     }
 
