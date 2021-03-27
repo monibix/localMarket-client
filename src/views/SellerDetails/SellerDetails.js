@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from "./style";
-import { SectionHead, DivMigas, SubNavbar  } from "../../commons/commons.style"
+import { SectionHead, DivMigas  } from "../../commons/commons.style"
 import Navbar from '../../components/Navbar/Navbar';
 import { useParams, Link } from 'react-router-dom';
 import { getSellerDetails as getSellerDetailsService } from "../../service/main.service"
@@ -9,15 +9,11 @@ import ProfileComp from "../../components/ProfileComp/ProfileComp";
 import ProductCardComp from "../../components/ProductCardComp/ProductCardComp";
 import { useProducts } from '../../context/ProductsContext.utils';
 import LeftBtnImg from "../../assets/left-btn2.png";
-import RightBtnImg from "../../assets/right-btn2.png"
+import RightBtnImg from "../../assets/right-btn2.png";
+import Subnavbar from '../../components/SubNavbar/SubNavbar';
 
 
 function SellerDetails() {
-    //Intento de recuperar url anterior para migas de pan
-    // const history = useHistory()
-    // const anterior = history.goBack
-    // console.log("anterior", anterior)
-    // console.log("history", history)
 
     const {sellerId} = useParams()
 
@@ -27,10 +23,11 @@ function SellerDetails() {
             setSeller(sellerInfo)
         })
     }, [sellerId])
+    console.log("seller", seller)
 
     const { getRelatedUserProducts, products } = useProducts()
     React.useEffect(()=>{
-        getRelatedUserProducts(sellerId)
+            getRelatedUserProducts(sellerId)
     }, [])
     console.log("related user products", products)
 
@@ -62,14 +59,7 @@ function SellerDetails() {
         <div>   
             <div>   
                 <Navbar/>   
-                <SubNavbar>
-                    <Link>Complementos</Link>
-                    <Link>Moda</Link>
-                    <Link>Muebles y Decoración</Link>
-                    <Link>Joyería</Link>
-                    <Link>Bebes y Niños</Link>
-                    <Link>Cosmética</Link>
-                </SubNavbar>
+                <Subnavbar />
             </div>  
 
             <SectionHead>

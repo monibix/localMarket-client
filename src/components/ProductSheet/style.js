@@ -57,8 +57,11 @@ export const Description = styled.div`
         }
     }
     .seller {
-        width: 20vw;
+        width: 30vw;
         padding: 0 3vw 0 5vw;
+
+        white-space:nowrap; 
+        overflow: hidden;
         h4 {
             font-size: 1.5vw;
         }

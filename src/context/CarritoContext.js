@@ -23,7 +23,7 @@ function CarritoProvider({children}) {
 
     const deleteFromCarrito = (id) => {
         console.log("delete context")
-        setCarrito(carrito.filter((item)=>item.productId.productID !== id ))
+        setCarrito(carrito.filter((item)=>item.productID !== id ))
     }
 
     const checkout = () => {

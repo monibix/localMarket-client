@@ -1,10 +1,9 @@
 import React from 'react';
-import { SubNavbar } from "../../commons/commons.style";
 import AuthForm from '../../components/AuthForm/AuthForm';
 import { useAuth } from '../../context/AuthContext.utils';
 import Navbar from '../../components/Navbar/Navbar';
-import { Link } from "react-router-dom";
 import Footer from '../../components/Footer/Footer';
+import Subnavbar from '../../components/SubNavbar/SubNavbar';
 
 function Login() {
     const { handleLogin } = useAuth();
@@ -13,17 +12,10 @@ function Login() {
         <div>   
             <div>   
                 <Navbar/>   
-                <SubNavbar>
-                    <Link>Complementos</Link>
-                    <Link>Moda</Link>
-                    <Link>Muebles y Decoración</Link>
-                    <Link>Joyería</Link>
-                    <Link>Bebes y Niños</Link>
-                    <Link>Cosmética</Link>
-                </SubNavbar>
+                <Subnavbar />
             </div>  
         
-        <AuthForm btnText="LOGIN" onSubmit={handleLogin} />
+            <AuthForm btnText="LOGIN" onSubmit={handleLogin} />
         
         <div>
             <Footer />

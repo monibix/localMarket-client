@@ -23,6 +23,7 @@ function Productform() {
 
     const [state, setState] = React.useState(initialState)
     const [imageReady, setImageReady] = React.useState(false)
+    const [isLoading, setLoading] = React.useState(false)
     
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -31,10 +32,12 @@ function Productform() {
     }
 
     const handleSubmit = async (e) => {
+        setLoading(true)
         e.preventDefault(e)
         await createProduct(state)
         setState(initialState)
             history.push("/products")
+        setLoading(true)
     }
 
     const handleUpload = async (e) => {
@@ -131,6 +134,7 @@ function Productform() {
                     <Button type="submit">CREAR</Button>  
                     <Button onclick={()=>{history.push(`/products`)}}>DESCARTAR</Button>  
                     <h5 style={{color: "red"}}>{error}</h5>
+                    {isLoading && "loading..."}
                 </div>
             </S.Form>
         </S.MyAreaContainer>

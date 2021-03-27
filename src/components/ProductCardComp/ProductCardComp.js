@@ -20,3 +20,9 @@ function Products(props) {
 }
 
 export default Products;
+
+Products.defaultProps = {
+    title: "Título de producto",
+    price: 0,
+    mainImage: "https://res.cloudinary.com/monibix/image/upload/v1616653409/LocalMarket/spevxqenmeokzifmi5w3.png",
+}

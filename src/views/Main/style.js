@@ -3,10 +3,7 @@ import * as palette from "../../commons/variables"
 
 
 export const CarrouselDiv = styled.div`
-    margin: 0px auto;
-    img{
-        ${'' /* height: 70vh; */}
-    } 
+    margin: 80px auto;
 `
 
 export const MinHeightContainer = styled.div`
@@ -16,6 +13,7 @@ export const MinHeightContainer = styled.div`
 
 
 export const Div = styled.div`
+    margin: -80px 0 0px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -29,7 +27,9 @@ export const Div = styled.div`
         flex-direction: column;
         margin-bottom: 4vw;
     }
-
+    @media(min-width: 500) {
+        justify-content: column;
+    }
 `
 
 export const Category = styled.div`
@@ -50,3 +50,4 @@ export const Category = styled.div`
         margin-top: 10px;
     }
 `
+

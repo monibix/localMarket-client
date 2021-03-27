@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from "./style";
-import { SectionHead, DivMigas, SubNavbar  } from "../../commons/commons.style"
+import { SectionHead, DivMigas  } from "../../commons/commons.style"
 import Navbar from '../../components/Navbar/Navbar';
 import { useParams, Link } from 'react-router-dom';
 import { getProductByCategory as getProductByCategoryService } from "../../service/main.service"
@@ -9,7 +9,8 @@ import Footer from '../../components/Footer/Footer';
 import ProductSheet from "../../components/ProductSheet/ProductSheet";
 import ProductCardComp from "../../components/ProductCardComp/ProductCardComp";
 import LeftBtnImg from "../../assets/left-btn2.png"
-import RightBtnImg from "../../assets/right-btn2.png"
+import RightBtnImg from "../../assets/right-btn2.png";
+import Subnavbar from '../../components/SubNavbar/SubNavbar';
 
 function ProductByCategoryDetail() {
 
@@ -22,15 +23,21 @@ function ProductByCategoryDetail() {
     React.useEffect(()=>{
         getProductByCategoryService(productId).then(({ data: productInfo })=>{
             setDetail(productInfo)
+
         })
     }, [])
     console.log("product", detail)
+    console.log("relatedproudc", relatedProds)
 
     React.useEffect(()=>{
-        getProductsByCategoryService(detail?.category).then(({data: allCategoryProds})=>{
-            setRelatedProds(allCategoryProds)
-        })
-    }, [])
+        if(detail.category) {
+            getProductsByCategoryService(detail?.category).then(({data: allCategoryProds})=>{
+                console.log("data,", allCategoryProds)
+                setRelatedProds(allCategoryProds)
+            })
+        }
+
+    }, [detail.category])
     console.log("relatedPRods", relatedProds)
 
     //Lógica Related Products
@@ -61,14 +68,7 @@ function ProductByCategoryDetail() {
         <div>   
             <div>   
                 <Navbar/>   
-                <SubNavbar>
-                    <Link>Complementos</Link>
-                    <Link>Moda</Link>
-                    <Link>Muebles y Decoración</Link>
-                    <Link>Joyería</Link>
-                    <Link>Bebes y Niños</Link>
-                    <Link>Cosmética</Link>
-                </SubNavbar>
+                <Subnavbar />
             </div>  
 
             <SectionHead>

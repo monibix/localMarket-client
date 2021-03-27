@@ -2,12 +2,12 @@ import styled from "styled-components";
 import * as palette from "./variables";
 
 export const NavbarContainer = styled.div`
-    ${'' /* Fija barra navegación */}
-    ${'' /* transform: translateZ(0);
+    transform: translateZ(0);
     -webkit-transform: translateZ(0);
     position: fixed;
     z-index: 1000;
-    width: 100%; */}
+    width: 100%;
+    top: 0;
 `
 export const SubNavbar = styled.div`
     display: flex; 
@@ -97,6 +97,7 @@ export const DivMigas = styled.div`
         margin: auto 0;
         font-weight: 700;
         font-size: 1.5vw;
+        text-transform: uppercase;
     }
     h5:hover {
         text-decoration: underline;

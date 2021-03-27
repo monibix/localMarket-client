@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './style';
-import  { NavbarContainer, Div } from "../../commons/commons.style";
+import  { NavbarContainer } from "../../commons/commons.style";
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from "../../components/Footer/Footer";
 import { Link } from 'react-router-dom';
@@ -15,7 +15,6 @@ import Carrousel2 from "../../assets/home-deco.png";
 import Carrousel3 from "../../assets/home-flors.png";
 import Carrousel4 from "../../assets/home-iquea.png";
 import Carrousel5 from "../../assets/home-jaima.png";
-import Carrousel6 from "../../assets/Producto4.jpeg";
 
 function Main() {
 

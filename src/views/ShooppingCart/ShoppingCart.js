@@ -1,13 +1,12 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import * as S from "./styles";
-import { Button, SubNavbar } from "../../commons/commons.style"
+import { Button } from "../../commons/commons.style"
 import { useCarrito } from "../../context/CarritoContext.utils"
 import { useHistory} from "react-router";
-import { Link } from "react-router-dom"
 import Footer from "../../components/Footer/Footer";
 import DefaultImage from "../../assets/default-image_450.png"
-//import { getShoopingList } from "../../service/main.service";
+import Subnavbar from "../../components/SubNavbar/SubNavbar";
 
 function ShoppingCart() {
     
@@ -62,14 +61,7 @@ function ShoppingCart() {
 
             <div>
                 <Navbar />
-                <SubNavbar>
-                    <Link>Complementos</Link>
-                    <Link>Moda</Link>
-                    <Link>Muebles y Decoración</Link>
-                    <Link>Joyería</Link>
-                    <Link>Bebes y Niños</Link>
-                    <Link>Cosmética</Link>
-                </SubNavbar>
+                <Subnavbar />
             </div>
 
             <S.Div>

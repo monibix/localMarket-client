@@ -47,7 +47,6 @@ function ProductSheet(props) {
                             <p> Ref: {props.reference} </p>
                             <h2> {props.price} €</h2>
                             <Favourites id={props.productId} />
-
                             {
                                 isSellerDetails ? (
                                     <div className="addtocart-button">
@@ -70,11 +69,11 @@ function ProductSheet(props) {
                         {
                             isSellerDetails ? (
                                 <div className="seller">
-                                    <h4>Vendedor: </h4>
+                                    <h4>Vendedor:</h4>
                                     <img src={props.userImage} alt="tienda"/>
                                     <h3>{props.username}</h3>
                                     <p> {props.userDescription} </p>
-                                    <Link to={props.link}> <Button> Saber más </Button></Link>
+                                    <Link to={props.link}><Button> Saber más </Button></Link>
                                 </div>
                             ) :  (
                                 <div className="seller">
