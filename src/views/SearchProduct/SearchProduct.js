@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./style"
-import { SectionHead, DivMigas, DivFilters, ProductCardContainer, SubNavbar } from "../../commons/commons.style"
+import { SectionHead, DivMigas, DivFilters, ProductCardContainer } from "../../commons/commons.style"
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { useLocation } from "react-router-dom";
@@ -8,6 +8,7 @@ import qs from "qs"
 import { getSearchProducts as getSearchProductsService } from "../../service/main.service";
 import ProductCardComp from "../../components/ProductCardComp/ProductCardComp";
 import { Link } from "react-router-dom"
+import Subnavbar from "../../components/SubNavbar/SubNavbar";
 
 function SearchProduct() {
 
@@ -56,14 +57,7 @@ function SearchProduct() {
         <S.SearchProductContainer>
             <div>
                 <Navbar />
-                <SubNavbar>
-                    <Link>Complementos</Link>
-                    <Link>Moda</Link>
-                    <Link>Muebles y Decoración</Link>
-                    <Link>Joyería</Link>
-                    <Link>Bebes y Niños</Link>
-                    <Link>Cosmética</Link>
-                </SubNavbar>
+                <Subnavbar />
             </div>
 
             <SectionHead>
