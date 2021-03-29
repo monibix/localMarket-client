@@ -28,7 +28,7 @@ function ProductsCard() {
         getProductsByCategoryService(category).then(({data: categoryProducts})=>{
             setProducts(categoryProducts)
         })
-        //setLoading(false)
+        setLoading(false)
         console.log("loading", isLoading)
     }, [category])
 
@@ -110,7 +110,7 @@ function ProductsCard() {
                     })
                 }
             </ProductCardContainer>
-            {/* {isLoading && <LoadingComp /> } */}
+            {isLoading && <LoadingComp /> }
             <div>
                 <S.ExtendedButton>Ver más</S.ExtendedButton>
             </div>
