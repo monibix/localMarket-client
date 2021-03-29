@@ -22,7 +22,6 @@ function EditProfile() {
     const [state, setState] = React.useState(initialState)
     const [imageReady, setImageReady] = React.useState(false)
 
-
     React.useEffect(()=>{
         getUserService().then(({data: currentUser})=>{
             setState(currentUser)
@@ -31,7 +30,6 @@ function EditProfile() {
 
     const handleEdit = (e) => {
         const {name, value} = e.target
-        console.log("name, value", value)
         setState({...state, [name]:value })
     }
 
@@ -46,7 +44,6 @@ function EditProfile() {
         const uploadData = new FormData()
         uploadData.append('userImage', e.target.files[0]);
         const {data} = await uploadProductImage(uploadData)
-        console.log("fileuploaded", data)
         setState({...state, userImage: data})
         setImageReady(true)
     }

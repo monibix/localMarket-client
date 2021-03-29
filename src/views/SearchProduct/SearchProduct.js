@@ -99,7 +99,7 @@ function SearchProduct() {
                         )
                     })
                     ) : (
-                        <p>{ prodToSearch.message }</p>
+                        <h5>{ prodToSearch.message }</h5>
                     )
                 }
             </ProductCardContainer>

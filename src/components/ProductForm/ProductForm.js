@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Form, Label, Input, Button, Select, Textarea } from './styles';
 import * as S from "./styles";
 import { Button } from "../../commons/commons.style";
 import { useProducts } from '../../context/ProductsContext.utils'
@@ -27,7 +26,6 @@ function Productform() {
     
     const handleChange = (e) => {
         const { name, value } = e.target
-        console.log("value", value)
         setState({...state, [name]:value})
     }
 
@@ -45,7 +43,6 @@ function Productform() {
         const uploadData = new FormData()
         uploadData.append('mainImage', e.target.files[0]);
         const {data} = await uploadProductImage(uploadData)
-        console.log("fileuploaded", data)
         setState({...state, mainImage: data})
         setImageReady(true)
     }

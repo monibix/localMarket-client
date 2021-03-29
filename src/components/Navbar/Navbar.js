@@ -23,8 +23,8 @@ function Navbar () {
                     <Searchbar/>
                 </S.Div>
                 <S.Div className="list">
-                    <Link to="/products"><Button>MY AREA</Button></Link>
-                    <Link to="/add"><Button>CREATE</Button></Link>
+                    <Link to="/products"><Button>MI AREA</Button></Link>
+                    <Link to="/add"><Button>CREAR</Button></Link>
                     <Carrito />
                     <Logout/>
                 </S.Div>

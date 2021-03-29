@@ -49,10 +49,13 @@ function SellerDetails() {
     console.log("firstrelated",firstRelated)
 
     const handleClickLeft = () => {
-        console.log("clickleft")
         let currentRelated  = firstRelated
-        console.log("currentrelated", currentRelated)
-        setFirstRelated(currentRelated -= 1)
+        if ( currentRelated < 0 ) {
+            setFirstRelated(products.length)
+        } else {
+            setFirstRelated(currentRelated -= 1)
+
+        }
     }
     
     return (    

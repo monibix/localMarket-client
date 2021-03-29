@@ -19,13 +19,13 @@ import ShoppingCart from "./views/ShooppingCart/ShoppingCart";
 import MyFavourites from "./views/MyFavourites/MyFavourites";
 import MyOrders from "./views/MyOrders/MyOrders";
 import ErrorBoundary from "./views/ErrorBoundary/ErrorBoundary";
+import OrderSuccess from "./views/OrderSuccess/OrderSuccess";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
 
-
   return (
     <div className="App">
-
     <ErrorBoundary>
       <Switch>
         <Route path="/signup">
@@ -73,48 +73,19 @@ function App() {
         <Route path="/shoppingcart">
           <ShoppingCart />
         </Route>
+        <Route path="/order-confirmation">
+          <OrderSuccess />
+        </Route>
         <Route exact path="/">
           <Main />
         </Route>
         <Route path="*">
-          <h1>error 404</h1>
+          <NotFound />
         </Route>
       </Switch>
       </ErrorBoundary>
-
     </div>
   );
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-// LOADERS
-// PAGINA EN BLANCO O DE CARGANDO
-
-//PROP-TYPES
-//Es una version mas amena y limitada ue typescript perqo que cumple con la misma funcon
-//los componentes tienen una propiedad qeu se llama default props
-//hay que definir qué tipo de data es cada una de las props. esto es pera el dessarrollo, esto en produccion no se usa, es para development. 
-// import PropTypes from "prop-types"
-// Card.propTypes = {
-//   firstname : PropTypes.string, 
-//   lastname : PropTypes.string.isRequired,
-//   adress: PropTypes.arrayOf(
-//     propTypes.shape({
-//       street: PropTypes.string, 
-//       country: PropTypes.string,
-//     })
-//   )
-// }
-
-//VALIDACIÓN DE FORMULARIO!! MUY IMPORTANTE, MENSAJE ERROR

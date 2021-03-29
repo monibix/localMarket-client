@@ -13,7 +13,6 @@ export const getSellerDetails = (sellerId) => mainApi.get(`/seller/${sellerId}`)
 
 export const getSearchProducts = (search) => mainApi.get(`/query?query=${search}`)
 
-//ruta post falta segundo argumento!!
 export const manageFavourites = (productId) => mainApi.post(`/category/${productId}`)
 
 export const saveOrder = (order) => mainApi.post(`/shoppinglist`, order)

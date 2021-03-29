@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import * as palette from "../../commons/variables"
 
-
 export const Div = styled.div`
     background-color: white;
     text-align: left;
@@ -20,7 +19,16 @@ export const Div = styled.div`
             font-weight: 300;
         }
         img {
-            width: 3vw;
+            width: 1.75vw;
+            margin: 0.8vw 0.55vw 0.8vw 0;
+        }
+        span {
+            font-size: 0.75vw;
+            margin-left: 0.5vw;
+            color: blue;
+            :hover {
+                text-decoration: underline;
+            }
         }
     }
     }
@@ -40,18 +48,3 @@ export const Div = styled.div`
     }
 
 `
-
-
-
-// export const SectionHead = styled.section`
-//     display: flex;
-//     justify-content: space-between;
-//     padding: 20px 90px;
-// `
-
-// export const DivMigas = styled.div`
-//     display: flex;
-//     p {
-//         margin: auto 0;
-//     }
-// `

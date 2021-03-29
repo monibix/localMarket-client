@@ -1,6 +1,9 @@
 import React from 'react';
 import { Div } from "./style";
-import Gmail from "../../assets/gmail.png"
+import Gmail from "../../assets/gmail.png";
+import Direction from "../../assets/direction.png";
+import Instagram from "../../assets/instagram.png";
+import Phone from "../../assets/phone.png";
 
 function ProfileComp(props) {
 
@@ -12,11 +15,11 @@ function ProfileComp(props) {
                     </div>
                     <div className="title">
                         <h2>{props.username}</h2>
-                        <p><img src={Gmail} alt="gmail"/> {props.direction}<br/>
+                        <p><img src={Direction} alt="gmail"/> {props.direction} <span><a href={ `https://www.google.es/maps/place/${props.direction}` } target="_blank" rel="noreferrer">Ver mapa</a></span><br/>
                         <img src={Gmail} alt="gmail"/> {props.email}<br />
-                        <img src={Gmail} alt="insta"/> {props.instagram}
+                        <img src={Instagram} alt="insta"/> {props.instagram}
                         <br />
-                        <img src={Gmail} alt="phone"/> {props.phone}</p>
+                        <img src={Phone} alt="phone"/> {props.phone}</p>
                         <div className="description">
                             <h4>Descripcion</h4>
                             <div>

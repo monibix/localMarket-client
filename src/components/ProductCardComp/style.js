@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Button } from "../../commons/commons.style";
 import * as palette from "../../commons/variables"
 
 export const ProductCard = styled.div`
@@ -21,7 +20,6 @@ export const ProductCard = styled.div`
     .card-image{
         height: 15vw;
         img {
-            ${'' /* width: 98%; */}
             width: 100%;
             height: 100%;
             object-fit: cover;

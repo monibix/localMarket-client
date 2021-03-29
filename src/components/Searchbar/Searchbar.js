@@ -17,7 +17,6 @@ function Searchbar() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-//export const getSearchProducts = (search) => mainApi.get(`/search?search=${search}`)
         history.push(`/query?query=${searchedProducts}`)
         setSearchedProducts("")
     }
@@ -30,7 +29,7 @@ function Searchbar() {
                 onChange={handleSearchBar}
                 value={searchedProducts}
                 />
-            <Button type="submit">SEARCH</Button>
+            <Button type="submit">BUSCAR</Button>
         </Form>    
     )
 

@@ -45,14 +45,13 @@ function ShoppingCart() {
             checkout()
         }
         else {
+            if (window.confirm('Estas a punto de realizar una compra. ¿Estás seguro?'))
             setMessage("Gracias por tu compra")
             setBtnText("Seguir mi pedido")
-            setIsActive(true)
-            //llamar a la api para guardar pedido en modelo user-orders[] order es igual a [] 
-            //localStorage.removeItem("order") //borrar localStorage una vez se ha añadido el order al modelo
-            //setCarrito([]) //vaciar carrito //error carrito is not a function
+            //setIsActive(true)
             checkout()
-            //setAction(redirectMyOrders)
+            history.push("/order-confirmation")
+
         }
     }
 

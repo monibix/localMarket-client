@@ -10,8 +10,6 @@ export const MinHeightContainer = styled.div`
 
 `
 
-
-
 export const Div = styled.div`
     margin: -80px 0 0px 0;
     display: flex;

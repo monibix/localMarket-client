@@ -25,6 +25,7 @@ export const Head = styled.div`
         h3 {
             font-size: 2.25vw;
             font-weight: 400;
+            text-align: left;
         }
         p {
             margin-top: -0.8vw;

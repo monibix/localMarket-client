@@ -29,6 +29,7 @@ function Products() {
     }
 
     const handleDelete = async (id) => {
+        if (window.confirm('¿Estás seguro que quieres borrar este producto?'))
         console.log("delete")
         await deleteProduct(id)
         history.push("/products")

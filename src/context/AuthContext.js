@@ -28,7 +28,6 @@ function AuthProvider({ children }) {
   const handleLogin = React.useCallback(async (user) => {
     try {
       const { data: loggedUser } = await login(user);
-      console.log("loged user", loggedUser)
       saveUser(loggedUser);
       setState({ user: { ...loggedUser, isLogged: true } });
       history.push("/products")
@@ -46,7 +45,6 @@ function AuthProvider({ children }) {
       setState({ user: { ...loggedUser, isLogged: true } });
       history.push("/products")
     } catch (e) {
-      console.error(e);
       setError(e.response.data.message)
     }
   }, []);
@@ -56,13 +54,11 @@ function AuthProvider({ children }) {
       await logout();
       removeUser();
       setState({ user: defaultUser() });
-      console.log("logout")
     } catch (e) {
       console.error(e);
     }
   }, []);
 
-  //funcion para editar la informacion del usuario
   const editUser = async (userId, body) => {
     try {
       const { data: userInfo } = await editUserService(userId, body);
@@ -71,7 +67,7 @@ function AuthProvider({ children }) {
       console.error(e)
     }
   }
-  //funcion para extraer toda la informacion del usuario
+
   const getUserInfo = async (userId) => {
     try {
       const { data: userInfo } = await getUser(userId);

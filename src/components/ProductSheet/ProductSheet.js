@@ -1,6 +1,5 @@
 import React from 'react';
 import * as S from "./style";
-
 import { Button, ProductSheetContainer } from '../../commons/commons.style';
 import {Link, useLocation } from "react-router-dom";
 import { useCarrito } from "../../context/CarritoContext.utils";
@@ -10,7 +9,6 @@ import { useAuth } from '../../context/AuthContext.utils';
 function ProductSheet(props) {
 
     const { user } = useAuth()
-    console.log("user", user)
     const { addToCarrito } = useCarrito()
     const [userResponse, setUserResponse] = React.useState("")
     const [isSellerDetails, setSellerDetails ] = React.useState(true)
@@ -22,7 +20,6 @@ function ProductSheet(props) {
 
     const handleAddToCarrito = (e) => {
         if (!user.isLogged) {
-            console.log("no hay user!!")
             setUserResponse("Regístrate para añadir productos a tu carrito")
         } else {
         const title = props.title
@@ -77,7 +74,7 @@ function ProductSheet(props) {
                                 </div>
                             ) :  (
                                 <div className="seller">
-                                </div>
+                            </div>
                             )
                         }
                     </S.Description>
@@ -91,21 +88,13 @@ function ProductSheet(props) {
 export default ProductSheet;
 
 
+ProductSheet.defaultProps = {
+    title: "Producto no encontrado",
+    price: 0,
+    mainImage: "https://res.cloudinary.com/monibix/image/upload/v1616653409/LocalMarket/spevxqenmeokzifmi5w3.png",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    userImage: "https://res.cloudinary.com/monibix/image/upload/v1611084105/cocktailparty/default-user_yq8kve.png"
+}
 
 
 
-
-
-
-    // let initialQuantity = 0;
-    // const [quantity, setQuantity] = React.useState(initialQuantity)
-    // const add = () => {
-    //     setQuantity(quantity + 1)
-    // }
-    // const substract = () => {
-    //     setQuantity( quantity <= 0 ? 0 : quantity -1 )
-    // }
-
-    //     {/* <div style={{display: "flex"}}>
-    //     <button onClick={substract}>Menos</button><h2>{quantity}</h2><button onClick={add}>Mas</button>
-    // </div> */}

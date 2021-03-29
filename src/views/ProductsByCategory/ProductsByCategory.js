@@ -8,6 +8,7 @@ import ProductCardComp from "../../components/ProductCardComp/ProductCardComp";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import Subnavbar from '../../components/SubNavbar/SubNavbar';
+import LoadingComp from "../../components/Loading/Loading";
 
 
 function ProductsCard() {
@@ -109,7 +110,7 @@ function ProductsCard() {
                     })
                 }
             </ProductCardContainer>
-            {isLoading && "loading..."}
+            {isLoading && <LoadingComp /> }
             <div>
                 <S.ExtendedButton>Ver más</S.ExtendedButton>
             </div>

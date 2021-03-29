@@ -1,5 +1,4 @@
 import React from "react";
-import { Div } from "../../commons/commons.style"
 import * as S from "./style"
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";

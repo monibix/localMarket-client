@@ -14,7 +14,7 @@ function EditProduct() {
     const { productId } = useParams() 
     console.log("productid en edit", productId)
 
-    const { editProduct } = useProducts()
+    const { editProduct, error } = useProducts()
 
     const initialState = {title:"", price:"", category:"", ref:"", description:"", image:""}
     const [product, setProduct] = React.useState(initialState)
@@ -22,18 +22,15 @@ function EditProduct() {
     
     React.useEffect(()=>{
         getMyProductService(productId).then(( {data: currentProduct} )=>{
-            console.log("currentproduct", currentProduct)
             setProduct(currentProduct)
         })
     }, [])
 
     const handleEdit = (e) => {
         const {name, value} = e.target
-        console.log("name, value", value)
         setProduct({...product, [name]:value })
     }
     const handleSubmit = async (e) => {
-        console.log("handlesubmit")
         e.preventDefault()
         await editProduct(productId, product)
         history.push(`/products/${productId}`)
@@ -44,7 +41,6 @@ function EditProduct() {
         const uploadData = new FormData()
         uploadData.append('mainImage', e.target.files[0]);
         const {data} = await uploadProductImage(uploadData)
-        console.log("fileuploaded", data)
         setProduct({...product, mainImage: data})
         setImageReady(true)
     }
@@ -139,7 +135,7 @@ function EditProduct() {
                             <Button type="submit" disable={!imageReady} >Guardar</Button>
                             <Button onClick={()=>{(history.push(`/products/${product._id}`))}}>Descartar</Button>
                         </div>
-
+                        <h5 style={{color: "red"}}>{error}</h5>
                     </S.Form>
                 </div>
             </S.MyAreaContainer>

@@ -15,12 +15,10 @@ function ProductProvider({ children }) {
   const [products, setProducts] = React.useState([]);
   const [product, setProduct] = React.useState({});
   const [error, setError] = React.useState("")
-  //console.log("products en productProvider", products)
 
   const getMyProducts = async () => {
     const { data: myProducts } = await getMyProductsService();
     setProducts(myProducts);
-    console.log("products en getmyproducts", myProducts);
   };
 
   const createProduct = async (product) => {
@@ -28,28 +26,23 @@ function ProductProvider({ children }) {
       const { data: newProduct } = await createProductService(product);
       setProducts((state) => state.concat(newProduct));
     } catch (error) {
-      console.log("error create", error.response.data.message)
       setError(error.response.data.message)
     }
   };
 
   const getMyProduct = async (productId) => {
-    console.log("entra servicio");
     const { data: product } = await getMyProductService(productId);
     setProduct(product);
   };
 
   const editProduct = async (productId, body) => {
-    console.log("editproducservice");
-    const { data: myProduct } = await editProductService(productId, body);
-    console.log("myproduct", myProduct);
-    setProduct(myProduct);
+    try {
+      const { data: myProduct } = await editProductService(productId, body);
+      setProduct(myProduct);
+    } catch (error) {
+      setError(error.response.data.message)
+    }
   };
-
-  //const searchMyProducts = async(input) => {
-  //    setProducts(products => products.filter(item=>item.title.toLowerCase().includes(input)))
-  //    console.log("searchMyProducts", products)
-  //}
 
   const cleanProduct = () => {
     setProduct({});
@@ -57,19 +50,16 @@ function ProductProvider({ children }) {
 
   const deleteProduct = async (product) => {
     await deleteProductService(product);
-    console.log("myproduct", product);
     setProducts(products.filter((item) => item._id !== product));
   };
 
   const getMyFavourites = async () => {
     const { data: favourites } = await getMyFavouritesService();
     setProducts(favourites);
-    console.log("myfavoruites", favourites);
   };
 
   const getRelatedUserProducts = async (sellerId) => {
     const { data: sellerInfo } = await getSellerDetailsService2(sellerId);
-    console.log("sellerinfo", sellerInfo.userProducts);
     setProducts(sellerInfo.userProducts);
   };
 

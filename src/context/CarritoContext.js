@@ -8,9 +8,7 @@ export const CarritoContext = React.createContext({})
 function CarritoProvider({children}) {
 
     const initialState = localStorage.getItem("order")?JSON.parse(localStorage.getItem("order")):[]
-    console.log("initialstate", initialState)
     const [carrito, setCarrito] = React.useState(initialState);
-    console.log("carrito", carrito)
 
     const goToShoopingCart = () => {
         const strgyOrder = JSON.stringify(carrito)
@@ -22,7 +20,6 @@ function CarritoProvider({children}) {
     }
 
     const deleteFromCarrito = (id) => {
-        console.log("delete context")
         setCarrito(carrito.filter((item)=>item.productID !== id ))
     }
 
@@ -30,7 +27,6 @@ function CarritoProvider({children}) {
         localStorage.removeItem('order')
         setCarrito([])
         saveOrderService(carrito)
-        console.log("chekout localstorage", carrito)
     }
 
     return (

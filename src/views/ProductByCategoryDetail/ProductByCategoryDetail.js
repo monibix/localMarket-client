@@ -48,20 +48,20 @@ function ProductByCategoryDetail() {
         if (currentRelated > relatedProds.length) {
             setFirstRelated(0)
         } 
-        // else if (currentRelated < 0) {
-        //     setFirstRelated(relatedProds.length)
-        // } 
         else {
             setFirstRelated(currentRelated += 1)
         }
     }
-    console.log("firstrelated",firstRelated)
 
     const handleClickLeft = () => {
         console.log("clickleft")
         let currentRelated  = firstRelated
+        if ( currentRelated < 0) {
+            setFirstRelated(relatedProds.length)
+        } else {
+            setFirstRelated(currentRelated -= 1)
+        }
         console.log("currentrelated", currentRelated)
-        setFirstRelated(currentRelated -= 1)
     }
 
     return (    
@@ -105,6 +105,7 @@ function ProductByCategoryDetail() {
                         <button onClick={handleClickLeft}><img src={LeftBtnImg} alt=""/></button>
                     </div>
                     <div>
+                    {/* link={`/category/${item._id}`}  */}
                         <ProductCardComp 
                             mainImage={relatedProds[firstRelated]?.mainImage}
                             title={relatedProds[firstRelated]?.title}
@@ -118,7 +119,7 @@ function ProductByCategoryDetail() {
                             title={relatedProds[firstRelated+1]?.title}
                             price={relatedProds[firstRelated+1]?.price}
                             link={`/category/${relatedProds[firstRelated+1]?._id}`}
-                        />
+                        /> 
                     </div>
                     <div>
                         <ProductCardComp 

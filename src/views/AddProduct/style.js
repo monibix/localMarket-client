@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import * as palette from "../../commons/variables"
 
-
 export const MyAreaContainer = styled.div`
     background-color: white;
     display: flex;
