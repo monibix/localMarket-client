@@ -22,7 +22,7 @@ function MyOrders() {
             <S.MyAreaContainer>
                 <Sidebar/>
                 <div className="content">
-                    <h3>Mis órdenes</h3>
+                    <h3>Mis pedidos</h3>
                     <div className="table-container">
                             {
                                 user.orders?.length ? (
@@ -30,7 +30,7 @@ function MyOrders() {
                                     user.orders?.map((item, key) =>{
                                         return (
                                             <div key={Math.random()} className="single-table-container">
-                                            <h5>Orden nº{user.orders?.indexOf(item)+1} </h5>
+                                            <h5>Pedido nº{user.orders?.indexOf(item)+1} </h5>
                                                 <table >
                                                     <thead>
                                                         <tr>
@@ -55,17 +55,19 @@ function MyOrders() {
                                                     <tr>
                                                     <td></td>
                                                     <td>SUBTOTAL</td>
-                                                    <td className="result" style={{backgroundColor: "green", color: "white"}}>                                                         
-
+                                                    <td className="result">                                                         
+                                                        {
+                                                            user.orders[key].reduce((acc, next)=>{
+                                                                return acc + next.price
+                                                            },0)
+                                                        }
                                                     </td>
                                                     </tr>
                                                 </tfoot>
                                                 </table>
                                             </div>
                                         )
-
                                     } )
-
                                 ) : (
                                     <h3>No tienes compras. Realiza tu primera compra y haz seguimiento desde aquí.</h3>
                                 )
