@@ -10,7 +10,6 @@ import Subnavbar from "../../components/SubNavbar/SubNavbar";
 
 function ShoppingCart() {
     
-    //recupero order de localStorage
     const order = localStorage.getItem("order");
     console.log("order", order)
 
@@ -20,7 +19,6 @@ function ShoppingCart() {
     console.log("carrito", carrito)
 
     const handleDeleteFromList=(id)=>{
-        console.log("deleted from shopping list")
         deleteFromCarrito(id)
     }
 
@@ -35,23 +33,19 @@ function ShoppingCart() {
     const [message, setMessage] = React.useState("")
     const [btnText, setBtnText] = React.useState("")
     const [isActive, setIsActive] = React.useState(false)
-    //const [action, setAction] = React.useState(()=>{})
     const handleOrder = () => {
         if (carrito.length === 0) {
             setMessage("No tienes productos en tu cesta")
             setBtnText("Seguir comprando")
-            //setIsActive(true)
-            //setAction(handleSeguirComprando) //redirige directamente!!
             checkout()
         }
         else {
-            if (window.confirm('Estas a punto de realizar una compra. ¿Estás seguro?'))
-            setMessage("Gracias por tu compra")
-            setBtnText("Seguir mi pedido")
-            //setIsActive(true)
-            checkout()
-            history.push("/order-confirmation")
-
+            if (window.confirm('Estas a punto de realizar una compra. ¿Estás seguro?')) {
+                setMessage("Gracias por tu compra")
+                setBtnText("Seguir mi pedido")
+                checkout()
+                history.push("/order-confirmation")
+            }
         }
     }
 
@@ -118,7 +112,7 @@ function ShoppingCart() {
                             <h5>                        { 
                             carrito.reduce((acc, next)=>{
                                 return (
-                                    ((acc + next.price)+5)
+                                    ((acc + next.price))
                                 )
                             }, 0)
                         }€</h5>
@@ -126,7 +120,7 @@ function ShoppingCart() {
                     </div>
                     <div className="checkout-buttons">
                         <Button onClick={handleSeguirComprando}>Seguir comprando</Button>
-                        <Button onClick={handleOrder}>Realizar compra</Button>
+                        <Button onClick={handleOrder}>Realizar pedido</Button>
                     </div>
                     <div>
                         {message}

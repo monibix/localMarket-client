@@ -15,19 +15,14 @@ import Subnavbar from '../../components/SubNavbar/SubNavbar';
 function ProductByCategoryDetail() {
 
     const {productId} = useParams()
-    console.log("productparams", productId)
-
     const [detail, setDetail] = React.useState({})
     const [relatedProds, setRelatedProds] = React.useState([])
 
     React.useEffect(()=>{
         getProductByCategoryService(productId).then(({ data: productInfo })=>{
             setDetail(productInfo)
-
         })
     }, [])
-    console.log("product", detail)
-    console.log("relatedproudc", relatedProds)
 
     React.useEffect(()=>{
         if(detail.category) {
@@ -38,13 +33,10 @@ function ProductByCategoryDetail() {
         }
 
     }, [detail.category])
-    console.log("relatedPRods", relatedProds)
 
-    //Lógica Related Products
     const [firstRelated, setFirstRelated] = React.useState(0)
     const handleClickRight = () => {
         let currentRelated  = firstRelated
-        console.log("currentrelated", currentRelated)
         if (currentRelated > relatedProds.length) {
             setFirstRelated(0)
         } 
@@ -54,14 +46,12 @@ function ProductByCategoryDetail() {
     }
 
     const handleClickLeft = () => {
-        console.log("clickleft")
         let currentRelated  = firstRelated
         if ( currentRelated < 0) {
             setFirstRelated(relatedProds.length)
         } else {
             setFirstRelated(currentRelated -= 1)
         }
-        console.log("currentrelated", currentRelated)
     }
 
     return (    
@@ -82,7 +72,6 @@ function ProductByCategoryDetail() {
             </SectionHead>
 
             <S.ProductSheetContainer>
-
                 <ProductSheet                 
                     mainImage={detail.mainImage} 
                     title={detail.title} 

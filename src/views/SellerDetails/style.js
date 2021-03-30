@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import * as palette from "../../commons/variables"
 
-
 export const SectionHead = styled.section`
     display: flex;
     justify-content: space-between;
@@ -60,7 +59,6 @@ export const Div = styled.div`
             font-size: 1.2em;
         }
     }
-
 `
 
 export const RelatedProductsContainer = styled.div`

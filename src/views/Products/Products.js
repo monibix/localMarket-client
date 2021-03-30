@@ -11,28 +11,23 @@ import ProductCardComp from "../../components/ProductCardComp/ProductCardComp";
 
 function Products() {
 
-    const { products, getMyProducts, deleteProduct, setProducts } = useProducts();
-    console.log("products en products view", products) 
-    
+    const { products, getMyProducts, deleteProduct, setProducts } = useProducts();    
     const history = useHistory()
 
     React.useEffect(()=>{
         getMyProducts()
-    },[]) //si pongo getMyProducts (es lo q pide consola) no para de correr
+    },[]) 
 
     const handleSearchBar = (e) => {
         const input = e.target.value
-        console.log("input", input)
         setProducts(product=>product.filter(item=>item.title.toLowerCase().includes(input)))
-        //searchMyProducts(input)
-        console.log("searchMyProducts", products)
     }
 
     const handleDelete = async (id) => {
-        if (window.confirm('¿Estás seguro que quieres borrar este producto?'))
-        console.log("delete")
-        await deleteProduct(id)
-        history.push("/products")
+        if (window.confirm('¿Estás seguro que quieres borrar este producto?')) {
+            await deleteProduct(id)
+            history.push("/products")
+        }
     }
 
     return (

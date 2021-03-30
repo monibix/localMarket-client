@@ -7,12 +7,9 @@ import { useProducts } from '../../context/ProductsContext.utils';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import {deleteProduct} from "../../service/products.service";
 import ProductSheet from "../../components/ProductSheet/ProductSheet";
-import Footer from '../../components/Footer/Footer';
-
 
 function MyProductDetails() {
     const {productId} = useParams()
-    console.log("productparams", productId)
     const history = useHistory()
 
     const { product, getMyProduct, cleanProduct } = useProducts()

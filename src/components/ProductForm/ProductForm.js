@@ -91,7 +91,6 @@ function Productform() {
                     <div className="field-container">
                         <S.Label htmlFor="category">Categoría</S.Label>
                         <S.Select name="category" onChange={handleChange} value={state.category} required >
-                            <option value="none">Selecciona una categoría</option>
                             <option value="joyeria">Joyería</option>
                             <option value="bebes">Bebés y Niños</option>
                             <option value="moda">Moda</option>
@@ -108,6 +107,7 @@ function Productform() {
                             placeholder="referencia"
                             onChange={handleChange}
                             value={state.ref}
+                            required
                         />
                     </div>
                 </div>

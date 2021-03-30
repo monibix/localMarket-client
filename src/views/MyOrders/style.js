@@ -44,6 +44,7 @@ export const MyAreaContainer = styled.div`
                         padding: 0.3vw 0vw 0.3vw 0;
                         .result {
                         background-color: "red";
+                        font-size: 4vw;
                     }
                     }
 
@@ -54,13 +55,3 @@ export const MyAreaContainer = styled.div`
 
     }
 `
-
-
-
-
-// export const OrderContainer = styled.div`
-//     border: 2px solid black;
-//     .div {
-//         border: 2px solid red;
-//     }
-// `

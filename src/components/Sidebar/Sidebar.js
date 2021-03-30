@@ -15,7 +15,7 @@ function Sidebar() {
 
             <Link to="/favourites"><h4>MIS FAVORITOS</h4></Link>
 
-            <Link to="/orders"><h4>MIS ÓRDENES</h4></Link>
+            <Link to="/orders"><h4>MIS PEDIDOS</h4></Link>
 
         </S.SidebarContainer>
     )

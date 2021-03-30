@@ -110,7 +110,7 @@ function ProductsCard() {
                     })
                 }
             </ProductCardContainer>
-            {isLoading && <LoadingComp /> }
+            {isLoading && "loading..." }
             <div>
                 <S.ExtendedButton>Ver más</S.ExtendedButton>
             </div>

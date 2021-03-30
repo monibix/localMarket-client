@@ -55,16 +55,8 @@ export const ProductCardContainer = styled.div`
     flex-wrap: wrap;
     justify-content: flex-start;
     margin: 0 4vw 0 9vw;
+    min-height: 35vh;
 `
-
-//ESTIL DIV DE PRODUCTS BY CATEGORY DETAIL
-// export const Div = styled.div`
-//     background-color: white;
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: center;
-//     margin: 0 auto;
-// `
 
 export const ProductSheetContainer = styled.div`
     background-color: white;

@@ -23,15 +23,12 @@ function SellerDetails() {
             setSeller(sellerInfo)
         })
     }, [sellerId])
-    console.log("seller", seller)
 
     const { getRelatedUserProducts, products } = useProducts()
     React.useEffect(()=>{
             getRelatedUserProducts(sellerId)
     }, [])
-    console.log("related user products", products)
 
-    //Lógica Carroussel
     const [firstRelated, setFirstRelated] = React.useState(0)
     const handleClickRight = () => {
         let currentRelated  = firstRelated
@@ -39,22 +36,16 @@ function SellerDetails() {
         if (currentRelated > products.length) {
             setFirstRelated(0)
         } 
-        // else if (currentRelated < 0) {
-        //     setFirstRelated(relatedProds.length)
-        // } 
         else {
             setFirstRelated(currentRelated += 1)
         }
     }
-    console.log("firstrelated",firstRelated)
-
     const handleClickLeft = () => {
         let currentRelated  = firstRelated
         if ( currentRelated < 0 ) {
             setFirstRelated(products.length)
         } else {
             setFirstRelated(currentRelated -= 1)
-
         }
     }
     

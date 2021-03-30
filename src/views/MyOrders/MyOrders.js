@@ -10,7 +10,7 @@ function MyOrders() {
     console.log("user", user)
 
     React.useEffect(()=>{
-        getUserInfo(user)
+        getUserInfo(user)  
     }, [])
     console.log("getUserInfo", user)
 
@@ -30,7 +30,7 @@ function MyOrders() {
                                     user.orders?.map((item, key) =>{
                                         return (
                                             <div key={Math.random()} className="single-table-container">
-                                            <h5>Orden nº{user.orders?.indexOf(item)} </h5>
+                                            <h5>Orden nº{user.orders?.indexOf(item)+1} </h5>
                                                 <table >
                                                     <thead>
                                                         <tr>
@@ -55,16 +55,8 @@ function MyOrders() {
                                                     <tr>
                                                     <td></td>
                                                     <td>SUBTOTAL</td>
-                                                    <td className="result">
-                                                        {
-                                                            user.orders?.map((it)=> {
-                                                                it?.reduce((acc, next)=>{
-                                                                    return (
-                                                                        acc + next
-                                                                    )
-                                                                }, 0)
-                                                            })
-                                                        }
+                                                    <td className="result" style={{backgroundColor: "green", color: "white"}}>                                                         
+
                                                     </td>
                                                     </tr>
                                                 </tfoot>
@@ -79,35 +71,6 @@ function MyOrders() {
                                 )
                             }
                     </div>
-
-                    {/* <S.OrderContainer> */}
-
-                    
-                    {/* {
-                        user.orders?.length ? (
-
-                            user.orders?.map((item)=>{
-
-                                return (
-                                        item.map((it, key)=>{
-                                            return <OrderProduct 
-                                                reference={it.reference} 
-                                                title={it.title}
-                                                price={it.price}  
-                                                key={Math.random()}  
-                                                />
-                                        })
-                                    )
-                                })
-
-                        ) : (
-                            <h3>No tienes compras. Podrás hacer seguimiento de tus compras desde aquí.</h3>
-                        )
-                    }
-                     */}
-
-
-                    {/* </S.OrderContainer> */}
                 </div>    
             </S.MyAreaContainer>
             
@@ -116,59 +79,3 @@ function MyOrders() {
 }
 
 export default MyOrders;
-
-
-
-// {/* return <div>
-//     <tr>
-//         <td>Reference: {it.reference}</td>
-//         <td>Title: {it.title}</td>
-//         <td>Price: {it.price}</td>
-//     </tr>
-// </div> */}
-
-
-
-                    // {/* <table>
-                    //     <thead>
-                    //         <tr>
-                    //             <th>Reference</th>
-                    //             <th>Title</th>
-                    //             <th>Price</th>
-                    //         </tr>
-                    //     </thead>
-                    //     <tbody>                    
-                    // {
-                    //     user.orders?.map((item)=>{
-
-                    //         return (
-                    //                 item.map((it, key)=>{
-                    //                     return <OrderProduct 
-                    //                         reference={it.reference} 
-                    //                         title={it.title}
-                    //                         price={it.price}  
-                    //                         key={Math.random()}  
-                    //                         />
-                    //                 })
-                    //             )
-                    //     })
-
-                    // }
-                    //     </tbody>
-                    // </table> */}
-
-
-
-                                                        //                   {/* {
-                                                        //     user.orders?.reduce((acc, next) => {
-                                                        //         console.log("userorders", user.orders)
-                                                        //         return (acc + next)
-                                                        //     } , 0)
-                                                        // } */}
-
-
-                                                        //                 {/* carrito.reduce((acc, next)=>{
-                                                        //                     return (
-                                                        //                         acc + next.price
-                                                        //                     )
-                                                        //                 }, 0) */}

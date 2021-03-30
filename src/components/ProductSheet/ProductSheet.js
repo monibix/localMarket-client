@@ -66,7 +66,7 @@ function ProductSheet(props) {
                         {
                             isSellerDetails ? (
                                 <div className="seller">
-                                    <h4>Vendedor:</h4>
+                                    <h5>Tienda:</h5>
                                     <img src={props.userImage} alt="tienda"/>
                                     <h3>{props.username}</h3>
                                     <p> {props.userDescription} </p>

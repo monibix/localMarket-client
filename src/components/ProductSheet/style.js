@@ -63,8 +63,8 @@ export const Description = styled.div`
 
         white-space:nowrap; 
         overflow: hidden;
-        h4 {
-            font-size: 1.5vw;
+        h5 {
+            font-size: 1vw;
         }
         img {
             width: 4vw;
