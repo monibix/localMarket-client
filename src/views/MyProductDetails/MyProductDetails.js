@@ -20,8 +20,10 @@ function MyProductDetails() {
     }, [productId])
 
     const handleDelete =async (id) => {
-        await deleteProduct(id)
-        history.push("/products")
+        if (window.confirm('¿Estás seguro que quieres borrar este producto?')) {
+            await deleteProduct(id)
+            history.push("/products")
+        }
     }
 
     return (
